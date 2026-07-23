@@ -12,6 +12,8 @@
 - Agent integration guide: https://api.utilia.ink/llms.txt
 - Smithery: https://smithery.ai/servers/medksbuss/utilia-solana-preflight
 - Official MCP Registry: https://registry.modelcontextprotocol.io/?search=ink.utilia%2Fsolana-preflight
+- Agent402 Marketplace record: https://marketplace.agent402.app/api/v1/marketplace/agents/1cd7d626-faa1-462a-81fc-3bad57eae3d1
+- Agora402 Registry: https://agora402.io/agents/34b182d9-8c4c-4d9c-a3a5-5e4eccb3391d
 - npm client and MCP bridge: https://www.npmjs.com/package/utilia-solana-agent
 - Public client source: https://github.com/mohamedkuch/utilia-solana-agent
 - X / Twitter: https://x.com/utiliax402
