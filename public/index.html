@@ -1,40 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#08110c">
-    <meta name="color-scheme" content="dark">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#08110c" />
+    <meta name="color-scheme" content="dark" />
     <title>Utilia — Paid Solana tools for autonomous agents</title>
     <meta
       name="description"
       content="Solana transaction diagnostics, simulation, priority fees, and token risk analysis over x402 HTTP and remote MCP."
-    >
-    <link rel="canonical" href="https://utilia.ink/">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="/style.css">
+    />
+    <link rel="canonical" href="https://utilia.ink/" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/style.css" />
     <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-      window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+      window.va =
+        window.va ||
+        function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
+      window.si =
+        window.si ||
+        function () {
+          (window.siq = window.siq || []).push(arguments);
+        };
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Utilia">
-    <meta property="og:url" content="https://utilia.ink/">
-    <meta property="og:title" content="Utilia — Solana answers agents can buy">
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Utilia" />
+    <meta property="og:url" content="https://utilia.ink/" />
+    <meta
+      property="og:title"
+      content="Utilia — Solana answers agents can buy"
+    />
     <meta
       property="og:description"
       content="No account. No API key. Pay per result in USDC over x402 on Solana mainnet."
-    >
-    <meta property="og:image" content="https://utilia.ink/opengraph-image.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Utilia — Solana answers agents can buy">
+    />
+    <meta
+      property="og:image"
+      content="https://utilia.ink/opengraph-image.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Utilia — Solana answers agents can buy"
+    />
     <meta
       name="twitter:description"
       content="Paid Solana diagnostics over x402 HTTP and remote MCP."
-    >
-    <meta name="twitter:image" content="https://utilia.ink/opengraph-image.png">
+    />
+    <meta
+      name="twitter:image"
+      content="https://utilia.ink/opengraph-image.png"
+    />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -61,6 +81,7 @@
       </a>
       <nav aria-label="Main navigation">
         <a href="#tools">Tools</a>
+        <a href="#install">Install</a>
         <a href="#mcp">MCP</a>
         <a href="https://api.utilia.ink/openapi.json">Docs</a>
         <a class="nav-cta" href="https://api.utilia.ink/healthz">
@@ -78,16 +99,19 @@
             <span>X402</span>
             <span>REMOTE MCP</span>
           </p>
-          <h1 id="hero-title">Solana answers.<br><em>Agents can buy.</em></h1>
+          <h1 id="hero-title">Solana answers.<br /><em>Agents can buy.</em></h1>
           <p class="hero-lede">
             Transaction diagnostics, preflight simulation, live fees, and token
             risk. No account. No subscription. No API key.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#mcp">
-              Connect agent <span aria-hidden="true">↗</span>
+            <a class="button button-primary" href="#install">
+              Install agent client <span aria-hidden="true">↓</span>
             </a>
-            <a class="button button-secondary" href="https://api.utilia.ink/openapi.json">
+            <a
+              class="button button-secondary"
+              href="https://api.utilia.ink/openapi.json"
+            >
               Read OpenAPI
             </a>
           </div>
@@ -102,13 +126,24 @@
             <p><span class="prompt">›</span> call solana_priority_fees</p>
             <p class="muted">payment_required</p>
             <dl>
-              <div><dt>amount</dt><dd>0.002 USDC</dd></div>
-              <div><dt>network</dt><dd>solana:mainnet</dd></div>
-              <div><dt>scheme</dt><dd>x402 exact</dd></div>
+              <div>
+                <dt>amount</dt>
+                <dd>0.002 USDC</dd>
+              </div>
+              <div>
+                <dt>network</dt>
+                <dd>solana:mainnet</dd>
+              </div>
+              <div>
+                <dt>scheme</dt>
+                <dd>x402 exact</dd>
+              </div>
             </dl>
             <p><span class="prompt">›</span> authorize max 0.008 USDC</p>
             <p class="success">✓ paid · executed · settled</p>
-            <p class="json">{ "mediumMicroLamports": 0,<br>&nbsp; "sampleCount": 150 }</p>
+            <p class="json">
+              { "mediumMicroLamports": 0,<br />&nbsp; "sampleCount": 150 }
+            </p>
           </div>
         </aside>
       </section>
@@ -117,42 +152,116 @@
         <div><strong>4</strong><span>paid tools</span></div>
         <div><strong>$0.002</strong><span>entry price</span></div>
         <div><strong>&lt; 1s</strong><span>payment rail</span></div>
-        <div><strong>0</strong><span>accounts needed</span></div>
+        <div><strong>1 cmd</strong><span>agent install</span></div>
       </section>
 
-      <section class="section tools-section" id="tools" aria-labelledby="tools-title">
+      <section
+        class="section install-section"
+        id="install"
+        aria-labelledby="install-title"
+      >
+        <div class="install-copy">
+          <p class="kicker">PUBLIC NPM CLIENT</p>
+          <h2 id="install-title">
+            Give an agent a wallet.<br />Run one command.
+          </h2>
+          <p>
+            The open-source client handles discovery, exact x402 USDC payments,
+            and MCP locally. Private keys never leave the machine.
+          </p>
+          <div class="package-links">
+            <a
+              class="text-link"
+              href="https://www.npmjs.com/package/utilia-solana-agent"
+            >
+              View npm package <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              class="text-link"
+              href="https://github.com/mohamedkuch/utilia-solana-agent"
+            >
+              Audit the source <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+        <div class="install-card">
+          <div class="code-label">
+            <span>terminal</span><span>utilia-solana-agent@0.1.0</span>
+          </div>
+          <pre><code><span class="comment"># Use a dedicated low-balance wallet</span>
+export SOLANA_KEYPAIR_PATH=/path/to/wallet.json
+
+npx -y utilia-solana-agent doctor
+npx -y utilia-solana-agent fees</code></pre>
+          <div class="install-guardrails">
+            <span>✓ mainnet USDC only</span>
+            <span>✓ max $0.008 / call</span>
+            <span>✓ fixed receiver</span>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section tools-section"
+        id="tools"
+        aria-labelledby="tools-title"
+      >
         <div class="section-heading">
           <p class="kicker">THE PRODUCT</p>
           <h2 id="tools-title">Pay only for the answer.</h2>
           <p>
-            Every route advertises its exact USDC price. Failed operations cancel
-            settlement.
+            Every route advertises its exact USDC price. Failed operations
+            cancel settlement.
           </p>
         </div>
         <div class="tool-grid">
           <article class="tool-card">
-            <div class="tool-topline"><span class="tool-number">01</span><span class="price">$0.004</span></div>
+            <div class="tool-topline">
+              <span class="tool-number">01</span
+              ><span class="price">$0.004</span>
+            </div>
             <h3>Transaction analysis</h3>
             <code><span>GET</span> /v1/transaction/:signature</code>
-            <p>Explain balance deltas, logs, compute use, confirmation, and retry-safe failures.</p>
+            <p>
+              Explain balance deltas, logs, compute use, confirmation, and
+              retry-safe failures.
+            </p>
           </article>
           <article class="tool-card">
-            <div class="tool-topline"><span class="tool-number">02</span><span class="price">$0.008</span></div>
+            <div class="tool-topline">
+              <span class="tool-number">02</span
+              ><span class="price">$0.008</span>
+            </div>
             <h3>Preflight simulation</h3>
             <code><span>POST</span> /v1/transaction/simulate</code>
-            <p>Simulate with a fresh blockhash before broadcast. Classify failures before retrying.</p>
+            <p>
+              Simulate with a fresh blockhash before broadcast. Classify
+              failures before retrying.
+            </p>
           </article>
           <article class="tool-card">
-            <div class="tool-topline"><span class="tool-number">03</span><span class="price">$0.002</span></div>
+            <div class="tool-topline">
+              <span class="tool-number">03</span
+              ><span class="price">$0.002</span>
+            </div>
             <h3>Priority fees</h3>
             <code><span>GET</span> /v1/fees/priority</code>
-            <p>Read recent fee quantiles globally or for up to twenty writable accounts.</p>
+            <p>
+              Read recent fee quantiles globally or for up to twenty writable
+              accounts.
+            </p>
           </article>
           <article class="tool-card">
-            <div class="tool-topline"><span class="tool-number">04</span><span class="price">$0.006</span></div>
+            <div class="tool-topline">
+              <span class="tool-number">04</span
+              ><span class="price">$0.006</span>
+            </div>
             <h3>Token risk</h3>
             <code><span>GET</span> /v1/token/:mint</code>
-            <p>Inspect authorities, Token-2022 controls, supply, and holder concentration.</p>
+            <p>
+              Inspect authorities, Token-2022 controls, supply, and holder
+              concentration.
+            </p>
           </article>
         </div>
       </section>
@@ -162,30 +271,45 @@
           <p class="kicker">AGENT-NATIVE</p>
           <h2 id="mcp-title">One endpoint. Four paid tools.</h2>
           <p>
-            Connect any x402-enabled MCP client. Your agent discovers pricing,
-            signs USDC, retries the call, and receives structured Solana data.
+            Run the local npm bridge in any stdio MCP client. It discovers
+            pricing, verifies the receiver and spend ceiling, signs USDC
+            locally, and returns structured Solana data.
           </p>
           <ul>
             <li><span>01</span> Streamable HTTP transport</li>
             <li><span>02</span> Per-call spend policy</li>
             <li><span>03</span> Mainnet settlement receipt</li>
           </ul>
-          <a class="text-link" href="/server.json">
-            Inspect MCP server metadata <span aria-hidden="true">↗</span>
+          <a
+            class="text-link"
+            href="https://github.com/mohamedkuch/utilia-solana-agent#add-it-to-an-mcp-client"
+          >
+            Copy the complete MCP config <span aria-hidden="true">↗</span>
           </a>
         </div>
         <div class="code-panel">
-          <div class="code-label"><span>mcp.json</span><span>x402 client required</span></div>
+          <div class="code-label">
+            <span>mcp.json</span><span>wallet-funded stdio bridge</span>
+          </div>
           <pre><code>{
   "mcpServers": {
     "utilia": {
-      "url": "https://api.utilia.ink/mcp"
+      "command": "npx",
+      "args": [
+        "-y",
+        "utilia-solana-agent",
+        "mcp"
+      ],
+      "env": {
+        "SOLANA_KEYPAIR_PATH":
+          "/path/to/wallet.json"
+      }
     }
   }
 }</code></pre>
           <div class="endpoint">
             <span class="status-dot" aria-hidden="true"></span>
-            https://api.utilia.ink/mcp
+            npm: utilia-solana-agent
           </div>
         </div>
       </section>
@@ -216,7 +340,11 @@
         <p>Give your Solana agent a cheaper failure mode.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="/llms.txt">Read agent guide</a>
-          <a class="button button-secondary" href="https://api.utilia.ink/openapi.json">Explore API</a>
+          <a
+            class="button button-secondary"
+            href="https://www.npmjs.com/package/utilia-solana-agent"
+            >Install package</a
+          >
         </div>
       </section>
     </main>
@@ -230,6 +358,7 @@
         <a href="https://api.utilia.ink/openapi.json">OpenAPI</a>
         <a href="/llms.txt">llms.txt</a>
         <a href="/server.json">MCP metadata</a>
+        <a href="https://www.npmjs.com/package/utilia-solana-agent">npm</a>
         <a href="https://github.com/mohamedkuch/Utilia">GitHub</a>
       </div>
     </footer>
