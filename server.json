@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "ink.utilia/solana-preflight",
+  "title": "Utilia Solana Preflight",
+  "description": "Paid Solana transaction diagnostics, simulation, fee estimates, and token risk analysis.",
+  "version": "0.1.0",
+  "websiteUrl": "https://utilia.ink",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.utilia.ink/mcp"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+# Utilia
+
+> Paid Solana transaction diagnostics for autonomous agents.
+
+## Live interfaces
+
+- Website: https://utilia.ink
+- HTTP API: https://api.utilia.ink
+- OpenAPI 3.1: https://api.utilia.ink/openapi.json
+- Remote MCP: https://api.utilia.ink/mcp
+- MCP metadata: https://api.utilia.ink/server.json
+- Agent integration guide: https://api.utilia.ink/llms.txt
+
+## Products
+
+- Transaction analysis: $0.004 USDC
+- Transaction simulation: $0.008 USDC
+- Priority-fee estimates: $0.002 USDC
+- Token risk analysis: $0.006 USDC
+
+Payments use x402 v2 exact USDC on Solana mainnet. No API key or account is required.

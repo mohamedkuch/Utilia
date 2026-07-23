@@ -1,0 +1,19 @@
+{
+  "name": "utilia-x402-mcp-example",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "priority-fees": "node mcp-client.mjs solana_priority_fees '{\"accounts\":[]}'"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.29.0",
+    "@solana/kit": "5.5.1",
+    "@x402/mcp": "2.19.0",
+    "@x402/svm": "2.19.0",
+    "bs58": "6.0.0"
+  },
+  "overrides": {
+    "@hono/node-server": "2.0.11"
+  }
+}
