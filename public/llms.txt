@@ -10,6 +10,8 @@
 - Remote MCP: https://api.utilia.ink/mcp
 - MCP metadata: https://api.utilia.ink/server.json
 - Agent integration guide: https://api.utilia.ink/llms.txt
+- Smithery: https://smithery.ai/servers/medksbuss/utilia-solana-preflight
+- Official MCP Registry: https://registry.modelcontextprotocol.io/?search=ink.utilia%2Fsolana-preflight
 - npm client and MCP bridge: https://www.npmjs.com/package/utilia-solana-agent
 - Public client source: https://github.com/mohamedkuch/utilia-solana-agent
 - X / Twitter: https://x.com/utiliax402
@@ -24,6 +26,14 @@
 Payments use x402 v2 exact USDC on Solana mainnet. No API key or account is required.
 
 ## Fastest integration
+
+With AgentCash:
+
+    npx -y agentcash@latest discover https://api.utilia.ink
+    npx -y agentcash@latest check https://api.utilia.ink/v1/fees/priority
+    npx -y agentcash@latest fetch https://api.utilia.ink/v1/fees/priority
+
+With the dedicated Utilia client:
 
 Set SOLANA_KEYPAIR_PATH to a dedicated low-balance automation wallet, then run:
 

@@ -67,7 +67,9 @@
         "sameAs": [
           "https://x.com/utiliax402",
           "https://www.npmjs.com/package/utilia-solana-agent",
-          "https://github.com/mohamedkuch/utilia-solana-agent"
+          "https://github.com/mohamedkuch/utilia-solana-agent",
+          "https://smithery.ai/servers/medksbuss/utilia-solana-preflight",
+          "https://registry.modelcontextprotocol.io/?search=ink.utilia%2Fsolana-preflight"
         ],
         "description": "Paid Solana transaction diagnostics and risk analysis for autonomous agents.",
         "offers": {
@@ -112,7 +114,7 @@
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#install">
-              Install agent client <span aria-hidden="true">↓</span>
+              Call from an agent <span aria-hidden="true">↓</span>
             </a>
             <a
               class="button button-secondary"
@@ -158,7 +160,7 @@
         <div><strong>4</strong><span>paid tools</span></div>
         <div><strong>$0.002</strong><span>entry price</span></div>
         <div><strong>&lt; 1s</strong><span>payment rail</span></div>
-        <div><strong>1 cmd</strong><span>agent install</span></div>
+        <div><strong>0</strong><span>signups or API keys</span></div>
       </section>
 
       <section
@@ -167,42 +169,45 @@
         aria-labelledby="install-title"
       >
         <div class="install-copy">
-          <p class="kicker">PUBLIC NPM CLIENT</p>
-          <h2 id="install-title">
-            Give an agent a wallet.<br />Run one command.
-          </h2>
+          <p class="kicker">DIRECT X402 BUYER FLOW</p>
+          <h2 id="install-title">Discover it.<br />Inspect it. Pay it.</h2>
           <p>
-            The open-source client handles discovery, exact x402 USDC payments,
-            and MCP locally. Private keys never leave the machine.
+            AgentCash discovers Utilia's live schema and handles the x402
+            challenge automatically. No Utilia account, API key, or subscription
+            is required.
           </p>
           <div class="package-links">
             <a
               class="text-link"
-              href="https://www.npmjs.com/package/utilia-solana-agent"
+              href="https://smithery.ai/servers/medksbuss/utilia-solana-preflight"
             >
-              View npm package <span aria-hidden="true">↗</span>
+              Open in Smithery <span aria-hidden="true">↗</span>
             </a>
             <a
               class="text-link"
-              href="https://github.com/mohamedkuch/utilia-solana-agent"
+              href="https://registry.modelcontextprotocol.io/?search=ink.utilia%2Fsolana-preflight"
             >
-              Audit the source <span aria-hidden="true">↗</span>
+              Official MCP Registry <span aria-hidden="true">↗</span>
             </a>
           </div>
         </div>
         <div class="install-card">
           <div class="code-label">
-            <span>terminal</span><span>utilia-solana-agent@0.1.0</span>
+            <span>terminal</span><span>agentcash</span>
           </div>
-          <pre><code><span class="comment"># Use a dedicated low-balance wallet</span>
-export SOLANA_KEYPAIR_PATH=/path/to/wallet.json
+          <pre><code><span class="comment"># Discover exact routes and prices</span>
+npx -y agentcash@latest discover \
+  https://api.utilia.ink
 
-npx -y utilia-solana-agent doctor
-npx -y utilia-solana-agent fees</code></pre>
+npx -y agentcash@latest check \
+  https://api.utilia.ink/v1/fees/priority
+
+npx -y agentcash@latest fetch \
+  https://api.utilia.ink/v1/fees/priority</code></pre>
           <div class="install-guardrails">
-            <span>✓ mainnet USDC only</span>
-            <span>✓ max $0.008 / call</span>
-            <span>✓ fixed receiver</span>
+            <span>✓ schema first</span>
+            <span>✓ $0.002 call</span>
+            <span>✓ automatic x402</span>
           </div>
         </div>
       </section>
@@ -323,7 +328,7 @@ npx -y utilia-solana-agent fees</code></pre>
       <section class="section proof-section" aria-labelledby="proof-title">
         <div>
           <p class="kicker">PROOF, NOT PROMISES</p>
-          <h2 id="proof-title">Paid by an agent. Settled on Solana.</h2>
+          <h2 id="proof-title">Tested end to end. Settled on Solana.</h2>
         </div>
         <a
           class="receipt"
@@ -333,7 +338,7 @@ npx -y utilia-solana-agent fees</code></pre>
         >
           <span class="receipt-icon" aria-hidden="true">↗</span>
           <span>
-            <strong>First remote MCP settlement</strong>
+            <strong>Verified remote MCP test settlement</strong>
             <small>AqkCFpJE…emWCEMe9rB6Qw</small>
           </span>
           <span class="receipt-value">0.002 USDC</span>
@@ -364,6 +369,13 @@ npx -y utilia-solana-agent fees</code></pre>
         <a href="https://api.utilia.ink/openapi.json">OpenAPI</a>
         <a href="/llms.txt">llms.txt</a>
         <a href="/server.json">MCP metadata</a>
+        <a href="https://smithery.ai/servers/medksbuss/utilia-solana-preflight"
+          >Smithery</a
+        >
+        <a
+          href="https://registry.modelcontextprotocol.io/?search=ink.utilia%2Fsolana-preflight"
+          >MCP Registry</a
+        >
         <a href="https://www.npmjs.com/package/utilia-solana-agent">npm</a>
         <a href="https://x.com/utiliax402">X / Twitter</a>
         <a href="https://github.com/mohamedkuch/Utilia">GitHub</a>
