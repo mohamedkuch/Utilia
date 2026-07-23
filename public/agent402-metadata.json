@@ -1,0 +1,31 @@
+{
+  "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
+  "name": "Utilia Solana Preflight",
+  "description": "Pay-per-call Solana transaction simulation, priority fee estimates, transaction diagnostics, and token risk analysis for autonomous agents and trading bots.",
+  "image": "https://utilia.ink/opengraph-image.png",
+  "services": [
+    {
+      "name": "MCP",
+      "endpoint": "https://api.utilia.ink/mcp",
+      "version": "2025-06-18"
+    },
+    {
+      "name": "HTTP",
+      "endpoint": "https://api.utilia.ink/openapi.json",
+      "version": "3.1.0"
+    },
+    {
+      "name": "Website",
+      "endpoint": "https://utilia.ink"
+    },
+    {
+      "name": "agentWallet",
+      "endpoint": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp:AX1TzKChcrgjVW2JMtcYFLgxerfH1XfW7etuSdMSUKh5"
+    }
+  ],
+  "x402Support": true,
+  "active": true,
+  "supportedTrust": [
+    "reputation"
+  ]
+}
