@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="500" viewBox="0 0 1500 500">
+  <rect width="1500" height="500" fill="#08110c"/>
+  <circle cx="1335" cy="50" r="340" fill="#19351f" opacity=".72"/>
+  <circle cx="110" cy="94" r="38" fill="none" stroke="#9cff77" stroke-width="4"/>
+  <path d="M94 70v28c0 15 7 21 16 21s16-6 16-21V70" fill="none" stroke="#9cff77" stroke-linecap="round" stroke-width="7"/>
+  <text x="175" y="107" fill="#f0f5ed" font-family="monospace" font-size="31" font-weight="700" letter-spacing="8">UTILIA</text>
+  <text x="70" y="285" fill="#f0f5ed" font-family="Arial,sans-serif" font-size="82" font-weight="700">Solana answers.</text>
+  <text x="70" y="380" fill="#9cff77" font-family="Arial,sans-serif" font-size="82" font-weight="700">Agents can buy.</text>
+  <text x="74" y="452" fill="#98a99c" font-family="monospace" font-size="22">X402  ·  REMOTE MCP  ·  $0.002–$0.008 PER CALL</text>
+</svg>

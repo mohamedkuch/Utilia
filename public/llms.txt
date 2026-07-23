@@ -12,6 +12,7 @@
 - Agent integration guide: https://api.utilia.ink/llms.txt
 - npm client and MCP bridge: https://www.npmjs.com/package/utilia-solana-agent
 - Public client source: https://github.com/mohamedkuch/utilia-solana-agent
+- X / Twitter: https://x.com/utiliax402
 
 ## Products
 
