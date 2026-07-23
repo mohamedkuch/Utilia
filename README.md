@@ -18,7 +18,7 @@ or API key is required.
 - OpenAPI: <https://api.utilia.ink/openapi.json>
 - Remote MCP: `https://api.utilia.ink/mcp`
 - Agent guide: <https://api.utilia.ink/llms.txt>
-- Agent402 Marketplace record: <https://marketplace.agent402.app/api/v1/marketplace/agents/1cd7d626-faa1-462a-81fc-3bad57eae3d1>
+- Agent402 Marketplace record: <https://marketplace.agent402.app/api/v1/marketplace/agents/72d76bfa-adb0-40ea-8601-79d8345ab3ec>
 - Agora402 Registry: <https://agora402.io/agents/34b182d9-8c4c-4d9c-a3a5-5e4eccb3391d>
 
 ## Run the MCP buyer
