@@ -20,6 +20,8 @@ or API key is required.
 - Agent guide: <https://api.utilia.ink/llms.txt>
 - Agent402 Marketplace record: <https://marketplace.agent402.app/api/v1/marketplace/agents/72d76bfa-adb0-40ea-8601-79d8345ab3ec>
 - Agora402 Registry: <https://agora402.io/agents/34b182d9-8c4c-4d9c-a3a5-5e4eccb3391d>
+- 8004market on-chain identity #1462: <https://8004market.io/agent/solana/mainnet-beta/1462>
+- x402 Arena: <https://x402arena.gg>
 
 ## Run the MCP buyer
 

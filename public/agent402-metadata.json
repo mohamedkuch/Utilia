@@ -3,11 +3,34 @@
   "name": "Utilia Solana Preflight",
   "description": "Pay-per-call Solana transaction simulation, priority fee estimates, transaction diagnostics, and token risk analysis for autonomous agents and trading bots.",
   "image": "https://utilia.ink/opengraph-image.png",
+  "external_url": "https://utilia.ink",
+  "version": "1.0.0",
   "services": [
     {
       "name": "MCP",
       "endpoint": "https://api.utilia.ink/mcp",
       "version": "2025-06-18"
+    },
+    {
+      "name": "A2A",
+      "endpoint": "https://agent402.app/a2a/agents/72d76bfa-adb0-40ea-8601-79d8345ab3ec/card",
+      "version": "0.3.0"
+    },
+    {
+      "name": "OASF",
+      "endpoint": "https://agent402.app/oasf/72d76bfa-adb0-40ea-8601-79d8345ab3ec",
+      "skills": [
+        "evaluation_monitoring/anomaly_detection",
+        "evaluation_monitoring/quality_evaluation",
+        "tool_interaction/api_schema_understanding",
+        "tool_interaction/tool_interaction"
+      ],
+      "domains": [
+        "technology/blockchain/blockchain",
+        "technology/blockchain/cryptocurrency",
+        "technology/blockchain/defi",
+        "technology/software_engineering/apis_integration"
+      ]
     },
     {
       "name": "HTTP",
@@ -21,6 +44,87 @@
     {
       "name": "agentWallet",
       "endpoint": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp:AX1TzKChcrgjVW2JMtcYFLgxerfH1XfW7etuSdMSUKh5"
+    }
+  ],
+  "capabilities": {
+    "mcp": {
+      "version": "2025-06-18",
+      "tools": [
+        "solana_priority_fees",
+        "solana_transaction_analysis",
+        "solana_transaction_simulate",
+        "solana_token_analysis"
+      ],
+      "resources": [
+        "https://api.utilia.ink/openapi.json",
+        "https://api.utilia.ink/server.json"
+      ]
+    },
+    "a2a": {
+      "version": "0.3.0",
+      "skills": [
+        "solana-priority-fees",
+        "solana-transaction-analysis",
+        "solana-transaction-simulation",
+        "solana-token-risk"
+      ]
+    }
+  },
+  "endpoints": [
+    {
+      "path": "https://api.utilia.ink/v1/fees/priority",
+      "method": "GET",
+      "description": "Live Solana priority-fee quantiles for 0.002 USDC."
+    },
+    {
+      "path": "https://api.utilia.ink/v1/transaction/{signature}",
+      "method": "GET",
+      "description": "Transaction diagnostics and retry classification for 0.004 USDC."
+    },
+    {
+      "path": "https://api.utilia.ink/v1/transaction/simulate",
+      "method": "POST",
+      "description": "Fresh-blockhash transaction simulation for 0.008 USDC."
+    },
+    {
+      "path": "https://api.utilia.ink/v1/token/{mint}",
+      "method": "GET",
+      "description": "Token authority and concentration risk analysis for 0.006 USDC."
+    }
+  ],
+  "skills": [
+    "evaluation_monitoring/anomaly_detection",
+    "evaluation_monitoring/quality_evaluation",
+    "tool_interaction/api_schema_understanding",
+    "tool_interaction/tool_interaction"
+  ],
+  "domains": [
+    "technology/blockchain/blockchain",
+    "technology/blockchain/cryptocurrency",
+    "technology/blockchain/defi",
+    "technology/software_engineering/apis_integration"
+  ],
+  "pricing": {
+    "model": "per-request",
+    "currency": "USDC",
+    "price_per_request": 0.002
+  },
+  "attributes": [
+    {
+      "trait_type": "Settlement network",
+      "value": "Solana mainnet"
+    },
+    {
+      "trait_type": "Payment protocol",
+      "value": "x402 v2 exact"
+    },
+    {
+      "trait_type": "Price range",
+      "value": "0.002–0.008 USDC"
+    },
+    {
+      "trait_type": "Identity asset",
+      "value": "EG5wUdoeVGPfjVv7AT1N3DLUMEeCCBVeHorNNKYnqwF8"
     }
   ],
   "x402Support": true,
