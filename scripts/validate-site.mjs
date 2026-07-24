@@ -52,6 +52,7 @@ for (const stale of [
 
 for (const required of [
   "utilia-solana-agent@0.5.5",
+  "API 0.5.3",
   "https://api.utilia.ink/openapi.json",
   "https://api.utilia.ink/mcp",
   "https://github.com/mohamedkuch/utilia-solana-agent",
@@ -60,6 +61,8 @@ for (const required of [
 ]) {
   assert.equal(publicText.includes(required), true, `required public claim is missing: ${required}`);
 }
+
+assert.equal(publicText.includes("API 0.5.2"), false, "stale homepage API version remains");
 
 for (const path of [
   "public/index.html",
