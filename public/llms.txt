@@ -1,6 +1,6 @@
-# Utilia
+# Utilia Solana Priority Fee Feed
 
-> Paid Solana transaction diagnostics for autonomous agents.
+> Timestamped, account-localized Solana priority-fee bids for autonomous transaction agents.
 
 ## Live interfaces
 
@@ -13,7 +13,7 @@
 - Smithery: https://smithery.ai/servers/medksbuss/utilia-solana-preflight
 - Official MCP Registry: https://registry.modelcontextprotocol.io/?search=ink.utilia%2Fsolana-preflight
 - Agent402 Marketplace record: https://marketplace.agent402.app/api/v1/marketplace/agents/72d76bfa-adb0-40ea-8601-79d8345ab3ec
-- Agora402 Registry: https://agora402.io/agents/34b182d9-8c4c-4d9c-a3a5-5e4eccb3391d
+- Agora402 Registry: https://agora402.io/agents/9967cabb-4b2d-4f1f-af98-e19ca77a5768
 - 8004market on-chain identity #1462: https://8004market.io/agent/solana/mainnet-beta/1462
 - x402 Arena: https://x402arena.gg
 - npm client and MCP bridge: https://www.npmjs.com/package/utilia-solana-agent
@@ -22,22 +22,21 @@
 
 ## Products
 
+- Priority-fee estimates: $0.002 USDC
 - Transaction analysis: $0.004 USDC
 - Transaction simulation: $0.008 USDC
-- Priority-fee estimates: $0.002 USDC
 - Token risk analysis: $0.006 USDC
+- PDF to Markdown: $0.0025 USDC
 
 Payments use x402 v2 exact USDC on Solana mainnet. No API key or account is required.
 
 ## Fastest integration
 
-With AgentCash:
+Budget-capped priority-fee feed, five calls per hour and $0.05 maximum spend:
 
-    npx -y agentcash@latest discover https://api.utilia.ink
-    npx -y agentcash@latest check https://api.utilia.ink/v1/fees/priority
-    npx -y agentcash@latest fetch https://api.utilia.ink/v1/fees/priority
+    npx -y utilia-solana-agent watch-fees --every 12m --max-calls 25
 
-With the dedicated Utilia client:
+One live sample:
 
 Set SOLANA_KEYPAIR_PATH to a dedicated low-balance automation wallet, then run:
 
@@ -45,5 +44,5 @@ Set SOLANA_KEYPAIR_PATH to a dedicated low-balance automation wallet, then run:
     npx -y utilia-solana-agent fees
 
 For stdio MCP clients, run `npx -y utilia-solana-agent mcp`. The local client rejects
-payments that do not match Solana mainnet USDC, Utilia's receiver, or the $0.008
+payments that do not match Solana mainnet USDC, Utilia's receiver, or the $0.01
 per-call ceiling.
