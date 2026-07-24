@@ -1,10 +1,41 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "ink.utilia/solana-preflight",
-  "title": "Utilia PDF and Solana Agent Tools",
-  "description": "Pay-per-conversion PDF-to-Markdown plus live Solana priority fees and preflight diagnostics.",
-  "version": "0.3.0",
+  "title": "Utilia Agent Media and Solana Tools",
+  "description": "Paid audio/PDF transforms plus live Solana priority fees and preflight diagnostics.",
+  "version": "0.5.2",
   "websiteUrl": "https://api.utilia.ink",
+  "repository": {
+    "url": "https://github.com/mohamedkuch/utilia-solana-agent",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "utilia-solana-agent",
+      "version": "0.5.3",
+      "transport": {
+        "type": "stdio"
+      },
+      "packageArguments": [
+        {
+          "type": "positional",
+          "value": "mcp"
+        }
+      ],
+      "environmentVariables": [
+        {
+          "name": "SOLANA_KEYPAIR_PATH",
+          "description": "Absolute path to a dedicated low-balance Solana mainnet keypair JSON file.",
+          "isRequired": true,
+          "isSecret": false,
+          "format": "filepath",
+          "placeholder": "/absolute/path/to/agent-wallet.json"
+        }
+      ]
+    }
+  ],
   "remotes": [
     {
       "type": "streamable-http",

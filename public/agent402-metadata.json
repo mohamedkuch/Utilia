@@ -1,7 +1,7 @@
 {
   "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
-  "name": "Utilia Solana Preflight",
-  "description": "Pay-per-call Solana transaction simulation, priority fee estimates, transaction diagnostics, and token risk analysis for autonomous agents and trading bots.",
+  "name": "Utilia Agent Media + Solana Preflight",
+  "description": "Six pay-per-call tools: Solana transaction simulation, priority fees, diagnostics, token risk analysis, PDF-to-Markdown, and audio normalization.",
   "image": "https://utilia.ink/opengraph-image.png",
   "external_url": "https://utilia.ink",
   "version": "1.0.0",
@@ -53,7 +53,9 @@
         "solana_priority_fees",
         "solana_transaction_analysis",
         "solana_transaction_simulate",
-        "solana_token_analysis"
+        "solana_token_analysis",
+        "pdf_to_markdown",
+        "normalize_audio"
       ],
       "resources": [
         "https://api.utilia.ink/openapi.json",
@@ -66,7 +68,9 @@
         "solana-priority-fees",
         "solana-transaction-analysis",
         "solana-transaction-simulation",
-        "solana-token-risk"
+        "solana-token-risk",
+        "pdf-to-markdown",
+        "audio-normalization"
       ]
     }
   },
@@ -90,6 +94,16 @@
       "path": "https://api.utilia.ink/v1/token/{mint}",
       "method": "GET",
       "description": "Token authority and concentration risk analysis for 0.006 USDC."
+    },
+    {
+      "path": "https://api.utilia.ink/v1/pdf/to-markdown",
+      "method": "POST",
+      "description": "Bounded PDF-to-Markdown conversion for 0.0025 USDC."
+    },
+    {
+      "path": "https://api.utilia.ink/v1/audio/normalize",
+      "method": "POST",
+      "description": "Bounded audio normalization with loudness evidence for 0.01 USDC."
     }
   ],
   "skills": [
@@ -120,7 +134,7 @@
     },
     {
       "trait_type": "Price range",
-      "value": "0.002–0.008 USDC"
+      "value": "0.002–0.01 USDC"
     },
     {
       "trait_type": "Identity asset",

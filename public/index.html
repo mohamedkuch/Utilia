@@ -60,7 +60,7 @@
       {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "Utilia PDF and Solana Agent Tools",
+        "name": "Utilia Agent Media and Solana Tools",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Any",
         "url": "https://utilia.ink",
@@ -75,7 +75,7 @@
           "https://8004market.io/agent/solana/mainnet-beta/1462",
           "https://x402arena.gg"
         ],
-        "description": "Pay-per-conversion PDF-to-Markdown plus live Solana transaction intelligence for autonomous agents.",
+        "description": "Bounded PDF and audio transforms plus live Solana transaction intelligence for autonomous agents.",
         "offers": {
           "@type": "AggregateOffer",
           "lowPrice": "0.002",
@@ -164,7 +164,7 @@
       <section class="trust-strip" aria-label="Product facts">
         <div><strong>$0.0025</strong><span>per PDF conversion</span></div>
         <div><strong>100</strong><span>maximum pages</span></div>
-        <div><strong>5</strong><span>paid agent tools</span></div>
+        <div><strong>6</strong><span>paid agent tools</span></div>
         <div><strong>0</strong><span>signups or API keys</span></div>
       </section>
 
@@ -243,7 +243,7 @@
 export SOLANA_KEYPAIR_PATH=\
 /absolute/path/to/agent-wallet.json
 
-npx -y github:mohamedkuch/utilia-solana-agent#befa103 pdf-to-markdown \
+npx -y utilia-solana-agent@0.5.3 pdf-to-markdown \
   https://example.com/document.pdf \
   --max-pages 50</code></pre>
           <div class="install-guardrails">
@@ -261,7 +261,7 @@ npx -y github:mohamedkuch/utilia-solana-agent#befa103 pdf-to-markdown \
       >
         <div class="section-heading">
           <p class="kicker">THE PRODUCT</p>
-          <h2 id="tools-title">One PDF converter. Four Solana tools.</h2>
+          <h2 id="tools-title">Two media transforms. Four Solana tools.</h2>
           <p>
             Every route advertises its exact USDC price. Failed operations
             cancel settlement.
@@ -329,13 +329,25 @@ npx -y github:mohamedkuch/utilia-solana-agent#befa103 pdf-to-markdown \
               concentration.
             </p>
           </article>
+          <article class="tool-card">
+            <div class="tool-topline">
+              <span class="tool-number">06</span
+              ><span class="price">$0.01</span>
+            </div>
+            <h3>Audio normalization</h3>
+            <code><span>POST</span> /v1/audio/normalize</code>
+            <p>
+              Normalize bounded public HTTPS or base64 audio to MP3 with LUFS
+              measurements and input/output SHA-256 digests.
+            </p>
+          </article>
         </div>
       </section>
 
       <section class="section mcp-section" id="mcp" aria-labelledby="mcp-title">
         <div class="mcp-copy">
           <p class="kicker">AGENT-NATIVE</p>
-          <h2 id="mcp-title">One endpoint. Five paid tools.</h2>
+          <h2 id="mcp-title">One endpoint. Six paid tools.</h2>
           <p>
             Run the local npm bridge in any stdio MCP client. It discovers
             pricing, verifies the receiver and spend ceiling, signs USDC
@@ -363,7 +375,7 @@ npx -y github:mohamedkuch/utilia-solana-agent#befa103 pdf-to-markdown \
       "command": "npx",
       "args": [
         "-y",
-        "utilia-solana-agent",
+        "utilia-solana-agent@0.5.3",
         "mcp"
       ],
       "env": {
@@ -383,20 +395,20 @@ npx -y github:mohamedkuch/utilia-solana-agent#befa103 pdf-to-markdown \
       <section class="section proof-section" aria-labelledby="proof-title">
         <div>
           <p class="kicker">PROOF, NOT PROMISES</p>
-          <h2 id="proof-title">Tested end to end. Settled on Solana.</h2>
+          <h2 id="proof-title">Contract audited. Live on mainnet.</h2>
         </div>
         <a
           class="receipt"
-          href="https://solscan.io/tx/AqkCFpJEREoZXTDsJ4Wkw6jVemnGQJDQxGdFoMXT3RGzsTupjTxcDNdFyKXbxTSbq2bYPfApt2emWCEMe9rB6Qw"
+          href="https://api.utilia.ink/healthz"
           target="_blank"
           rel="noreferrer"
         >
           <span class="receipt-icon" aria-hidden="true">↗</span>
           <span>
-            <strong>Verified remote MCP test settlement</strong>
-            <small>AqkCFpJE…emWCEMe9rB6Qw</small>
+            <strong>Live production health and version</strong>
+            <small>api.utilia.ink/healthz</small>
           </span>
-          <span class="receipt-value">0.002 USDC</span>
+          <span class="receipt-value">API 0.5.2</span>
         </a>
       </section>
 
@@ -422,7 +434,7 @@ npx -y github:mohamedkuch/utilia-solana-agent#befa103 pdf-to-markdown \
       <div class="brand footer-brand">
         <span class="brand-mark" aria-hidden="true">U</span><span>UTILIA</span>
       </div>
-      <p>Machine-payable PDF conversion and Solana intelligence.</p>
+      <p>Machine-payable media transforms and Solana intelligence.</p>
       <div class="footer-links">
         <a href="/pdf-to-markdown">PDF-to-Markdown API</a>
         <a href="https://api.utilia.ink/openapi.json">OpenAPI</a>

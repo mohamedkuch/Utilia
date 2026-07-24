@@ -1,8 +1,8 @@
-# Utilia PDF and Solana Agent Tools
+# Utilia Agent Media and Solana Tools
 
-[Utilia](https://utilia.ink) converts public PDFs to agent-ready Markdown and gives
-transaction agents live Solana intelligence. Every call uses an exact x402 USDC
-payment. No account, subscription, or API key is required.
+[Utilia](https://utilia.ink) converts PDFs to agent-ready Markdown, normalizes audio,
+and gives transaction agents live Solana intelligence. Every call uses an exact x402
+USDC payment. No account, subscription, or API key is required.
 
 | Product                | HTTP route                       | MCP tool                      | Price   |
 | ---------------------- | -------------------------------- | ----------------------------- | ------- |
@@ -11,6 +11,7 @@ payment. No account, subscription, or API key is required.
 | Priority-fee estimates | `GET /v1/fees/priority`          | `solana_priority_fees`        | $0.002  |
 | Token risk analysis    | `GET /v1/token/:mint`            | `solana_token_analysis`       | $0.006  |
 | PDF to Markdown        | `POST /v1/pdf/to-markdown`       | `pdf_to_markdown`             | $0.0025 |
+| Audio normalization    | `POST /v1/audio/normalize`       | `normalize_audio`             | $0.01   |
 
 ## Live interfaces
 
@@ -32,7 +33,7 @@ Convert a public PDF in one command:
 
 ```sh
 SOLANA_KEYPAIR_PATH=/absolute/path/to/agent-wallet.json \
-  npx -y github:mohamedkuch/utilia-solana-agent#befa103 pdf-to-markdown \
+  npx -y utilia-solana-agent@0.5.3 pdf-to-markdown \
   https://example.com/document.pdf --max-pages 50
 ```
 
