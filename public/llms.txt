@@ -10,6 +10,7 @@
 - Remote MCP: https://api.utilia.ink/mcp
 - MCP metadata: https://api.utilia.ink/server.json
 - Agent integration guide: https://api.utilia.ink/llms.txt
+- Smithery PDF skill: https://smithery.ai/skills/medksbuss/utilia-pdf-to-markdown
 - Smithery: https://smithery.ai/servers/medksbuss/utilia-solana-preflight
 - Official MCP Registry: https://registry.modelcontextprotocol.io/?search=ink.utilia%2Fsolana-preflight
 - Agent402 Marketplace record: https://marketplace.agent402.app/api/v1/marketplace/agents/72d76bfa-adb0-40ea-8601-79d8345ab3ec
