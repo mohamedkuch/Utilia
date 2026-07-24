@@ -3,8 +3,8 @@
   <circle cx="1030" cy="80" r="300" fill="#19351f" opacity=".55"/>
   <circle cx="98" cy="88" r="28" fill="none" stroke="#9cff77" stroke-width="3"/>
   <text x="91" y="97" fill="#9cff77" font-family="Arial,sans-serif" font-size="27">U</text>
-  <text x="145" y="98" fill="#f0f5ed" font-family="monospace" font-size="24" letter-spacing="4">UTILIA / X402 / SOLANA</text>
-  <text x="70" y="325" fill="#f0f5ed" font-family="Arial,sans-serif" font-size="88" font-weight="700">Solana answers.</text>
-  <text x="70" y="425" fill="#9cff77" font-family="Arial,sans-serif" font-size="88" font-weight="700">Agents can buy.</text>
-  <text x="72" y="555" fill="#98a99c" font-family="monospace" font-size="23">REMOTE MCP  •  PAY PER RESULT  •  SOLANA MAINNET</text>
+  <text x="145" y="98" fill="#f0f5ed" font-family="monospace" font-size="24" letter-spacing="4">UTILIA / PDF / X402</text>
+  <text x="70" y="325" fill="#f0f5ed" font-family="Arial,sans-serif" font-size="88" font-weight="700">PDF text.</text>
+  <text x="70" y="425" fill="#9cff77" font-family="Arial,sans-serif" font-size="88" font-weight="700">Agent ready.</text>
+  <text x="72" y="555" fill="#98a99c" font-family="monospace" font-size="23">$0.0025  •  NO API KEY  •  PAGE-DELIMITED MARKDOWN</text>
 </svg>

@@ -1,8 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "ink.utilia/solana-preflight",
-  "title": "Utilia Solana Priority Fee Feed",
-  "description": "Live Solana priority-fee quantiles for transaction agents, plus paid preflight diagnostics.",
+  "title": "Utilia PDF and Solana Agent Tools",
+  "description": "Pay-per-conversion PDF-to-Markdown plus live Solana priority fees and preflight diagnostics.",
   "version": "0.3.0",
   "websiteUrl": "https://api.utilia.ink",
   "remotes": [

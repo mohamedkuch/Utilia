@@ -1,8 +1,8 @@
-# Utilia Solana Priority Fee Feed
+# Utilia PDF and Solana Agent Tools
 
-[Utilia](https://utilia.ink) gives transaction agents a live, timestamped Solana
-priority-fee bid. Every call uses an exact x402 USDC payment on Solana mainnet. No
-account, subscription, or API key is required.
+[Utilia](https://utilia.ink) converts public PDFs to agent-ready Markdown and gives
+transaction agents live Solana intelligence. Every call uses an exact x402 USDC
+payment. No account, subscription, or API key is required.
 
 | Product                | HTTP route                       | MCP tool                      | Price   |
 | ---------------------- | -------------------------------- | ----------------------------- | ------- |
@@ -25,6 +25,14 @@ account, subscription, or API key is required.
 - x402 Arena: <https://x402arena.gg>
 
 ## Run the MCP buyer
+
+Convert a public PDF in one command:
+
+```sh
+SOLANA_KEYPAIR_PATH=/absolute/path/to/agent-wallet.json \
+  npx -y utilia-solana-agent pdf-to-markdown \
+  https://example.com/document.pdf --max-pages 50
+```
 
 ```sh
 cd examples

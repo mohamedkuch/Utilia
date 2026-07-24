@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#08110c" />
     <meta name="color-scheme" content="dark" />
-    <title>Utilia — Live Solana priority fees for transaction agents</title>
+    <title>Utilia — PDF to Markdown and live Solana tools for agents</title>
     <meta
       name="description"
-      content="Timestamped, account-localized Solana priority-fee bids for bots. $0.002 per x402 call, with no API key."
+      content="Convert public PDFs to page-delimited Markdown or fetch live Solana transaction intelligence. Pay per call with x402 USDC; no API key."
     />
     <link rel="canonical" href="https://utilia.ink/" />
     <link rel="icon" href="/icon.svg" type="image/svg+xml" />
@@ -32,11 +32,11 @@
     <meta property="og:url" content="https://utilia.ink/" />
     <meta
       property="og:title"
-      content="Utilia — Live Solana priority fees for transaction agents"
+      content="Utilia — PDF to Markdown and live Solana tools for agents"
     />
     <meta
       property="og:description"
-      content="Five fresh priority-fee samples per hour with a hard $0.05 spend cap. No account or API key."
+      content="Public PDF in, page-delimited Markdown out for $0.0025 USDC. No account or API key."
     />
     <meta
       property="og:image"
@@ -46,11 +46,11 @@
     <meta name="twitter:site" content="@utiliax402" />
     <meta
       name="twitter:title"
-      content="Utilia — Live Solana priority fees for transaction agents"
+      content="Utilia — PDF to Markdown and live Solana tools for agents"
     />
     <meta
       name="twitter:description"
-      content="Timestamped, account-localized fee bids at $0.002 per x402 call."
+      content="Public PDF to agent-ready Markdown for $0.0025 per x402 call."
     />
     <meta
       name="twitter:image"
@@ -60,7 +60,7 @@
       {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "Utilia Solana Priority Fee Feed",
+        "name": "Utilia PDF and Solana Agent Tools",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Any",
         "url": "https://utilia.ink",
@@ -75,7 +75,7 @@
           "https://8004market.io/agent/solana/mainnet-beta/1462",
           "https://x402arena.gg"
         ],
-        "description": "Live, timestamped Solana priority-fee quantiles for autonomous transaction agents.",
+        "description": "Pay-per-conversion PDF-to-Markdown plus live Solana transaction intelligence for autonomous agents.",
         "offers": {
           "@type": "AggregateOffer",
           "lowPrice": "0.002",
@@ -93,7 +93,7 @@
       </a>
       <nav aria-label="Main navigation">
         <a href="#tools">Tools</a>
-        <a href="#install">Install</a>
+        <a href="#install">PDF converter</a>
         <a href="#mcp">MCP</a>
         <a href="https://api.utilia.ink/openapi.json">Docs</a>
         <a class="nav-cta" href="https://api.utilia.ink/healthz">
@@ -107,20 +107,18 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <p class="eyebrow">
-            <span>SOLANA</span>
+            <span>PDF TO MARKDOWN</span>
             <span>X402</span>
             <span>REMOTE MCP</span>
           </p>
-          <h1 id="hero-title">
-            A live fee bid.<br /><em>Before your bot sends.</em>
-          </h1>
+          <h1 id="hero-title">PDF text.<br /><em>Agent ready.</em></h1>
           <p class="hero-lede">
-            Timestamped network-wide or account-localized priority-fee
-            quantiles. $0.002 per result. No account. No API key.
+            Public PDF in. Page-delimited Markdown, metadata, and source digest
+            out. $0.0025 per result. No account. No API key.
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#install">
-              Start the fee feed <span aria-hidden="true">↓</span>
+              Convert a PDF <span aria-hidden="true">↓</span>
             </a>
             <a
               class="button button-secondary"
@@ -137,12 +135,12 @@
             <span class="terminal-live">mainnet</span>
           </div>
           <div class="terminal-body">
-            <p><span class="prompt">›</span> call solana_priority_fees</p>
+            <p><span class="prompt">›</span> call pdf_to_markdown</p>
             <p class="muted">payment_required</p>
             <dl>
               <div>
                 <dt>amount</dt>
-                <dd>0.002 USDC</dd>
+                <dd>0.0025 USDC</dd>
               </div>
               <div>
                 <dt>network</dt>
@@ -153,20 +151,20 @@
                 <dd>x402 exact</dd>
               </div>
             </dl>
-            <p><span class="prompt">›</span> authorize max 0.01 USDC</p>
+            <p><span class="prompt">›</span> authorize 0.0025 USDC</p>
             <p class="success">✓ paid · executed · settled</p>
             <p class="json">
-              { "observedAt": "now",<br />&nbsp; "mediumMicroLamports": 0,<br />&nbsp;
-              "sampleCount": 150 }
+              { "pages": 12,<br />&nbsp; "markdown": "# Document…",<br />&nbsp;
+              "sourceSha256": "9f14…" }
             </p>
           </div>
         </aside>
       </section>
 
       <section class="trust-strip" aria-label="Product facts">
-        <div><strong>5/hour</strong><span>default fee cadence</span></div>
-        <div><strong>$0.002</strong><span>entry price</span></div>
-        <div><strong>$0.05</strong><span>hard watcher cap</span></div>
+        <div><strong>$0.0025</strong><span>per PDF conversion</span></div>
+        <div><strong>100</strong><span>maximum pages</span></div>
+        <div><strong>5</strong><span>paid agent tools</span></div>
         <div><strong>0</strong><span>signups or API keys</span></div>
       </section>
 
@@ -176,12 +174,12 @@
         aria-labelledby="install-title"
       >
         <div class="install-copy">
-          <p class="kicker">ONE-COMMAND BOT FEED</p>
-          <h2 id="install-title">Five calls per hour.<br />Then it stops.</h2>
+          <p class="kicker">ONE-COMMAND PDF CONVERTER</p>
+          <h2 id="install-title">Public PDF in.<br />Markdown out.</h2>
           <p>
-            The wallet-funded watcher emits JSONL immediately and every 12
-            minutes. It stops after 25 calls, limiting Utilia spend to $0.05.
-            Press Ctrl-C to stop sooner.
+            The wallet-funded client extracts up to 100 pages and returns
+            page-delimited Markdown, document metadata, page count, and a source
+            SHA-256 digest for verification.
           </p>
           <div class="package-links">
             <a
@@ -227,19 +225,19 @@
         </div>
         <div class="install-card">
           <div class="code-label">
-            <span>terminal</span><span>budget-capped JSONL feed</span>
+            <span>terminal</span><span>exact $0.0025 x402 payment</span>
           </div>
           <pre><code><span class="comment"># Use a dedicated low-balance agent wallet</span>
 export SOLANA_KEYPAIR_PATH=\
 /absolute/path/to/agent-wallet.json
 
-npx -y utilia-solana-agent watch-fees \
-  --every 12m \
-  --max-calls 25</code></pre>
+npx -y utilia-solana-agent pdf-to-markdown \
+  https://example.com/document.pdf \
+  --max-pages 50</code></pre>
           <div class="install-guardrails">
-            <span>✓ first result now</span>
-            <span>✓ 5 calls/hour</span>
-            <span>✓ $0.05 maximum</span>
+            <span>✓ one exact payment</span>
+            <span>✓ page provenance</span>
+            <span>✓ source digest</span>
           </div>
         </div>
       </section>
@@ -251,7 +249,7 @@ npx -y utilia-solana-agent watch-fees \
       >
         <div class="section-heading">
           <p class="kicker">THE PRODUCT</p>
-          <h2 id="tools-title">One proven feed. Four extra tools.</h2>
+          <h2 id="tools-title">One PDF converter. Four Solana tools.</h2>
           <p>
             Every route advertises its exact USDC price. Failed operations
             cancel settlement.
@@ -261,6 +259,18 @@ npx -y utilia-solana-agent watch-fees \
           <article class="tool-card">
             <div class="tool-topline">
               <span class="tool-number">01</span
+              ><span class="price">$0.0025</span>
+            </div>
+            <h3>PDF to Markdown</h3>
+            <code><span>POST</span> /v1/pdf/to-markdown</code>
+            <p>
+              Convert a public or base64 PDF into page-delimited Markdown,
+              metadata, and a source digest.
+            </p>
+          </article>
+          <article class="tool-card">
+            <div class="tool-topline">
+              <span class="tool-number">02</span
               ><span class="price">$0.002</span>
             </div>
             <h3>Live priority fees</h3>
@@ -272,7 +282,7 @@ npx -y utilia-solana-agent watch-fees \
           </article>
           <article class="tool-card">
             <div class="tool-topline">
-              <span class="tool-number">02</span
+              <span class="tool-number">03</span
               ><span class="price">$0.004</span>
             </div>
             <h3>Transaction analysis</h3>
@@ -284,7 +294,7 @@ npx -y utilia-solana-agent watch-fees \
           </article>
           <article class="tool-card">
             <div class="tool-topline">
-              <span class="tool-number">03</span
+              <span class="tool-number">04</span
               ><span class="price">$0.008</span>
             </div>
             <h3>Preflight simulation</h3>
@@ -296,7 +306,7 @@ npx -y utilia-solana-agent watch-fees \
           </article>
           <article class="tool-card">
             <div class="tool-topline">
-              <span class="tool-number">04</span
+              <span class="tool-number">05</span
               ><span class="price">$0.006</span>
             </div>
             <h3>Token risk</h3>
@@ -304,18 +314,6 @@ npx -y utilia-solana-agent watch-fees \
             <p>
               Inspect authorities, Token-2022 controls, supply, and holder
               concentration.
-            </p>
-          </article>
-          <article class="tool-card">
-            <div class="tool-topline">
-              <span class="tool-number">05</span
-              ><span class="price">$0.0025</span>
-            </div>
-            <h3>PDF to Markdown</h3>
-            <code><span>POST</span> /v1/pdf/to-markdown</code>
-            <p>
-              Convert a public or base64 PDF into page-delimited Markdown,
-              metadata, and a source digest.
             </p>
           </article>
         </div>
@@ -328,7 +326,7 @@ npx -y utilia-solana-agent watch-fees \
           <p>
             Run the local npm bridge in any stdio MCP client. It discovers
             pricing, verifies the receiver and spend ceiling, signs USDC
-            locally, and returns structured Solana data.
+            locally, and returns structured document or Solana data.
           </p>
           <ul>
             <li><span>01</span> Streamable HTTP transport</li>
@@ -391,9 +389,10 @@ npx -y utilia-solana-agent watch-fees \
 
       <section class="closing" aria-labelledby="closing-title">
         <p class="kicker">BUILD THE LOOP</p>
-        <h2 id="closing-title">Observe. Bid. Build. Send.</h2>
+        <h2 id="closing-title">Link. Pay. Extract. Build.</h2>
         <p>
-          Give your transaction agent a live fee signal with a finite budget.
+          Give your agent clean document text without another account or API
+          key.
         </p>
         <div class="hero-actions">
           <a class="button button-primary" href="/llms.txt">Read agent guide</a>
@@ -410,7 +409,7 @@ npx -y utilia-solana-agent watch-fees \
       <div class="brand footer-brand">
         <span class="brand-mark" aria-hidden="true">U</span><span>UTILIA</span>
       </div>
-      <p>Machine-payable Solana intelligence.</p>
+      <p>Machine-payable PDF conversion and Solana intelligence.</p>
       <div class="footer-links">
         <a href="https://api.utilia.ink/openapi.json">OpenAPI</a>
         <a href="/llms.txt">llms.txt</a>
