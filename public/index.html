@@ -93,7 +93,7 @@
       </a>
       <nav aria-label="Main navigation">
         <a href="#tools">Tools</a>
-        <a href="#install">PDF converter</a>
+        <a href="/pdf-to-markdown">PDF converter</a>
         <a href="#mcp">MCP</a>
         <a href="https://api.utilia.ink/openapi.json">Docs</a>
         <a class="nav-cta" href="https://api.utilia.ink/healthz">
@@ -243,7 +243,7 @@
 export SOLANA_KEYPAIR_PATH=\
 /absolute/path/to/agent-wallet.json
 
-npx -y utilia-solana-agent pdf-to-markdown \
+npx -y github:mohamedkuch/utilia-solana-agent#befa103 pdf-to-markdown \
   https://example.com/document.pdf \
   --max-pages 50</code></pre>
           <div class="install-guardrails">
@@ -278,6 +278,7 @@ npx -y utilia-solana-agent pdf-to-markdown \
             <p>
               Convert a public or base64 PDF into page-delimited Markdown,
               metadata, and a source digest.
+              <a href="/pdf-to-markdown">PDF API details →</a>
             </p>
           </article>
           <article class="tool-card">
@@ -289,7 +290,7 @@ npx -y utilia-solana-agent pdf-to-markdown \
             <code><span>GET</span> /v1/fees/priority</code>
             <p>
               Timestamped fee quantiles globally or for up to twenty writable
-              accounts. Already used by an independent repeat-paying agent.
+              accounts, with an explicit observation time and sample count.
             </p>
           </article>
           <article class="tool-card">
@@ -423,6 +424,7 @@ npx -y utilia-solana-agent pdf-to-markdown \
       </div>
       <p>Machine-payable PDF conversion and Solana intelligence.</p>
       <div class="footer-links">
+        <a href="/pdf-to-markdown">PDF-to-Markdown API</a>
         <a href="https://api.utilia.ink/openapi.json">OpenAPI</a>
         <a href="/llms.txt">llms.txt</a>
         <a href="/server.json">MCP metadata</a>

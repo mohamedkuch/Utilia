@@ -36,8 +36,10 @@ Payments use x402 v2 exact USDC on Solana mainnet. No API key or account is requ
 
 Set SOLANA_KEYPAIR_PATH to a dedicated low-balance automation wallet, then run:
 
-    npx -y utilia-solana-agent doctor
-    npx -y utilia-solana-agent pdf-to-markdown https://example.com/document.pdf --max-pages 50
+    npx -y github:mohamedkuch/utilia-solana-agent#befa103 doctor
+    npx -y github:mohamedkuch/utilia-solana-agent#befa103 pdf-to-markdown https://example.com/document.pdf --max-pages 50
+
+Dedicated PDF API page: https://utilia.ink/pdf-to-markdown
 
 Install the dedicated agent skill:
 

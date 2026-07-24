@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#08110c" />
+    <meta name="color-scheme" content="dark" />
+    <title>PDF to Markdown API for AI Agents — $0.0025 x402 | Utilia</title>
+    <meta
+      name="description"
+      content="Convert a public PDF URL into page-delimited Markdown, metadata, page count, and a SHA-256 digest for $0.0025 USDC. Agent-ready x402 API with no account or API key."
+    />
+    <link rel="canonical" href="https://utilia.ink/pdf-to-markdown" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/style.css" />
+    <script>
+      window.va =
+        window.va ||
+        function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Utilia" />
+    <meta property="og:url" content="https://utilia.ink/pdf-to-markdown" />
+    <meta
+      property="og:title"
+      content="PDF to Markdown API for AI Agents — $0.0025 x402"
+    />
+    <meta
+      property="og:description"
+      content="Public PDF in. Page-delimited Markdown, metadata, and source digest out. No account or API key."
+    />
+    <meta
+      property="og:image"
+      content="https://utilia.ink/opengraph-image.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@utiliax402" />
+    <meta
+      name="twitter:title"
+      content="PDF to Markdown API for AI Agents — $0.0025 x402"
+    />
+    <meta
+      name="twitter:description"
+      content="Page-delimited Markdown from a public PDF URL, paid per call with USDC."
+    />
+    <meta
+      name="twitter:image"
+      content="https://utilia.ink/opengraph-image.png"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebAPI",
+        "name": "Utilia PDF to Markdown API",
+        "url": "https://api.utilia.ink/v1/pdf/to-markdown",
+        "documentation": "https://api.utilia.ink/openapi.json",
+        "description": "Convert a public HTTPS PDF URL or base64 PDF into page-delimited Markdown, document metadata, page count, and a source SHA-256 digest.",
+        "provider": {
+          "@type": "Organization",
+          "name": "Utilia",
+          "url": "https://utilia.ink"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0.0025",
+          "priceCurrency": "USD",
+          "description": "One x402 USDC payment per successful conversion"
+        },
+        "sameAs": [
+          "https://smithery.ai/skills/medksbuss/utilia-pdf-to-markdown",
+          "https://skills.sh/mohamedkuch/utilia-solana-agent/utilia-pdf-to-markdown",
+          "https://github.com/mohamedkuch/utilia-solana-agent/tree/main/skills/utilia-pdf-to-markdown"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Utilia home">
+        <span class="brand-mark" aria-hidden="true">U</span>
+        <span>UTILIA</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#install">Install</a>
+        <a href="#response">Response</a>
+        <a href="#limits">Limits</a>
+        <a href="https://api.utilia.ink/openapi.json">OpenAPI</a>
+        <a class="nav-cta" href="https://api.utilia.ink/healthz">
+          <span class="status-dot" aria-hidden="true"></span>
+          Live API
+        </a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span>PDF TO MARKDOWN API</span>
+            <span>X402</span>
+            <span>NO API KEY</span>
+          </p>
+          <h1 id="hero-title">
+            PDF to Markdown.<br /><em>Built for agents.</em>
+          </h1>
+          <p class="hero-lede">
+            Give Utilia a public PDF URL. Receive page-delimited Markdown,
+            document metadata, page count, and a source SHA-256 digest for
+            exactly $0.0025 USDC.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#install">
+              Run one conversion <span aria-hidden="true">↓</span>
+            </a>
+            <a
+              class="button button-secondary"
+              href="https://smithery.ai/skills/medksbuss/utilia-pdf-to-markdown"
+            >
+              Open in Smithery
+            </a>
+          </div>
+        </div>
+
+        <aside class="terminal" aria-label="PDF conversion payment flow">
+          <div class="terminal-bar">
+            <span class="terminal-title">POST /v1/pdf/to-markdown</span>
+            <span class="terminal-live">mainnet</span>
+          </div>
+          <div class="terminal-body">
+            <p><span class="prompt">›</span> send public PDF URL</p>
+            <p class="muted">402 payment_required · 0.0025 USDC</p>
+            <p><span class="prompt">›</span> authorize exact payment locally</p>
+            <p class="success">✓ Markdown · metadata · digest</p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="trust-strip" aria-label="PDF API facts">
+        <div>
+          <strong>$0.0025</strong><span>per successful conversion</span>
+        </div>
+        <div><strong>100</strong><span>maximum pages</span></div>
+        <div><strong>8 MiB</strong><span>maximum source size</span></div>
+        <div><strong>0</strong><span>accounts or API keys</span></div>
+      </section>
+
+      <section
+        class="section install-section"
+        id="install"
+        aria-labelledby="install-title"
+      >
+        <div class="install-copy">
+          <p class="kicker">ONE COMMAND</p>
+          <h2 id="install-title">Pay and convert from your agent.</h2>
+          <p>
+            The client discovers the x402 price, verifies the official receiver
+            and $0.01 safety ceiling, signs the exact payment locally, and
+            returns the result. Your wallet key never goes to Utilia.
+          </p>
+          <div class="package-links">
+            <a
+              class="text-link"
+              href="https://smithery.ai/skills/medksbuss/utilia-pdf-to-markdown"
+            >
+              Smithery skill <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              class="text-link"
+              href="https://skills.sh/mohamedkuch/utilia-solana-agent/utilia-pdf-to-markdown"
+            >
+              skills.sh listing <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              class="text-link"
+              href="https://github.com/mohamedkuch/utilia-solana-agent/tree/main/skills/utilia-pdf-to-markdown"
+            >
+              Inspect the skill source <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+        <div class="install-card">
+          <div class="code-label">
+            <span>terminal</span><span>Solana mainnet USDC</span>
+          </div>
+          <pre><code><span class="comment"># Dedicated low-balance agent wallet</span>
+export SOLANA_KEYPAIR_PATH=\
+/absolute/path/to/agent-wallet.json
+
+npx -y github:mohamedkuch/utilia-solana-agent#befa103 doctor
+
+npx -y github:mohamedkuch/utilia-solana-agent#befa103 \
+  pdf-to-markdown https://example.com/report.pdf \
+  --max-pages 50</code></pre>
+          <div class="install-guardrails">
+            <span>✓ receiver verified</span>
+            <span>✓ price ceiling</span>
+            <span>✓ local signing</span>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section tools-section"
+        id="response"
+        aria-labelledby="response-title"
+      >
+        <div class="section-heading">
+          <p class="kicker">DETERMINISTIC OUTPUT</p>
+          <h2 id="response-title">What the agent receives.</h2>
+          <p>
+            Page markers preserve provenance. The digest lets downstream systems
+            associate derived chunks with the exact source bytes.
+          </p>
+        </div>
+        <div class="code-panel">
+          <div class="code-label">
+            <span>application/json</span><span>example</span>
+          </div>
+          <pre><code>{
+  "title": "Quarterly report",
+  "totalPages": 4,
+  "sourceBytes": 48321,
+  "textCharacters": 12940,
+  "sha256": "47b9…",
+  "markdown": "# Quarterly report\n\n## Page 1\n\n…"
+}</code></pre>
+        </div>
+      </section>
+
+      <section
+        class="section tools-section"
+        id="limits"
+        aria-labelledby="limits-title"
+      >
+        <div class="section-heading">
+          <p class="kicker">BOUNDED BY DESIGN</p>
+          <h2 id="limits-title">Useful limits, explicit behavior.</h2>
+        </div>
+        <div class="tool-grid">
+          <article class="tool-card">
+            <div class="tool-topline">
+              <span class="tool-number">01</span><span class="price">URL</span>
+            </div>
+            <h3>Public HTTPS only</h3>
+            <p>
+              Private-network addresses and unsafe redirects are rejected.
+              Base64 is available through the API when the caller is authorized
+              to send the file.
+            </p>
+          </article>
+          <article class="tool-card">
+            <div class="tool-topline">
+              <span class="tool-number">02</span><span class="price">TEXT</span>
+            </div>
+            <h3>No OCR promise</h3>
+            <p>
+              The service extracts embedded PDF text. Image-only scans may
+              return little text and should use a dedicated OCR workflow.
+            </p>
+          </article>
+          <article class="tool-card">
+            <div class="tool-topline">
+              <span class="tool-number">03</span><span class="price">X402</span>
+            </div>
+            <h3>Pay only on success</h3>
+            <p>
+              Failed validation or conversion cancels settlement. Successful
+              calls include the settlement evidence returned by the client.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="closing" aria-labelledby="closing-title">
+        <p class="kicker">AGENT-READY DOCUMENT TEXT</p>
+        <h2 id="closing-title">Link. Pay. Extract. Build.</h2>
+        <p>
+          Add the skill, point it at a public PDF, and preserve page provenance
+          in your RAG or analysis pipeline.
+        </p>
+        <div class="hero-actions">
+          <a
+            class="button button-primary"
+            href="https://smithery.ai/skills/medksbuss/utilia-pdf-to-markdown"
+            >Install the skill</a
+          >
+          <a class="button button-secondary" href="/">All Utilia tools</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="brand footer-brand">
+        <span class="brand-mark" aria-hidden="true">U</span><span>UTILIA</span>
+      </div>
+      <p>Machine-payable PDF conversion and Solana intelligence.</p>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="https://api.utilia.ink/openapi.json">OpenAPI</a>
+        <a href="/llms.txt">llms.txt</a>
+        <a href="https://smithery.ai/skills/medksbuss/utilia-pdf-to-markdown"
+          >Smithery</a
+        >
+        <a
+          href="https://skills.sh/mohamedkuch/utilia-solana-agent/utilia-pdf-to-markdown"
+          >skills.sh</a
+        >
+        <a href="https://x.com/utiliax402">X / Twitter</a>
+      </div>
+    </footer>
+  </body>
+</html>
