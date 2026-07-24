@@ -1,10 +1,10 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "ink.utilia/solana-preflight",
-  "title": "Utilia Solana Preflight",
-  "description": "Paid Solana transaction diagnostics, simulation, fee estimates, and token risk analysis.",
-  "version": "0.1.0",
-  "websiteUrl": "https://utilia.ink",
+  "title": "Utilia Solana Priority Fee Feed",
+  "description": "Live Solana priority-fee quantiles for transaction agents, plus paid preflight diagnostics.",
+  "version": "0.3.0",
+  "websiteUrl": "https://api.utilia.ink",
   "remotes": [
     {
       "type": "streamable-http",
