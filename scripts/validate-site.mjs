@@ -20,10 +20,10 @@ const publicText = publicFiles.join("\n");
 
 assert.deepEqual(publicManifest, rootManifest, "root and public MCP manifests must match");
 assert.equal(publicManifest.name, "ink.utilia/solana-preflight");
-assert.equal(publicManifest.version, "0.5.2");
+assert.equal(publicManifest.version, "0.5.3");
 assert.equal(publicManifest.repository?.url, "https://github.com/mohamedkuch/utilia-solana-agent");
 assert.equal(publicManifest.packages?.[0]?.identifier, "utilia-solana-agent");
-assert.equal(publicManifest.packages?.[0]?.version, "0.5.3");
+assert.equal(publicManifest.packages?.[0]?.version, "0.5.5");
 assert.equal(publicManifest.remotes?.[0]?.url, "https://api.utilia.ink/mcp");
 
 assert.deepEqual(agentMetadata.capabilities?.mcp?.tools, [
@@ -51,7 +51,7 @@ for (const stale of [
 }
 
 for (const required of [
-  "utilia-solana-agent@0.5.3",
+  "utilia-solana-agent@0.5.5",
   "https://api.utilia.ink/openapi.json",
   "https://api.utilia.ink/mcp",
   "https://github.com/mohamedkuch/utilia-solana-agent",

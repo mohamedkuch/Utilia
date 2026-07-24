@@ -3,7 +3,7 @@
   "name": "ink.utilia/solana-preflight",
   "title": "Utilia Agent Media and Solana Tools",
   "description": "Paid audio/PDF transforms plus live Solana priority fees and preflight diagnostics.",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "websiteUrl": "https://api.utilia.ink",
   "repository": {
     "url": "https://github.com/mohamedkuch/utilia-solana-agent",
@@ -14,7 +14,7 @@
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "utilia-solana-agent",
-      "version": "0.5.3",
+      "version": "0.5.5",
       "transport": {
         "type": "stdio"
       },
