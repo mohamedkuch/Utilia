@@ -1,8 +1,9 @@
 # Utilia Agent Media and Solana Tools
 
-[Utilia](https://utilia.ink) converts PDFs to agent-ready Markdown, normalizes audio,
-and gives transaction agents live Solana intelligence. Every call uses an exact x402
-USDC payment. No account, subscription, or API key is required.
+[Utilia](https://utilia.ink) diagnoses failed Solana transactions, supplies live
+priority-fee bids, converts PDFs to agent-ready Markdown, and normalizes audio. Every
+call uses an exact x402 USDC payment. No account, subscription, or API key is
+required.
 
 | Product                | HTTP route                       | MCP tool                      | Price   |
 | ---------------------- | -------------------------------- | ----------------------------- | ------- |
@@ -16,6 +17,8 @@ USDC payment. No account, subscription, or API key is required.
 ## Live interfaces
 
 - Website: <https://utilia.ink>
+- Transaction support: <https://utilia.ink/solana-transaction-support>
+- Priority-fee watcher: <https://utilia.ink/priority-fees>
 - API: <https://api.utilia.ink>
 - OpenAPI: <https://api.utilia.ink/openapi.json>
 - Remote MCP: `https://api.utilia.ink/mcp`
@@ -28,6 +31,14 @@ USDC payment. No account, subscription, or API key is required.
 - x402 Arena: <https://x402arena.gg>
 
 ## Run the MCP buyer
+
+Diagnose a confirmed or failed transaction in one command:
+
+```sh
+SOLANA_KEYPAIR_PATH=/absolute/path/to/agent-wallet.json \
+  npx -y utilia-solana-agent@0.5.7 transaction \
+  <solana-transaction-signature>
+```
 
 Convert a public PDF in one command:
 

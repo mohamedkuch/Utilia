@@ -485,6 +485,10 @@ h2 {
   background: var(--panel);
   transition: border-color 160ms ease;
 }
+.receipt-stack {
+  display: grid;
+  gap: 12px;
+}
 .receipt:hover {
   border-color: var(--green);
 }

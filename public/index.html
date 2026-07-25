@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#08110c" />
     <meta name="color-scheme" content="dark" />
-    <title>Utilia — PDF to Markdown and live Solana tools for agents</title>
+    <title>Utilia — Solana transaction diagnosis and live priority fees</title>
     <meta
       name="description"
-      content="Convert public PDFs to page-delimited Markdown or fetch live Solana transaction intelligence. Pay per call with x402 USDC; no API key."
+      content="Explain failed Solana transactions, simulate before broadcast, and fetch live priority-fee bids. Pay per call with x402 USDC; no API key."
     />
     <link rel="canonical" href="https://utilia.ink/" />
     <link rel="icon" href="/icon.svg" type="image/svg+xml" />
@@ -32,11 +32,11 @@
     <meta property="og:url" content="https://utilia.ink/" />
     <meta
       property="og:title"
-      content="Utilia — PDF to Markdown and live Solana tools for agents"
+      content="Utilia — Solana transaction diagnosis and live priority fees"
     />
     <meta
       property="og:description"
-      content="Public PDF in, page-delimited Markdown out for $0.0025 USDC. No account or API key."
+      content="Give Utilia a failed Solana signature. Get evidence, a retry-safe cause, and the next action for $0.004 USDC."
     />
     <meta
       property="og:image"
@@ -46,11 +46,11 @@
     <meta name="twitter:site" content="@utiliax402" />
     <meta
       name="twitter:title"
-      content="Utilia — PDF to Markdown and live Solana tools for agents"
+      content="Utilia — Solana transaction diagnosis and live priority fees"
     />
     <meta
       name="twitter:description"
-      content="Public PDF to agent-ready Markdown for $0.0025 per x402 call."
+      content="Failed Solana transaction in. Evidence and a retry-safe next action out for $0.004."
     />
     <meta
       name="twitter:image"
@@ -60,7 +60,7 @@
       {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "Utilia Agent Media and Solana Tools",
+        "name": "Utilia Solana Transaction Tools",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Any",
         "url": "https://utilia.ink",
@@ -75,11 +75,11 @@
           "https://8004market.io/agent/solana/mainnet-beta/1462",
           "https://x402arena.gg"
         ],
-        "description": "Bounded PDF and audio transforms plus live Solana transaction intelligence for autonomous agents.",
+        "description": "Machine-payable Solana transaction diagnosis, preflight simulation, priority-fee bids, and token-risk evidence for autonomous agents.",
         "offers": {
           "@type": "AggregateOffer",
           "lowPrice": "0.002",
-          "highPrice": "0.008",
+          "highPrice": "0.01",
           "priceCurrency": "USD"
         }
       }
@@ -92,13 +92,12 @@
         <span>UTILIA</span>
       </a>
       <nav aria-label="Main navigation">
-        <a href="#tools">Tools</a>
+        <a href="/solana-transaction-support">Transaction support</a>
+        <a href="/priority-fees">Priority fees</a>
         <a href="/pdf-to-markdown">PDF converter</a>
         <a href="#mcp">MCP</a>
-        <a href="https://api.utilia.ink/openapi.json">Docs</a>
-        <a class="nav-cta" href="https://api.utilia.ink/healthz">
-          <span class="status-dot" aria-hidden="true"></span>
-          Live API
+        <a class="nav-cta" href="#install">
+          Diagnose a transaction
         </a>
       </nav>
     </header>
@@ -107,24 +106,25 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <p class="eyebrow">
-            <span>PDF TO MARKDOWN</span>
+            <span>SOLANA TRANSACTION SUPPORT</span>
             <span>X402</span>
             <span>REMOTE MCP</span>
           </p>
-          <h1 id="hero-title">PDF text.<br /><em>Agent ready.</em></h1>
+          <h1 id="hero-title">Failed transaction.<br /><em>Explained.</em></h1>
           <p class="hero-lede">
-            Public PDF in. Page-delimited Markdown, metadata, and source digest
-            out. $0.0025 per result. No account. No API key.
+            Send a Solana signature. Get balance deltas, logs, compute use, a
+            retry-safe failure class, and the next action. $0.004 per result. No
+            account. No API key.
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#install">
-              Convert a PDF <span aria-hidden="true">↓</span>
+              Diagnose a transaction <span aria-hidden="true">↓</span>
             </a>
             <a
               class="button button-secondary"
-              href="https://api.utilia.ink/openapi.json"
+              href="/priority-fees"
             >
-              Read OpenAPI
+              Run a live fee feed
             </a>
           </div>
         </div>
@@ -135,35 +135,35 @@
             <span class="terminal-live">mainnet</span>
           </div>
           <div class="terminal-body">
-            <p><span class="prompt">›</span> call pdf_to_markdown</p>
-            <p class="muted">payment_required</p>
+            <p><span class="prompt">›</span> analyze transaction 4hzZ…DuEF</p>
+            <p class="muted">payment_required · exact x402</p>
             <dl>
               <div>
                 <dt>amount</dt>
-                <dd>0.0025 USDC</dd>
+                <dd>0.004 USDC</dd>
               </div>
               <div>
-                <dt>network</dt>
-                <dd>solana:mainnet</dd>
+                <dt>status</dt>
+                <dd>failed</dd>
               </div>
               <div>
-                <dt>scheme</dt>
-                <dd>x402 exact</dd>
+                <dt>category</dt>
+                <dd>slippage</dd>
               </div>
             </dl>
-            <p><span class="prompt">›</span> authorize 0.0025 USDC</p>
-            <p class="success">✓ paid · executed · settled</p>
+            <p class="success">✓ landed · fee charged · swap rejected</p>
             <p class="json">
-              { "pages": 12,<br />&nbsp; "markdown": "# Document…",<br />&nbsp;
-              "sourceSha256": "9f14…" }
+              { "summary": "Output fell below minimum",<br />&nbsp;
+              "suggestedAction": "Refresh quote and rebuild",<br />&nbsp;
+              "computeUnitsConsumed": 190482 }
             </p>
           </div>
         </aside>
       </section>
 
       <section class="trust-strip" aria-label="Product facts">
-        <div><strong>$0.0025</strong><span>per PDF conversion</span></div>
-        <div><strong>100</strong><span>maximum pages</span></div>
+        <div><strong>$0.004</strong><span>per transaction diagnosis</span></div>
+        <div><strong>$0.002</strong><span>per live priority-fee sample</span></div>
         <div><strong>6</strong><span>paid agent tools</span></div>
         <div><strong>0</strong><span>signups or API keys</span></div>
       </section>
@@ -174,31 +174,25 @@
         aria-labelledby="install-title"
       >
         <div class="install-copy">
-          <p class="kicker">ONE-COMMAND PDF CONVERTER</p>
-          <h2 id="install-title">Public PDF in.<br />Markdown out.</h2>
+          <p class="kicker">ONE-COMMAND TRANSACTION SUPPORT</p>
+          <h2 id="install-title">Signature in.<br />Evidence out.</h2>
           <p>
-            The wallet-funded client extracts up to 100 pages and returns
-            page-delimited Markdown, document metadata, page count, and a source
-            SHA-256 digest for verification.
+            The wallet-funded client verifies the official receiver and spend
+            ceiling before it pays. The response separates what happened on-chain
+            from what the agent should safely try next.
           </p>
           <div class="package-links">
+            <a class="text-link" href="/solana-transaction-support">
+              See the diagnosis workflow <span aria-hidden="true">→</span>
+            </a>
             <a
               class="text-link"
               href="https://www.npmjs.com/package/utilia-solana-agent"
             >
               Install from npm <span aria-hidden="true">↗</span>
             </a>
-            <a
-              class="text-link"
-              href="https://skills.sh/mohamedkuch/utilia-solana-agent/utilia-pdf-to-markdown"
-            >
-              Install the PDF skill <span aria-hidden="true">↗</span>
-            </a>
-            <a
-              class="text-link"
-              href="https://smithery.ai/skills/medksbuss/utilia-pdf-to-markdown"
-            >
-              Smithery skill mirror <span aria-hidden="true">↗</span>
+            <a class="text-link" href="/priority-fees">
+              Run the budget-capped fee watcher <span aria-hidden="true">→</span>
             </a>
             <a
               class="text-link"
@@ -218,38 +212,22 @@
             >
               Agent402 Marketplace <span aria-hidden="true">↗</span>
             </a>
-            <a
-              class="text-link"
-              href="https://agora402.io/agents/9967cabb-4b2d-4f1f-af98-e19ca77a5768"
-            >
-              Agora402 Registry <span aria-hidden="true">↗</span>
-            </a>
-            <a
-              class="text-link"
-              href="https://8004market.io/agent/solana/mainnet-beta/1462"
-            >
-              8004 on-chain identity <span aria-hidden="true">↗</span>
-            </a>
-            <a class="text-link" href="https://x402arena.gg">
-              x402 Arena <span aria-hidden="true">↗</span>
-            </a>
           </div>
         </div>
         <div class="install-card">
           <div class="code-label">
-            <span>terminal</span><span>exact $0.0025 x402 payment</span>
+            <span>terminal</span><span>exact $0.004 x402 payment</span>
           </div>
           <pre><code><span class="comment"># Use a dedicated low-balance agent wallet</span>
 export SOLANA_KEYPAIR_PATH=\
 /absolute/path/to/agent-wallet.json
 
-npx -y utilia-solana-agent@0.5.7 pdf-to-markdown \
-  https://example.com/document.pdf \
-  --max-pages 50</code></pre>
+npx -y utilia-solana-agent@0.5.7 transaction \
+  4hzZBr8uqd4ba4A28qDPJWPVGfQtrBfA63jHr7k18hEEfxN6JEsmbDkKQ8hsULMfy1CXBhJEkzUnympWvSU4DuEF</code></pre>
           <div class="install-guardrails">
-            <span>✓ one exact payment</span>
-            <span>✓ page provenance</span>
-            <span>✓ source digest</span>
+            <span>✓ exact payment ceiling</span>
+            <span>✓ full on-chain evidence</span>
+            <span>✓ retry-safe classification</span>
           </div>
         </div>
       </section>
@@ -261,24 +239,24 @@ npx -y utilia-solana-agent@0.5.7 pdf-to-markdown \
       >
         <div class="section-heading">
           <p class="kicker">THE PRODUCT</p>
-          <h2 id="tools-title">Two media transforms. Four Solana tools.</h2>
+          <h2 id="tools-title">Four Solana decisions. Two utility transforms.</h2>
           <p>
-            Every route advertises its exact USDC price. Failed operations
-            cancel settlement.
+            Start with the transaction outcome. Add live fee bidding, simulation,
+            or token evidence only when the workflow needs it.
           </p>
         </div>
         <div class="tool-grid">
           <article class="tool-card">
             <div class="tool-topline">
               <span class="tool-number">01</span
-              ><span class="price">$0.0025</span>
+              ><span class="price">$0.004</span>
             </div>
-            <h3>PDF to Markdown</h3>
-            <code><span>POST</span> /v1/pdf/to-markdown</code>
+            <h3>Transaction diagnosis</h3>
+            <code><span>GET</span> /v1/transaction/:signature</code>
             <p>
-              Convert a public or base64 PDF into page-delimited Markdown,
-              metadata, and a source digest.
-              <a href="/pdf-to-markdown">PDF API details →</a>
+              Turn a failed signature into balance deltas, logs, compute use,
+              confirmation, and a retry-safe next action.
+              <a href="/solana-transaction-support">Diagnosis workflow →</a>
             </p>
           </article>
           <article class="tool-card">
@@ -291,42 +269,44 @@ npx -y utilia-solana-agent@0.5.7 pdf-to-markdown \
             <p>
               Timestamped fee quantiles globally or for up to twenty writable
               accounts, with an explicit observation time and sample count.
+              <a href="/priority-fees">Fee watcher guide →</a>
             </p>
           </article>
           <article class="tool-card">
             <div class="tool-topline">
               <span class="tool-number">03</span
-              ><span class="price">$0.004</span>
-            </div>
-            <h3>Transaction analysis</h3>
-            <code><span>GET</span> /v1/transaction/:signature</code>
-            <p>
-              Explain balance deltas, logs, compute use, confirmation, and
-              retry-safe failures.
-            </p>
-          </article>
-          <article class="tool-card">
-            <div class="tool-topline">
-              <span class="tool-number">04</span
               ><span class="price">$0.008</span>
             </div>
             <h3>Preflight simulation</h3>
             <code><span>POST</span> /v1/transaction/simulate</code>
             <p>
-              Simulate with a fresh blockhash before broadcast. Classify
-              failures before retrying.
+              Simulate with a fresh blockhash before broadcast. Classify failures
+              before the wallet signs or the bot retries.
             </p>
           </article>
           <article class="tool-card">
             <div class="tool-topline">
-              <span class="tool-number">05</span
+              <span class="tool-number">04</span
               ><span class="price">$0.006</span>
             </div>
             <h3>Token risk</h3>
             <code><span>GET</span> /v1/token/:mint</code>
             <p>
-              Inspect authorities, Token-2022 controls, supply, and holder
-              concentration.
+              Inspect mint and freeze authority, Token-2022 controls, supply,
+              largest holders, and concentration flags before interacting.
+            </p>
+          </article>
+          <article class="tool-card">
+            <div class="tool-topline">
+              <span class="tool-number">05</span
+              ><span class="price">$0.0025</span>
+            </div>
+            <h3>PDF to Markdown</h3>
+            <code><span>POST</span> /v1/pdf/to-markdown</code>
+            <p>
+              Convert a public or base64 PDF into page-delimited Markdown,
+              metadata, and a source digest.
+              <a href="/pdf-to-markdown">PDF API details →</a>
             </p>
           </article>
           <article class="tool-card">
@@ -395,36 +375,53 @@ npx -y utilia-solana-agent@0.5.7 pdf-to-markdown \
       <section class="section proof-section" aria-labelledby="proof-title">
         <div>
           <p class="kicker">PROOF, NOT PROMISES</p>
-          <h2 id="proof-title">Contract audited. Live on mainnet.</h2>
+          <h2 id="proof-title">Paid by external wallets. Live on mainnet.</h2>
         </div>
-        <a
-          class="receipt"
-          href="https://api.utilia.ink/healthz"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span class="receipt-icon" aria-hidden="true">↗</span>
-          <span>
-            <strong>Live production health and version</strong>
-            <small>api.utilia.ink/healthz</small>
-          </span>
-          <span class="receipt-value">API 0.5.6</span>
-        </a>
+        <div class="receipt-stack">
+          <a
+            class="receipt"
+            href="https://solscan.io/tx/2mEVuqWuqtGfoDEigQZ1exjXcw8AWHEs3sv4khmjifnSf7yJm7FjoCH4tV5sb7wdPfn7zUPFYrrE31thUEDeZtQU"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span class="receipt-icon" aria-hidden="true">↗</span>
+            <span>
+              <strong>Independent priority-fee purchase</strong>
+              <small>exact $0.002 Solana USDC settlement</small>
+            </span>
+            <span class="receipt-value">ON-CHAIN</span>
+          </a>
+          <a
+            class="receipt"
+            href="https://api.utilia.ink/healthz"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span class="receipt-icon" aria-hidden="true">↗</span>
+            <span>
+              <strong>Live production health and version</strong>
+              <small>api.utilia.ink/healthz</small>
+            </span>
+            <span class="receipt-value">API 0.5.6</span>
+          </a>
+        </div>
       </section>
 
       <section class="closing" aria-labelledby="closing-title">
         <p class="kicker">BUILD THE LOOP</p>
-        <h2 id="closing-title">Link. Pay. Extract. Build.</h2>
+        <h2 id="closing-title">Diagnose. Retry safely. Keep shipping.</h2>
         <p>
-          Give your agent clean document text without another account or API
-          key.
+          Give a transaction agent evidence it can act on without another
+          account, API key, or subscription.
         </p>
         <div class="hero-actions">
-          <a class="button button-primary" href="/llms.txt">Read agent guide</a>
+          <a class="button button-primary" href="/solana-transaction-support"
+            >Diagnose a transaction</a
+          >
           <a
             class="button button-secondary"
-            href="https://www.npmjs.com/package/utilia-solana-agent"
-            >Install package</a
+            href="/priority-fees"
+            >Run a fee watcher</a
           >
         </div>
       </section>
@@ -434,8 +431,10 @@ npx -y utilia-solana-agent@0.5.7 pdf-to-markdown \
       <div class="brand footer-brand">
         <span class="brand-mark" aria-hidden="true">U</span><span>UTILIA</span>
       </div>
-      <p>Machine-payable media transforms and Solana intelligence.</p>
+      <p>Machine-payable Solana evidence for transaction agents.</p>
       <div class="footer-links">
+        <a href="/solana-transaction-support">Transaction support</a>
+        <a href="/priority-fees">Priority fees</a>
         <a href="/pdf-to-markdown">PDF-to-Markdown API</a>
         <a href="https://api.utilia.ink/openapi.json">OpenAPI</a>
         <a href="/llms.txt">llms.txt</a>

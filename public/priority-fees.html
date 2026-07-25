@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#08110c" />
+    <meta name="color-scheme" content="dark" />
+    <title>Solana Priority Fee API and Watcher — $0.002 | Utilia</title>
+    <meta
+      name="description"
+      content="Fetch timestamped Solana priority-fee quantiles once or run a five-calls-per-hour JSONL watcher with a hard $0.05 spend cap."
+    />
+    <link rel="canonical" href="https://utilia.ink/priority-fees" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/style.css" />
+    <script>
+      window.va =
+        window.va ||
+        function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Utilia" />
+    <meta property="og:url" content="https://utilia.ink/priority-fees" />
+    <meta
+      property="og:title"
+      content="Fresh Solana priority-fee bids for $0.002 per sample"
+    />
+    <meta
+      property="og:description"
+      content="Five samples per hour for $0.01. Hard-stop after 25 paid calls and $0.05."
+    />
+    <meta
+      property="og:image"
+      content="https://utilia.ink/opengraph-image.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@utiliax402" />
+    <meta
+      name="twitter:title"
+      content="Fresh Solana priority-fee bids for $0.002 per sample"
+    />
+    <meta
+      name="twitter:description"
+      content="A budget-capped JSONL fee feed for transaction bots. No API key."
+    />
+    <meta
+      name="twitter:image"
+      content="https://utilia.ink/opengraph-image.png"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebAPI",
+        "name": "Utilia Solana Priority Fee API",
+        "url": "https://api.utilia.ink/v1/fees/priority",
+        "documentation": "https://api.utilia.ink/openapi.json",
+        "description": "Timestamped network-wide or account-localized Solana priority-fee quantiles for transaction builders and recurring bots.",
+        "provider": {
+          "@type": "Organization",
+          "name": "Utilia",
+          "url": "https://utilia.ink"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0.002",
+          "priceCurrency": "USD",
+          "description": "One exact x402 USDC payment per live sample"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Utilia home">
+        <span class="brand-mark" aria-hidden="true">U</span>
+        <span>UTILIA</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#watcher">Watcher</a>
+        <a href="#one-call">One call</a>
+        <a href="/solana-transaction-support">Transaction support</a>
+        <a href="https://api.utilia.ink/openapi.json">OpenAPI</a>
+        <a class="nav-cta" href="#watcher">Run the fee feed</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span>PRIORITY-FEE WATCHER</span>
+            <span>SOLANA</span>
+            <span>$0.002 / SAMPLE</span>
+          </p>
+          <h1 id="hero-title">Fresh fee bids.<br /><em>Hard budget cap.</em></h1>
+          <p class="hero-lede">
+            Poll timestamped Solana priority-fee quantiles five times per hour for
+            $0.01. Stop automatically after 25 paid calls and $0.05 of maximum
+            Utilia spend.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#watcher">
+              Start the watcher <span aria-hidden="true">↓</span>
+            </a>
+            <a
+              class="button button-secondary"
+              href="https://api.utilia.ink/base/v1/fees/priority"
+            >
+              Inspect the live quote
+            </a>
+          </div>
+        </div>
+
+        <aside class="terminal" aria-label="Priority fee response">
+          <div class="terminal-bar">
+            <span class="terminal-title">solana_priority_fees</span>
+            <span class="terminal-live">timestamped</span>
+          </div>
+          <div class="terminal-body">
+            <p><span class="prompt">›</span> sample writable accounts</p>
+            <p class="success">✓ paid · observed · settled</p>
+            <p class="json">
+              { "sampleCount": 150,<br />&nbsp; "lowMicroLamports": 1000,<br />&nbsp;
+              "mediumMicroLamports": 5000,<br />&nbsp; "highMicroLamports":
+              10000,<br />&nbsp; "urgentMicroLamports": 25000 }
+            </p>
+            <p class="muted">Example response shape; live values change by slot.</p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="trust-strip" aria-label="Priority fee API facts">
+        <div><strong>$0.002</strong><span>per live sample</span></div>
+        <div><strong>5 / hour</strong><span>default watcher cadence</span></div>
+        <div><strong>$0.05</strong><span>default maximum spend</span></div>
+        <div><strong>20</strong><span>writable accounts per query</span></div>
+      </section>
+
+      <section
+        class="section install-section"
+        id="watcher"
+        aria-labelledby="watcher-title"
+      >
+        <div class="install-copy">
+          <p class="kicker">RECURRING BOT FEED</p>
+          <h2 id="watcher-title">JSONL now. Then every 12 minutes.</h2>
+          <p>
+            Each line includes the observation time, call number, paid amount,
+            settlement transaction, and fresh fee data. Ctrl-C stops immediately;
+            the call and spend ceilings stop it automatically.
+          </p>
+          <div class="package-links">
+            <a
+              class="text-link"
+              href="https://www.npmjs.com/package/utilia-solana-agent"
+            >
+              Inspect the npm client <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              class="text-link"
+              href="https://api.utilia.ink/guides/priority-fees"
+            >
+              Read the machine guide <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              class="text-link"
+              href="https://solscan.io/tx/2mEVuqWuqtGfoDEigQZ1exjXcw8AWHEs3sv4khmjifnSf7yJm7FjoCH4tV5sb7wdPfn7zUPFYrrE31thUEDeZtQU"
+            >
+              Verify an independent purchase <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+        <div class="install-card">
+          <div class="code-label">
+            <span>terminal</span><span>25 calls · $0.05 hard stop</span>
+          </div>
+          <pre><code>export SOLANA_KEYPAIR_PATH=\
+/absolute/path/to/low-balance-wallet.json
+
+npx -y utilia-solana-agent@0.5.7 watch-fees \
+  --every 12m \
+  --max-calls 25</code></pre>
+          <div class="install-guardrails">
+            <span>✓ first result immediately</span>
+            <span>✓ five calls per hour</span>
+            <span>✓ exact settlement receipt</span>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section install-section"
+        id="one-call"
+        aria-labelledby="one-call-title"
+      >
+        <div class="install-copy">
+          <p class="kicker">WALLET-MANAGED BASE CALL</p>
+          <h2 id="one-call-title">Check first. Pay only on fetch.</h2>
+          <p>
+            AgentCash handles its own wallet, reads the x402 challenge, pays the
+            exact Base USDC amount, and retries the request. The check command is
+            free and shows the price before any payment.
+          </p>
+          <div class="package-links">
+            <a class="text-link" href="https://agentcash.dev/onboard">
+              Fund an AgentCash wallet <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              class="text-link"
+              href="https://api.utilia.ink/base/v1/fees/priority"
+            >
+              View the HTTP 402 quote <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+        <div class="install-card">
+          <div class="code-label">
+            <span>agentcash</span><span>Base USDC · exact $0.002</span>
+          </div>
+          <pre><code>npx -y agentcash@latest check \
+  https://api.utilia.ink/base/v1/fees/priority
+
+npx -y agentcash@latest fetch \
+  https://api.utilia.ink/base/v1/fees/priority \
+  --yes</code></pre>
+          <div class="install-guardrails">
+            <span>✓ free price check</span>
+            <span>✓ wallet-managed payment</span>
+            <span>✓ no Utilia account</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section tools-section" aria-labelledby="fit-title">
+        <div class="section-heading">
+          <p class="kicker">WHEN IT FITS</p>
+          <h2 id="fit-title">Built for transaction decisions, not dashboards.</h2>
+          <p>
+            Use the feed immediately before setting a compute-unit price. Localize
+            the sample with the writable accounts from the transaction when
+            network-wide values are too broad.
+          </p>
+        </div>
+        <div class="tool-grid">
+          <article class="tool-card">
+            <div class="tool-topline">
+              <span class="tool-number">01</span><span class="price">BUILD</span>
+            </div>
+            <h3>Choose a compute-unit price</h3>
+            <p>
+              Low, medium, high, and urgent quantiles give the bot an explicit
+              bidding policy instead of one magic number.
+            </p>
+          </article>
+          <article class="tool-card">
+            <div class="tool-topline">
+              <span class="tool-number">02</span><span class="price">LOCALIZE</span>
+            </div>
+            <h3>Include writable accounts</h3>
+            <p>
+              Pass up to twenty account addresses to estimate contention around the
+              programs and state the transaction will actually touch.
+            </p>
+          </article>
+          <article class="tool-card">
+            <div class="tool-topline">
+              <span class="tool-number">03</span><span class="price">VERIFY</span>
+            </div>
+            <h3>Keep the observation time</h3>
+            <p>
+              Every response carries its timestamp, source, sample count, and note
+              so stale fee data is visible in logs and incident reviews.
+            </p>
+          </article>
+          <article class="tool-card">
+            <div class="tool-topline">
+              <span class="tool-number">04</span><span class="price">DIAGNOSE</span>
+            </div>
+            <h3>Explain the result afterward</h3>
+            <p>
+              If the transaction still fails, send the signature to the
+              <a href="/solana-transaction-support">transaction diagnosis API →</a>
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="closing" aria-labelledby="closing-title">
+        <p class="kicker">BUDGET BEFORE BROADCAST</p>
+        <h2 id="closing-title">Give the bot fresh fee evidence without another key.</h2>
+        <p>One live sample is $0.002. Failed operations cancel settlement.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#watcher">Start the watcher</a>
+          <a class="button button-secondary" href="/solana-transaction-support"
+            >Diagnose a failed transaction</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="brand footer-brand">
+        <span class="brand-mark" aria-hidden="true">U</span><span>UTILIA</span>
+      </div>
+      <p>Machine-payable Solana evidence for transaction agents.</p>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/solana-transaction-support">Transaction support</a>
+        <a href="/pdf-to-markdown">PDF-to-Markdown</a>
+        <a href="https://api.utilia.ink/openapi.json">OpenAPI</a>
+        <a href="https://www.npmjs.com/package/utilia-solana-agent">npm</a>
+        <a href="https://x.com/utiliax402">X / Twitter</a>
+      </div>
+    </footer>
+  </body>
+</html>

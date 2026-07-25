@@ -14,6 +14,8 @@ const workflow = await read(".github/workflows/ci.yml");
 const publicFiles = await Promise.all([
   read("README.md"),
   read("public/index.html"),
+  read("public/solana-transaction-support.html"),
+  read("public/priority-fees.html"),
   read("public/pdf-to-markdown.html"),
   read("public/llms.txt"),
   read("public/agent402-metadata.json"),
@@ -79,7 +81,9 @@ for (const required of [
   "https://api.utilia.ink/mcp",
   "https://github.com/mohamedkuch/utilia-solana-agent",
   "normalize_audio",
-  "Contract audited. Live on mainnet.",
+  "Paid by external wallets. Live on mainnet.",
+  "Failed transaction.",
+  "Fresh fee bids.",
 ]) {
   assert.equal(
     publicText.includes(required),
@@ -111,6 +115,8 @@ assert.equal(
 
 for (const path of [
   "public/index.html",
+  "public/solana-transaction-support.html",
+  "public/priority-fees.html",
   "public/pdf-to-markdown.html",
   "public/llms.txt",
   "public/server.json",
