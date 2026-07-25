@@ -14,7 +14,7 @@
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "utilia-solana-agent",
-      "version": "0.5.7",
+      "version": "0.5.8",
       "transport": {
         "type": "stdio"
       },

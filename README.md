@@ -49,7 +49,7 @@ Diagnose a confirmed or failed transaction in one command:
 
 ```sh
 SOLANA_KEYPAIR_PATH=/absolute/path/to/agent-wallet.json \
-  npx -y utilia-solana-agent@0.5.7 transaction \
+  npx -y utilia-solana-agent@0.5.8 transaction \
   <solana-transaction-signature>
 ```
 
@@ -57,7 +57,7 @@ Convert a public PDF in one command:
 
 ```sh
 SOLANA_KEYPAIR_PATH=/absolute/path/to/agent-wallet.json \
-  npx -y utilia-solana-agent@0.5.7 pdf-to-markdown \
+  npx -y utilia-solana-agent@0.5.8 pdf-to-markdown \
   https://example.com/document.pdf --max-pages 50
 ```
 

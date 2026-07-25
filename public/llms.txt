@@ -48,7 +48,7 @@ Machine-readable guide: https://api.utilia.ink/guides/transaction-diagnosis
 
 Native Solana wallet option:
 
-    npx -y utilia-solana-agent@0.5.7 transaction <solana-transaction-signature>
+    npx -y utilia-solana-agent@0.5.8 transaction <solana-transaction-signature>
 
 Install the Solana evidence skill:
 
@@ -58,18 +58,18 @@ Install the Solana evidence skill:
 
 Budget-capped priority-fee feed, five calls per hour and $0.05 maximum spend:
 
-    npx -y utilia-solana-agent@0.5.7 watch-fees --every 12m --max-calls 25
+    npx -y utilia-solana-agent@0.5.8 watch-fees --every 12m --max-calls 25
 
 One live sample:
 
-    npx -y utilia-solana-agent@0.5.7 fees
+    npx -y utilia-solana-agent@0.5.8 fees
 
 ## PDF integration
 
-    npx -y utilia-solana-agent@0.5.7 pdf-to-markdown https://example.com/document.pdf --max-pages 50
+    npx -y utilia-solana-agent@0.5.8 pdf-to-markdown https://example.com/document.pdf --max-pages 50
 
 Dedicated PDF API page: https://utilia.ink/pdf-to-markdown
 
-For stdio MCP clients, run `npx -y utilia-solana-agent@0.5.7 mcp`. The local client rejects
+For stdio MCP clients, run `npx -y utilia-solana-agent@0.5.8 mcp`. The local client rejects
 payments that do not match Solana mainnet USDC, Utilia's receiver, or the $0.01
 per-call ceiling.
