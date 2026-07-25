@@ -24,7 +24,7 @@ assert.deepEqual(
   "root and public MCP manifests must match",
 );
 assert.equal(publicManifest.name, "ink.utilia/solana-preflight");
-assert.equal(publicManifest.version, "0.5.5");
+assert.equal(publicManifest.version, "0.5.6");
 assert.equal(
   publicManifest.repository?.url,
   "https://github.com/mohamedkuch/utilia-solana-agent",
@@ -65,7 +65,7 @@ for (const stale of [
 
 for (const required of [
   "utilia-solana-agent@0.5.7",
-  "API 0.5.5",
+  "API 0.5.6",
   "https://api.utilia.ink/openapi.json",
   "https://api.utilia.ink/mcp",
   "https://github.com/mohamedkuch/utilia-solana-agent",
@@ -86,6 +86,11 @@ assert.equal(
 );
 assert.equal(
   publicText.includes("API 0.5.3"),
+  false,
+  "previous homepage API version remains",
+);
+assert.equal(
+  publicText.includes("API 0.5.5"),
   false,
   "previous homepage API version remains",
 );
