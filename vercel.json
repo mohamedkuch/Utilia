@@ -5,6 +5,20 @@
   "installCommand": null,
   "outputDirectory": "public",
   "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/x/profile",
+      "destination": "/solana-transaction-support.html"
+    },
+    {
+      "source": "/x/tx-support",
+      "destination": "/solana-transaction-support.html"
+    },
+    {
+      "source": "/x/priority-fees",
+      "destination": "/priority-fees.html"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

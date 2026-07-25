@@ -9,6 +9,7 @@ const rootManifest = await json("server.json");
 const publicManifest = await json("public/server.json");
 const agentMetadata = await json("public/agent402-metadata.json");
 const packageJson = await json("package.json");
+const vercelConfig = await json("vercel.json");
 const nvmVersion = (await read(".nvmrc")).trim();
 const workflow = await read(".github/workflows/ci.yml");
 const publicFiles = await Promise.all([
@@ -40,6 +41,20 @@ assert.equal(publicManifest.remotes?.[0]?.url, "https://api.utilia.ink/mcp");
 assert.equal(nvmVersion, "22.23.1");
 assert.equal(packageJson.engines?.node, nvmVersion);
 assert.equal(packageJson.packageManager, "npm@10.9.8");
+assert.deepEqual(vercelConfig.rewrites, [
+  {
+    source: "/x/profile",
+    destination: "/solana-transaction-support.html",
+  },
+  {
+    source: "/x/tx-support",
+    destination: "/solana-transaction-support.html",
+  },
+  {
+    source: "/x/priority-fees",
+    destination: "/priority-fees.html",
+  },
+]);
 assert.match(workflow, new RegExp(`node-version: ${nvmVersion}`));
 assert.match(workflow, /test "\$\(node --version\)" = "v22\.23\.1"/);
 assert.match(workflow, /test "\$\(npm --version\)" = "10\.9\.8"/);
