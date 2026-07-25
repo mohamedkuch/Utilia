@@ -30,6 +30,8 @@ assert.deepEqual(
   "root and public MCP manifests must match",
 );
 assert.equal(publicManifest.name, "ink.utilia/solana-preflight");
+assert.equal(publicManifest.title, "Utilia Solana Transaction Evidence");
+assert.match(publicManifest.description, /transaction diagnosis/);
 assert.equal(publicManifest.version, "0.5.6");
 assert.equal(
   publicManifest.repository?.url,
@@ -67,7 +69,19 @@ assert.deepEqual(agentMetadata.capabilities?.mcp?.tools, [
   "pdf_to_markdown",
   "normalize_audio",
 ]);
+assert.equal(agentMetadata.name, "Utilia Solana Transaction Evidence");
+assert.match(agentMetadata.description, /transaction diagnosis/);
 assert.equal(agentMetadata.endpoints?.length, 6);
+assert.equal(
+  agentMetadata.endpoints?.[0]?.path,
+  "https://api.utilia.ink/v1/transaction/{signature}",
+);
+assert.equal(
+  agentMetadata.attributes?.find(
+    ({ trait_type: type }) => type === "Settlement network",
+  )?.value,
+  "Solana mainnet and Base",
+);
 assert.equal(
   agentMetadata.attributes?.find(
     ({ trait_type: type }) => type === "Price range",

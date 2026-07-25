@@ -1,8 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "ink.utilia/solana-preflight",
-  "title": "Utilia Agent Media and Solana Tools",
-  "description": "Paid audio/PDF transforms plus live Solana priority fees and preflight diagnostics.",
+  "title": "Utilia Solana Transaction Evidence",
+  "description": "Paid Solana transaction diagnosis, simulation, priority fees, and token-risk evidence, plus bounded PDF and audio transforms.",
   "version": "0.5.6",
   "websiteUrl": "https://api.utilia.ink",
   "repository": {

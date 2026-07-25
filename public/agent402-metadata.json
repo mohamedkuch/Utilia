@@ -1,7 +1,7 @@
 {
   "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
-  "name": "Utilia Agent Media + Solana Preflight",
-  "description": "Six pay-per-call tools: Solana transaction simulation, priority fees, diagnostics, token risk analysis, PDF-to-Markdown, and audio normalization.",
+  "name": "Utilia Solana Transaction Evidence",
+  "description": "Pay-per-call Solana transaction diagnosis, simulation, live priority fees, and token-risk evidence, plus bounded PDF and audio transforms.",
   "image": "https://utilia.ink/opengraph-image.png",
   "external_url": "https://utilia.ink",
   "version": "1.0.0",
@@ -76,14 +76,14 @@
   },
   "endpoints": [
     {
-      "path": "https://api.utilia.ink/v1/fees/priority",
-      "method": "GET",
-      "description": "Live Solana priority-fee quantiles for 0.002 USDC."
-    },
-    {
       "path": "https://api.utilia.ink/v1/transaction/{signature}",
       "method": "GET",
       "description": "Transaction diagnostics and retry classification for 0.004 USDC."
+    },
+    {
+      "path": "https://api.utilia.ink/v1/fees/priority",
+      "method": "GET",
+      "description": "Live Solana priority-fee quantiles for 0.002 USDC."
     },
     {
       "path": "https://api.utilia.ink/v1/transaction/simulate",
@@ -126,7 +126,7 @@
   "attributes": [
     {
       "trait_type": "Settlement network",
-      "value": "Solana mainnet"
+      "value": "Solana mainnet and Base"
     },
     {
       "trait_type": "Payment protocol",
