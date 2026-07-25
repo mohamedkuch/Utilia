@@ -111,7 +111,8 @@ for (const required of [
   "https://github.com/mohamedkuch/utilia-solana-agent",
   "normalize_audio",
   "Paid by external wallets. Live on mainnet.",
-  "Failed transaction.",
+  "Failed Solana transaction.",
+  "Live fee bids.",
   "Fresh fee bids.",
   "agentcash@latest fetch",
   "transaction_command_copied",
@@ -157,6 +158,7 @@ for (const path of [
   "public/style.css",
   "public/icon.svg",
   "public/opengraph-image.png",
+  "public/opengraph-priority-fees.png",
 ]) {
   await access(new URL(path, root));
 }

@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#08110c" />
     <meta name="color-scheme" content="dark" />
-    <title>Utilia — Solana transaction diagnosis and live priority fees</title>
+    <title>Utilia — live Solana priority fees for $0.002</title>
     <meta
       name="description"
-      content="Explain failed Solana transactions, simulate before broadcast, and fetch live priority-fee bids. Pay per call with x402 USDC; no API key."
+      content="Give a Solana wallet agent fresh compute-unit price bids for $0.002 per call. Pay with x402 USDC in one AgentCash command; no API key."
     />
     <link rel="canonical" href="https://utilia.ink/" />
     <link rel="icon" href="/icon.svg" type="image/svg+xml" />
@@ -32,29 +32,29 @@
     <meta property="og:url" content="https://utilia.ink/" />
     <meta
       property="og:title"
-      content="Utilia — Solana transaction diagnosis and live priority fees"
+      content="Live Solana priority fees for $0.002"
     />
     <meta
       property="og:description"
-      content="Give Utilia a failed Solana signature. Get evidence, a retry-safe cause, and the next action for $0.004 USDC."
+      content="One AgentCash command returns fresh compute-unit price quantiles. No Utilia account, API key, or subscription."
     />
     <meta
       property="og:image"
-      content="https://utilia.ink/opengraph-image.png"
+      content="https://utilia.ink/opengraph-priority-fees.png"
     />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@utiliax402" />
     <meta
       name="twitter:title"
-      content="Utilia — Solana transaction diagnosis and live priority fees"
+      content="Live Solana priority fees for $0.002"
     />
     <meta
       name="twitter:description"
-      content="Failed Solana transaction in. Evidence and a retry-safe next action out for $0.004."
+      content="One wallet-managed x402 call. Fresh compute-unit price quantiles out."
     />
     <meta
       name="twitter:image"
-      content="https://utilia.ink/opengraph-image.png"
+      content="https://utilia.ink/opengraph-priority-fees.png"
     />
     <script type="application/ld+json">
       {
@@ -96,8 +96,8 @@
         <a href="/priority-fees">Priority fees</a>
         <a href="/pdf-to-markdown">PDF converter</a>
         <a href="#mcp">MCP</a>
-        <a class="nav-cta" href="#install">
-          Diagnose a transaction
+        <a class="nav-cta" href="/priority-fees#one-call">
+          Buy one fee sample
         </a>
       </nav>
     </header>
@@ -106,65 +106,64 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <p class="eyebrow">
-            <span>SOLANA TRANSACTION SUPPORT</span>
+            <span>SOLANA PRIORITY FEES</span>
             <span>X402</span>
-            <span>REMOTE MCP</span>
+            <span>$0.002 / SAMPLE</span>
           </p>
-          <h1 id="hero-title">Failed transaction.<br /><em>Explained.</em></h1>
+          <h1 id="hero-title">Live fee bids.<br /><em>One command.</em></h1>
           <p class="hero-lede">
-            Send a Solana signature. Get balance deltas, logs, compute use, a
-            retry-safe failure class, and the next action. $0.004 per result. No
-            account. No API key.
+            Give a wallet agent fresh compute-unit price quantiles before it
+            sends. $0.002 per sample. No Utilia account, API key, or subscription.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#install">
-              Diagnose a transaction <span aria-hidden="true">↓</span>
+            <a class="button button-primary" href="/priority-fees#one-call">
+              Buy one fee sample <span aria-hidden="true">→</span>
             </a>
             <a
               class="button button-secondary"
-              href="/priority-fees"
+              href="/priority-fees#watcher"
             >
-              Run a live fee feed
+              Run the budget-capped watcher
             </a>
           </div>
         </div>
 
-        <aside class="terminal" aria-label="Example paid tool call">
+        <aside class="terminal" aria-label="Example paid priority-fee call">
           <div class="terminal-bar">
-            <span class="terminal-title">agent://utilia</span>
-            <span class="terminal-live">mainnet</span>
+            <span class="terminal-title">agentcash://utilia</span>
+            <span class="terminal-live">Base USDC</span>
           </div>
           <div class="terminal-body">
-            <p><span class="prompt">›</span> analyze transaction 4hzZ…DuEF</p>
-            <p class="muted">payment_required · exact x402</p>
+            <p><span class="prompt">›</span> check Utilia priority fees</p>
+            <p class="muted">payment_required · exact x402 · $0.002</p>
             <dl>
               <div>
                 <dt>amount</dt>
-                <dd>0.004 USDC</dd>
+                <dd>0.002 USDC</dd>
               </div>
               <div>
-                <dt>status</dt>
-                <dd>failed</dd>
+                <dt>route</dt>
+                <dd>fees / priority</dd>
               </div>
               <div>
-                <dt>category</dt>
-                <dd>slippage</dd>
+                <dt>sample</dt>
+                <dd>150 slots</dd>
               </div>
             </dl>
-            <p class="success">✓ landed · fee charged · swap rejected</p>
+            <p class="success">✓ paid · fresh fee sample returned</p>
             <p class="json">
-              { "summary": "Output fell below minimum",<br />&nbsp;
-              "suggestedAction": "Refresh quote and rebuild",<br />&nbsp;
-              "computeUnitsConsumed": 190482 }
+              { "lowMicroLamports": 1000,<br />&nbsp;
+              "mediumMicroLamports": 5000,<br />&nbsp;
+              "highMicroLamports": 15000 }
             </p>
           </div>
         </aside>
       </section>
 
       <section class="trust-strip" aria-label="Product facts">
-        <div><strong>$0.004</strong><span>per transaction diagnosis</span></div>
         <div><strong>$0.002</strong><span>per live priority-fee sample</span></div>
-        <div><strong>6</strong><span>paid agent tools</span></div>
+        <div><strong>1 command</strong><span>wallet-managed paid call</span></div>
+        <div><strong>5 / hour</strong><span>bounded watcher cadence</span></div>
         <div><strong>0</strong><span>signups or API keys</span></div>
       </section>
 
@@ -241,14 +240,27 @@ npx -y utilia-solana-agent@0.5.8 transaction \
           <p class="kicker">THE PRODUCT</p>
           <h2 id="tools-title">Four Solana decisions. Two utility transforms.</h2>
           <p>
-            Start with the transaction outcome. Add live fee bidding, simulation,
-            or token evidence only when the workflow needs it.
+            Start with a fresh compute-unit price bid. Add diagnosis, simulation,
+            or token evidence when the workflow needs it.
           </p>
         </div>
         <div class="tool-grid">
           <article class="tool-card">
             <div class="tool-topline">
               <span class="tool-number">01</span
+              ><span class="price">$0.002</span>
+            </div>
+            <h3>Live priority fees</h3>
+            <code><span>GET</span> /v1/fees/priority</code>
+            <p>
+              Timestamped fee quantiles globally or for up to twenty writable
+              accounts, with an explicit observation time and sample count.
+              <a href="/priority-fees">Buy one or start the watcher →</a>
+            </p>
+          </article>
+          <article class="tool-card">
+            <div class="tool-topline">
+              <span class="tool-number">02</span
               ><span class="price">$0.004</span>
             </div>
             <h3>Transaction diagnosis</h3>
@@ -257,19 +269,6 @@ npx -y utilia-solana-agent@0.5.8 transaction \
               Turn a failed signature into balance deltas, logs, compute use,
               confirmation, and a retry-safe next action.
               <a href="/solana-transaction-support">Diagnosis workflow →</a>
-            </p>
-          </article>
-          <article class="tool-card">
-            <div class="tool-topline">
-              <span class="tool-number">02</span
-              ><span class="price">$0.002</span>
-            </div>
-            <h3>Live priority fees</h3>
-            <code><span>GET</span> /v1/fees/priority</code>
-            <p>
-              Timestamped fee quantiles globally or for up to twenty writable
-              accounts, with an explicit observation time and sample count.
-              <a href="/priority-fees">Fee watcher guide →</a>
             </p>
           </article>
           <article class="tool-card">
@@ -408,20 +407,20 @@ npx -y utilia-solana-agent@0.5.8 transaction \
       </section>
 
       <section class="closing" aria-labelledby="closing-title">
-        <p class="kicker">BUILD THE LOOP</p>
-        <h2 id="closing-title">Diagnose. Retry safely. Keep shipping.</h2>
+        <p class="kicker">BID BEFORE BROADCAST</p>
+        <h2 id="closing-title">Fresh fee evidence. One paid call.</h2>
         <p>
-          Give a transaction agent evidence it can act on without another
-          account, API key, or subscription.
+          Give a transaction agent current compute-unit price quantiles without
+          another account, API key, or subscription.
         </p>
         <div class="hero-actions">
-          <a class="button button-primary" href="/solana-transaction-support"
-            >Diagnose a transaction</a
+          <a class="button button-primary" href="/priority-fees#one-call"
+            >Buy one fee sample</a
           >
           <a
             class="button button-secondary"
-            href="/priority-fees"
-            >Run a fee watcher</a
+            href="/solana-transaction-support"
+            >Diagnose a failed transaction</a
           >
         </div>
       </section>
