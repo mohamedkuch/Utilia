@@ -18,10 +18,17 @@ const publicFiles = await Promise.all([
 ]);
 const publicText = publicFiles.join("\n");
 
-assert.deepEqual(publicManifest, rootManifest, "root and public MCP manifests must match");
+assert.deepEqual(
+  publicManifest,
+  rootManifest,
+  "root and public MCP manifests must match",
+);
 assert.equal(publicManifest.name, "ink.utilia/solana-preflight");
-assert.equal(publicManifest.version, "0.5.4");
-assert.equal(publicManifest.repository?.url, "https://github.com/mohamedkuch/utilia-solana-agent");
+assert.equal(publicManifest.version, "0.5.5");
+assert.equal(
+  publicManifest.repository?.url,
+  "https://github.com/mohamedkuch/utilia-solana-agent",
+);
 assert.equal(publicManifest.packages?.[0]?.identifier, "utilia-solana-agent");
 assert.equal(publicManifest.packages?.[0]?.version, "0.5.6");
 assert.equal(publicManifest.remotes?.[0]?.url, "https://api.utilia.ink/mcp");
@@ -36,7 +43,9 @@ assert.deepEqual(agentMetadata.capabilities?.mcp?.tools, [
 ]);
 assert.equal(agentMetadata.endpoints?.length, 6);
 assert.equal(
-  agentMetadata.attributes?.find(({ trait_type: type }) => type === "Price range")?.value,
+  agentMetadata.attributes?.find(
+    ({ trait_type: type }) => type === "Price range",
+  )?.value,
   "0.002–0.01 USDC",
 );
 
@@ -47,23 +56,39 @@ for (const stale of [
   "Verified remote MCP test settlement",
   "github.com/mohamedkuch/utilia-x402",
 ]) {
-  assert.equal(publicText.includes(stale), false, `stale public claim remains: ${stale}`);
+  assert.equal(
+    publicText.includes(stale),
+    false,
+    `stale public claim remains: ${stale}`,
+  );
 }
 
 for (const required of [
   "utilia-solana-agent@0.5.6",
-  "API 0.5.4",
+  "API 0.5.5",
   "https://api.utilia.ink/openapi.json",
   "https://api.utilia.ink/mcp",
   "https://github.com/mohamedkuch/utilia-solana-agent",
   "normalize_audio",
   "Contract audited. Live on mainnet.",
 ]) {
-  assert.equal(publicText.includes(required), true, `required public claim is missing: ${required}`);
+  assert.equal(
+    publicText.includes(required),
+    true,
+    `required public claim is missing: ${required}`,
+  );
 }
 
-assert.equal(publicText.includes("API 0.5.2"), false, "stale homepage API version remains");
-assert.equal(publicText.includes("API 0.5.3"), false, "previous homepage API version remains");
+assert.equal(
+  publicText.includes("API 0.5.2"),
+  false,
+  "stale homepage API version remains",
+);
+assert.equal(
+  publicText.includes("API 0.5.3"),
+  false,
+  "previous homepage API version remains",
+);
 assert.equal(
   publicText.includes("utilia-solana-agent@0.5.5"),
   false,
