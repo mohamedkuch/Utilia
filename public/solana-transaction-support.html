@@ -177,9 +177,11 @@
             </a>
             <a
               class="text-link"
-              href="https://api.utilia.ink/base/v1/transaction/YOUR_SIGNATURE"
+              id="quote-link"
+              href="#signature-input"
+              aria-disabled="true"
             >
-              Inspect the live quote <span aria-hidden="true">↗</span>
+              Open your live quote <span aria-hidden="true">↗</span>
             </a>
           </div>
         </div>
@@ -187,11 +189,39 @@
           <div class="code-label">
             <span>agentcash</span><span>Base USDC · exact $0.004</span>
           </div>
-          <pre><code>npx -y agentcash@latest check \
-  "https://api.utilia.ink/base/v1/transaction/YOUR_SIGNATURE"
+          <div class="signature-builder">
+            <label for="signature-input">Paste the transaction signature</label>
+            <div class="signature-row">
+              <input
+                id="signature-input"
+                name="signature"
+                type="text"
+                inputmode="text"
+                autocomplete="off"
+                spellcheck="false"
+                minlength="64"
+                maxlength="88"
+                placeholder="Base58 Solana signature"
+                aria-describedby="signature-status"
+              />
+              <button
+                class="button button-primary"
+                id="copy-command"
+                type="button"
+                disabled
+              >
+                Copy pay command
+              </button>
+            </div>
+            <p id="signature-status" role="status">
+              No payment happens until you run the generated fetch command.
+            </p>
+          </div>
+          <pre><code><span id="check-command">npx -y agentcash@latest check \
+  "https://api.utilia.ink/base/v1/transaction/YOUR_SIGNATURE"</span>
 
-npx -y agentcash@latest fetch \
-  "https://api.utilia.ink/base/v1/transaction/YOUR_SIGNATURE" --yes</code></pre>
+<span id="fetch-command">npx -y agentcash@latest fetch \
+  "https://api.utilia.ink/base/v1/transaction/YOUR_SIGNATURE" --yes</span></code></pre>
           <div class="install-guardrails">
             <span>✓ price check is free</span>
             <span>✓ wallet managed by AgentCash</span>
@@ -320,5 +350,75 @@ npx -y utilia-solana-agent@0.5.7 transaction \
         <a href="https://x.com/utiliax402">X / Twitter</a>
       </div>
     </footer>
+    <script>
+      (() => {
+        const input = document.querySelector("#signature-input");
+        const status = document.querySelector("#signature-status");
+        const checkCommand = document.querySelector("#check-command");
+        const fetchCommand = document.querySelector("#fetch-command");
+        const copyButton = document.querySelector("#copy-command");
+        const quoteLink = document.querySelector("#quote-link");
+        const route = "https://api.utilia.ink/base/v1/transaction/";
+        const placeholder = "YOUR_SIGNATURE";
+        const base58Signature = /^[1-9A-HJ-NP-Za-km-z]{64,88}$/;
+
+        const commandsFor = (signature) => {
+          const target = `${route}${signature}`;
+          return {
+            target,
+            check: `npx -y agentcash@latest check \\\n  "${target}"`,
+            fetch: `npx -y agentcash@latest fetch \\\n  "${target}" --yes`,
+          };
+        };
+
+        const updateBuilder = () => {
+          const signature = input.value.trim();
+          const isValid = base58Signature.test(signature);
+          const commands = commandsFor(isValid ? signature : placeholder);
+
+          checkCommand.textContent = commands.check;
+          fetchCommand.textContent = commands.fetch;
+          copyButton.disabled = !isValid;
+          quoteLink.href = isValid ? commands.target : "#signature-input";
+          quoteLink.setAttribute("aria-disabled", String(!isValid));
+          status.className = isValid
+            ? "signature-valid"
+            : signature
+              ? "signature-invalid"
+              : "";
+          status.textContent = isValid
+            ? "Ready: check the quote free or copy the $0.004 fetch command."
+            : signature
+              ? "Enter a valid Base58 Solana transaction signature."
+              : "No payment happens until you run the generated fetch command.";
+        };
+
+        input.addEventListener("input", updateBuilder);
+        copyButton.addEventListener("click", async () => {
+          const signature = input.value.trim();
+          if (!base58Signature.test(signature)) return;
+
+          try {
+            await navigator.clipboard.writeText(commandsFor(signature).fetch);
+            copyButton.textContent = "Copied";
+            window.va?.("event", { name: "transaction_command_copied" });
+            window.setTimeout(() => {
+              copyButton.textContent = "Copy pay command";
+            }, 1800);
+          } catch {
+            status.className = "signature-invalid";
+            status.textContent = "Copy failed. Select the generated command below.";
+          }
+        });
+        quoteLink.addEventListener("click", (event) => {
+          if (quoteLink.getAttribute("aria-disabled") === "true") {
+            event.preventDefault();
+            input.focus();
+          } else {
+            window.va?.("event", { name: "transaction_quote_opened" });
+          }
+        });
+      })();
+    </script>
   </body>
 </html>

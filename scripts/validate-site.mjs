@@ -114,6 +114,8 @@ for (const required of [
   "Failed transaction.",
   "Fresh fee bids.",
   "agentcash@latest fetch",
+  "transaction_command_copied",
+  "Paste the transaction signature",
   "https://api.utilia.ink/guides/transaction-diagnosis",
 ]) {
   assert.equal(

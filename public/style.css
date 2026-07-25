@@ -337,6 +337,62 @@ h2 {
 .install-card .comment {
   color: #6f8173;
 }
+.signature-builder {
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--line);
+  background: rgb(156 255 119 / 4%);
+}
+.signature-builder label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--green);
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.signature-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+}
+.signature-row input {
+  min-width: 0;
+  min-height: 50px;
+  padding: 0 14px;
+  border: 1px solid #45614b;
+  border-radius: 7px;
+  outline: none;
+  background: #050b07;
+  color: var(--ink);
+  font-family: var(--mono);
+}
+.signature-row input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgb(156 255 119 / 10%);
+}
+.signature-row input::placeholder {
+  color: #607064;
+}
+.signature-row .button:disabled {
+  cursor: not-allowed;
+  opacity: 0.46;
+}
+.signature-builder p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+.signature-builder .signature-valid {
+  color: var(--green);
+}
+.signature-builder .signature-invalid {
+  color: var(--orange);
+}
+.text-link[aria-disabled="true"] {
+  opacity: 0.5;
+}
 .install-guardrails {
   display: flex;
   flex-wrap: wrap;
@@ -617,6 +673,9 @@ footer p {
   }
   .mcp-section {
     grid-template-columns: minmax(0, 1fr);
+  }
+  .signature-row {
+    grid-template-columns: 1fr;
   }
   .install-section {
     grid-template-columns: minmax(0, 1fr);
