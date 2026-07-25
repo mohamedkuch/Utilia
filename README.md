@@ -33,7 +33,7 @@ Convert a public PDF in one command:
 
 ```sh
 SOLANA_KEYPAIR_PATH=/absolute/path/to/agent-wallet.json \
-  npx -y utilia-solana-agent@0.5.6 pdf-to-markdown \
+  npx -y utilia-solana-agent@0.5.7 pdf-to-markdown \
   https://example.com/document.pdf --max-pages 50
 ```
 

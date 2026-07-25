@@ -30,7 +30,7 @@ assert.equal(
   "https://github.com/mohamedkuch/utilia-solana-agent",
 );
 assert.equal(publicManifest.packages?.[0]?.identifier, "utilia-solana-agent");
-assert.equal(publicManifest.packages?.[0]?.version, "0.5.6");
+assert.equal(publicManifest.packages?.[0]?.version, "0.5.7");
 assert.equal(publicManifest.remotes?.[0]?.url, "https://api.utilia.ink/mcp");
 
 assert.deepEqual(agentMetadata.capabilities?.mcp?.tools, [
@@ -64,7 +64,7 @@ for (const stale of [
 }
 
 for (const required of [
-  "utilia-solana-agent@0.5.6",
+  "utilia-solana-agent@0.5.7",
   "API 0.5.5",
   "https://api.utilia.ink/openapi.json",
   "https://api.utilia.ink/mcp",
