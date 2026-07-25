@@ -8,15 +8,15 @@
   "rewrites": [
     {
       "source": "/x/profile",
-      "destination": "/solana-transaction-support.html"
+      "destination": "/solana-transaction-support"
     },
     {
       "source": "/x/tx-support",
-      "destination": "/solana-transaction-support.html"
+      "destination": "/solana-transaction-support"
     },
     {
       "source": "/x/priority-fees",
-      "destination": "/priority-fees.html"
+      "destination": "/priority-fees"
     }
   ],
   "headers": [

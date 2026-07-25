@@ -44,15 +44,15 @@ assert.equal(packageJson.packageManager, "npm@10.9.8");
 assert.deepEqual(vercelConfig.rewrites, [
   {
     source: "/x/profile",
-    destination: "/solana-transaction-support.html",
+    destination: "/solana-transaction-support",
   },
   {
     source: "/x/tx-support",
-    destination: "/solana-transaction-support.html",
+    destination: "/solana-transaction-support",
   },
   {
     source: "/x/priority-fees",
-    destination: "/priority-fees.html",
+    destination: "/priority-fees",
   },
 ]);
 assert.match(workflow, new RegExp(`node-version: ${nvmVersion}`));
