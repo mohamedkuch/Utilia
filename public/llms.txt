@@ -1,6 +1,6 @@
-# Utilia Agent Media and Solana Tools
+# Utilia Solana Transaction Evidence
 
-> Bounded PDF and audio transforms plus live Solana transaction intelligence for autonomous agents.
+> Failed-transaction diagnosis, preflight simulation, and live fee evidence for Solana agents, payable per call through x402.
 
 ## Live interfaces
 
@@ -33,20 +33,26 @@
 - PDF to Markdown: $0.0025 USDC
 - Audio normalization: $0.01 USDC
 
-Payments use x402 v2 exact USDC on Solana mainnet. No API key or account is required.
+Payments use x402 v2 exact USDC on Solana mainnet or Base. No API key or account is required.
 
-## Fastest PDF integration
+## Fastest transaction-diagnosis integration
 
-Set SOLANA_KEYPAIR_PATH to a dedicated low-balance automation wallet, then run:
+Replace YOUR_SIGNATURE with a confirmed Solana signature. `check` shows the exact
+$0.004 quote without paying. `fetch` lets AgentCash manage the Base wallet, payment,
+and retry:
 
-    npx -y utilia-solana-agent@0.5.7 doctor
-    npx -y utilia-solana-agent@0.5.7 pdf-to-markdown https://example.com/document.pdf --max-pages 50
+    npx -y agentcash@latest check "https://api.utilia.ink/base/v1/transaction/YOUR_SIGNATURE"
+    npx -y agentcash@latest fetch "https://api.utilia.ink/base/v1/transaction/YOUR_SIGNATURE" --yes
 
-Dedicated PDF API page: https://utilia.ink/pdf-to-markdown
+Machine-readable guide: https://api.utilia.ink/guides/transaction-diagnosis
 
-Install the dedicated agent skill:
+Native Solana wallet option:
 
-    npx skills add mohamedkuch/utilia-solana-agent --skill utilia-pdf-to-markdown -g -y
+    npx -y utilia-solana-agent@0.5.7 transaction <solana-transaction-signature>
+
+Install the Solana evidence skill:
+
+    npx skills add mohamedkuch/utilia-solana-agent --skill utilia-solana-preflight -g -y
 
 ## Solana priority-fee integration
 
@@ -57,6 +63,12 @@ Budget-capped priority-fee feed, five calls per hour and $0.05 maximum spend:
 One live sample:
 
     npx -y utilia-solana-agent@0.5.7 fees
+
+## PDF integration
+
+    npx -y utilia-solana-agent@0.5.7 pdf-to-markdown https://example.com/document.pdf --max-pages 50
+
+Dedicated PDF API page: https://utilia.ink/pdf-to-markdown
 
 For stdio MCP clients, run `npx -y utilia-solana-agent@0.5.7 mcp`. The local client rejects
 payments that do not match Solana mainnet USDC, Utilia's receiver, or the $0.01

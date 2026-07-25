@@ -99,6 +99,8 @@ for (const required of [
   "Paid by external wallets. Live on mainnet.",
   "Failed transaction.",
   "Fresh fee bids.",
+  "agentcash@latest fetch",
+  "https://api.utilia.ink/guides/transaction-diagnosis",
 ]) {
   assert.equal(
     publicText.includes(required),

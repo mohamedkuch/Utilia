@@ -155,11 +155,58 @@
         aria-labelledby="run-title"
       >
         <div class="install-copy">
-          <p class="kicker">PAY FROM THE AGENT WALLET</p>
-          <h2 id="run-title">One command. One exact payment.</h2>
+          <p class="kicker">NO PRIVATE-KEY SETUP</p>
+          <h2 id="run-title">Check free. Pay $0.004 on fetch.</h2>
           <p>
-            Use the public wallet-guarded client on Solana. It rejects a changed
-            receiver, asset, network, or price before it signs anything.
+            Replace <code>YOUR_SIGNATURE</code> with a confirmed Solana signature.
+            AgentCash manages the wallet, reads the exact x402 quote, pays in Base
+            USDC, and retries the request.
+          </p>
+          <div class="package-links">
+            <a
+              class="text-link"
+              href="https://agentcash.dev/onboard"
+            >
+              Fund an AgentCash wallet <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              class="text-link"
+              href="https://api.utilia.ink/guides/transaction-diagnosis"
+            >
+              Read the machine guide <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              class="text-link"
+              href="https://api.utilia.ink/base/v1/transaction/YOUR_SIGNATURE"
+            >
+              Inspect the live quote <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+        <div class="install-card">
+          <div class="code-label">
+            <span>agentcash</span><span>Base USDC · exact $0.004</span>
+          </div>
+          <pre><code>npx -y agentcash@latest check \
+  "https://api.utilia.ink/base/v1/transaction/YOUR_SIGNATURE"
+
+npx -y agentcash@latest fetch \
+  "https://api.utilia.ink/base/v1/transaction/YOUR_SIGNATURE" --yes</code></pre>
+          <div class="install-guardrails">
+            <span>✓ price check is free</span>
+            <span>✓ wallet managed by AgentCash</span>
+            <span>✓ settlement receipt returned</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section install-section" aria-labelledby="solana-run-title">
+        <div class="install-copy">
+          <p class="kicker">NATIVE SOLANA OPTION</p>
+          <h2 id="solana-run-title">Bring a low-balance agent wallet.</h2>
+          <p>
+            The public client verifies the receiver, Solana USDC asset, network, and
+            $0.004 ceiling locally before signing the payment.
           </p>
           <div class="package-links">
             <a
@@ -173,12 +220,6 @@
               href="https://skills.sh/mohamedkuch/utilia-solana-agent/utilia-solana-preflight"
             >
               Install the agent skill <span aria-hidden="true">↗</span>
-            </a>
-            <a
-              class="text-link"
-              href="https://api.utilia.ink/llms.txt"
-            >
-              Read a machine guide <span aria-hidden="true">↗</span>
             </a>
           </div>
         </div>
@@ -194,7 +235,7 @@ npx -y utilia-solana-agent@0.5.7 transaction \
           <div class="install-guardrails">
             <span>✓ receiver verified</span>
             <span>✓ price verified</span>
-            <span>✓ settlement receipt returned</span>
+            <span>✓ wallet stays local</span>
           </div>
         </div>
       </section>

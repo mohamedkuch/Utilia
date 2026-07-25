@@ -1,4 +1,4 @@
-# Utilia Agent Media and Solana Tools
+# Utilia Solana Transaction Evidence
 
 [Utilia](https://utilia.ink) diagnoses failed Solana transactions, supplies live
 priority-fee bids, converts PDFs to agent-ready Markdown, and normalizes audio. Every
@@ -30,7 +30,20 @@ required.
 - 8004market on-chain identity #1462: <https://8004market.io/agent/solana/mainnet-beta/1462>
 - x402 Arena: <https://x402arena.gg>
 
-## Run the MCP buyer
+## Fastest wallet-managed diagnosis
+
+Replace `YOUR_SIGNATURE` with a confirmed Solana signature. The first command checks
+the `$0.004` quote for free; the second lets AgentCash manage the Base wallet,
+payment, and retry:
+
+```sh
+npx -y agentcash@latest check \
+  "https://api.utilia.ink/base/v1/transaction/YOUR_SIGNATURE"
+npx -y agentcash@latest fetch \
+  "https://api.utilia.ink/base/v1/transaction/YOUR_SIGNATURE" --yes
+```
+
+## Run the guarded Solana buyer
 
 Diagnose a confirmed or failed transaction in one command:
 
