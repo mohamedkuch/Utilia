@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "npm run validate:html && npm run validate:metadata",
-    "validate:html": "html-validate public/index.html public/solana-transaction-support.html public/priority-fees.html public/hilt-interoperability.html public/pdf-to-markdown.html",
+    "validate:html": "html-validate public/index.html public/solana-transaction-support.html public/priority-fees.html public/hilt-interoperability.html public/transaction-guard-review.html public/pdf-to-markdown.html",
     "validate:metadata": "node scripts/validate-site.mjs"
   },
   "devDependencies": {

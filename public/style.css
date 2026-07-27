@@ -841,6 +841,195 @@ h2 {
 .review-actions {
   margin-top: 6px;
 }
+.guard-hero {
+  min-height: 82vh;
+}
+.guard-status {
+  color: #ffcf70;
+}
+.guard-limit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.guard-limit-grid li {
+  min-height: 170px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--panel);
+  padding: 22px;
+}
+.guard-limit-grid span,
+.guard-fixture-topline span {
+  color: var(--green);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+.guard-limit-grid strong {
+  display: block;
+  margin: 14px 0 10px;
+  font-size: 1.05rem;
+}
+.guard-limit-grid p,
+.guard-decision-grid p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.guard-decision-grid .mapping-card {
+  min-height: 250px;
+}
+.guard-card-allow {
+  border-top: 3px solid #51705b;
+}
+.guard-card-deny {
+  border-top: 3px solid #ff715d;
+}
+.guard-card-review {
+  border-top: 3px solid #ffcf70;
+}
+.guard-warning,
+.guard-review-note {
+  display: grid;
+  grid-template-columns: minmax(160px, 0.3fr) 1fr;
+  gap: 28px;
+  align-items: start;
+  border: 1px solid #6e5525;
+  border-radius: 16px;
+  background: rgb(255 207 112 / 7%);
+  padding: 24px;
+}
+.guard-warning strong,
+.guard-review-note strong {
+  color: #ffcf70;
+  font-family: var(--mono);
+}
+.guard-warning p,
+.guard-review-note p {
+  margin: 0;
+  color: #c8c0a9;
+  line-height: 1.65;
+}
+.guard-boundary {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  gap: 14px;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+.guard-boundary b {
+  color: var(--green);
+}
+.guard-fixture-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.guard-fixture {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--panel);
+  padding: 24px;
+}
+.guard-fixture-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+.guard-review-pill,
+.guard-deny-pill {
+  border-radius: 999px;
+  padding: 6px 9px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+.guard-review-pill {
+  background: rgb(255 207 112 / 12%);
+  color: #ffcf70;
+}
+.guard-deny-pill {
+  background: rgb(255 113 93 / 12%);
+  color: #ff8d7d;
+}
+.guard-fixture h3 {
+  margin: 24px 0 14px;
+  font-size: 1.3rem;
+}
+.guard-fixture > p {
+  min-height: 104px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.guard-fixture pre {
+  min-height: 185px;
+  margin: 20px 0;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #050906;
+  padding: 16px;
+  color: #c8fbd6;
+  font-size: 0.72rem;
+  line-height: 1.55;
+}
+.guard-digests {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 20px;
+}
+.guard-digests div {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+}
+.guard-digests dt,
+.guard-digests dd {
+  margin: 0;
+}
+.guard-digests dt {
+  color: var(--muted);
+}
+.guard-digests dd {
+  color: #c8fbd6;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  text-align: right;
+}
+.guard-fixture-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.guard-fixture-links a {
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 9px 11px;
+  font-size: 0.82rem;
+}
+.guard-fixture-links a:hover {
+  border-color: var(--green);
+}
+.guard-attribution {
+  margin: 24px 0 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
 footer {
   min-height: 140px;
   display: grid;
@@ -877,8 +1066,20 @@ footer p {
     transform: none;
   }
   .mapping-hero,
-  .mapping-grid {
+  .mapping-grid,
+  .guard-limit-grid,
+  .guard-fixture-grid {
     grid-template-columns: 1fr;
+  }
+  .guard-fixture > p,
+  .guard-fixture pre {
+    min-height: 0;
+  }
+  .guard-boundary {
+    grid-template-columns: 1fr;
+  }
+  .guard-boundary b {
+    transform: rotate(90deg);
   }
   .test-sequence {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -955,6 +1156,10 @@ footer p {
   }
   .test-sequence,
   .review-questions {
+    grid-template-columns: 1fr;
+  }
+  .guard-warning,
+  .guard-review-note {
     grid-template-columns: 1fr;
   }
   .test-sequence li {

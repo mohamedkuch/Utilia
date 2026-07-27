@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#08110c" />
+    <meta name="color-scheme" content="dark" />
+    <title>Utilia Transaction Guard v0.1: Public Contract Review</title>
+    <meta
+      name="description"
+      content="Review the bounded Utilia transaction-guard contract, decision rules, trust boundary, and three deterministic unsigned fixtures."
+    />
+    <link
+      rel="canonical"
+      href="https://utilia.ink/transaction-guard-review"
+    />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/style.css?v=guard-review-v1" />
+    <script>
+      window.va =
+        window.va ||
+        function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Utilia" />
+    <meta
+      property="og:url"
+      content="https://utilia.ink/transaction-guard-review"
+    />
+    <meta
+      property="og:title"
+      content="Utilia Transaction Guard v0.1: Public Contract Review"
+    />
+    <meta
+      property="og:description"
+      content="A fail-closed pre-sign contract with bounded inputs, explicit trust limits, and three deterministic unsigned fixtures."
+    />
+    <meta
+      property="og:image"
+      content="https://utilia.ink/opengraph-transaction-guard.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@utiliax402" />
+    <meta
+      name="twitter:title"
+      content="Utilia Transaction Guard v0.1: Public Contract Review"
+    />
+    <meta
+      name="twitter:description"
+      content="Inspect the contract, trust boundary, fail-closed states, and exact unsigned fixtures."
+    />
+    <meta
+      name="twitter:image"
+      content="https://utilia.ink/opengraph-transaction-guard.png"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Utilia home">
+        <span class="brand-mark" aria-hidden="true">U</span>
+        <span>UTILIA</span>
+      </a>
+      <nav aria-label="Transaction guard review navigation">
+        <a href="#contract">Contract</a>
+        <a href="#decisions">Decisions</a>
+        <a href="#fixtures">Fixtures</a>
+        <a href="#questions">Questions</a>
+        <a class="nav-cta" href="#trust">
+          <span class="status-dot"></span>
+          Public review
+        </a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="mapping-hero guard-hero" aria-labelledby="guard-title">
+        <div>
+          <p class="eyebrow">
+            <span>PUBLIC CONTRACT REVIEW</span>
+            <span>UTILIA.GUARD.V0.1</span>
+            <span>PRE-SIGN</span>
+          </p>
+          <h1 id="guard-title">
+            Decide before signing.<br /><em>Fail closed.</em>
+          </h1>
+          <p class="hero-lede">
+            A deterministic contract for wallets and policy runtimes to inspect
+            one serialized Solana transaction before the final signing step.
+            The guard never asks for a private key, signs, or broadcasts.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#questions">
+              Review seven decisions
+            </a>
+            <a
+              class="button button-secondary"
+              href="/transaction-guard/v0.1/inputs/policy-compatible-candidate.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open a fixture
+            </a>
+          </div>
+        </div>
+        <aside class="mapping-status-card" aria-label="Preview status">
+          <div class="integration-proof-topline">
+            <span>IMPLEMENTATION STATUS</span>
+            <span class="integration-status guard-status">LOCAL PREVIEW</span>
+          </div>
+          <dl>
+            <div><dt>Production route</dt><dd>disabled</dd></div>
+            <div><dt>Current outputs</dt><dd>DENY or REVIEW</dd></div>
+            <div><dt>ALLOW output</dt><dd>not implemented</dd></div>
+            <div><dt>Published price</dt><dd>none</dd></div>
+            <div><dt>Signed receipt</dt><dd>none</dd></div>
+          </dl>
+          <p>
+            This is a review artifact, not a production-service announcement.
+            A <code>REVIEW</code> result is not permission to sign.
+          </p>
+        </aside>
+      </section>
+
+      <section class="trust-strip" aria-label="Contract facts">
+        <div><strong>3</strong><span>unsigned fixtures</span></div>
+        <div><strong>120 sec</strong><span>evidence window</span></div>
+        <div><strong>0</strong><span>private keys</span></div>
+        <div><strong>0</strong><span>production payments</span></div>
+      </section>
+
+      <section class="section mapping-section" id="contract">
+        <div class="mapping-heading">
+          <p class="kicker">BOUNDED INPUT CONTRACT</p>
+          <h2>One transaction. One policy. No secret context.</h2>
+          <p>
+            Unknown keys are rejected. Invalid or conflicting policies return
+            HTTP <code>422</code> and do not produce a guard decision.
+          </p>
+        </div>
+        <pre class="mapping-code"><code>{
+  "contractVersion": "utilia.guard.v0.1",
+  "transaction": {
+    "serialized": "&lt;base64 or base58 transaction&gt;",
+    "encoding": "base64"
+  },
+  "policy": {
+    "policyId": "wallet-policy-v1",
+    "requireSimulationSuccess": true,
+    "maxComputeUnits": 300000,
+    "maxPriorityFeeLamports": "100000",
+    "maxSolSpendLamports": "100000000",
+    "tokenSpendLimits": [
+      {
+        "mint": "&lt;Solana public key&gt;",
+        "maxAtomicAmount": "25000000"
+      }
+    ],
+    "allowedPrograms": [],
+    "blockedPrograms": [],
+    "allowedRecipients": [],
+    "blockedRecipients": [],
+    "requireKnownPrograms": true,
+    "requireKnownRecipients": true,
+    "denyUnknownTokenExtensions": true
+  },
+  "context": {
+    "source": "wallet_runtime",
+    "agentId": "optional-pseudonymous-id",
+    "intent": "swap"
+  }
+}</code></pre>
+
+        <ul class="guard-limit-grid">
+          <li>
+            <span>TRANSACTION</span>
+            <strong>40 to 350,000 characters</strong>
+            <p>Base64 by default. Base58 is also accepted.</p>
+          </li>
+          <li>
+            <span>COMPUTE</span>
+            <strong>1 to 1,400,000 units</strong>
+            <p>Integer limit. Null means the check is not configured.</p>
+          </li>
+          <li>
+            <span>ATOMIC AMOUNTS</span>
+            <strong>Unsigned 64-bit strings</strong>
+            <p>No negatives, decimals, leading plus signs, or floats.</p>
+          </li>
+          <li>
+            <span>POLICY LISTS</span>
+            <strong>64 keys, 32 token limits</strong>
+            <p>Every address must be a valid Solana public key.</p>
+          </li>
+          <li>
+            <span>IDENTIFIERS</span>
+            <strong>Policy and agent: 100 chars</strong>
+            <p>Source and intent are limited to 64 characters.</p>
+          </li>
+          <li>
+            <span>CONFLICTS</span>
+            <strong>Rejected before evaluation</strong>
+            <p>No duplicate mint or address in both allow and block lists.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section mapping-section" id="decisions">
+        <div class="mapping-heading">
+          <p class="kicker">DECISION STATES</p>
+          <h2>Deny known failures. Escalate incomplete evidence.</h2>
+          <p>
+            The full contract defines three outcomes. The local preview
+            deliberately emits only <code>DENY</code> or <code>REVIEW</code>
+            until transaction semantics and signed receipts are complete.
+          </p>
+        </div>
+        <div class="mapping-grid guard-decision-grid">
+          <article class="mapping-card guard-card-allow">
+            <span class="mapping-label">CONTRACT TARGET</span>
+            <h3>ALLOW</h3>
+            <p>
+              Every required check completed and passed. This state is not
+              available in the current preview.
+            </p>
+          </article>
+          <article class="mapping-card guard-card-deny">
+            <span class="mapping-label">DETERMINISTIC FAILURE</span>
+            <h3>DENY</h3>
+            <p>
+              At least one bounded deny rule failed. Denial takes precedence
+              over incomplete evidence elsewhere.
+            </p>
+          </article>
+          <article class="mapping-card guard-card-review">
+            <span class="mapping-label">HUMAN OR RUNTIME CHECK</span>
+            <h3>REVIEW</h3>
+            <p>
+              The service could not prove every required check. The caller must
+              not treat this as approval.
+            </p>
+          </article>
+        </div>
+        <div class="guard-warning" role="note">
+          <strong>REVIEW != ALLOW</strong>
+          <p>
+            A wallet should block, ask for explicit review, or apply its own
+            stricter local policy. It should never silently continue to signing.
+          </p>
+        </div>
+      </section>
+
+      <section class="section mapping-section" id="trust">
+        <div class="mapping-heading">
+          <p class="kicker">AUTHENTICATION AND TRUST BOUNDARY</p>
+          <h2>Deterministic does not yet mean authenticated.</h2>
+          <p>
+            The preview binds data with canonical SHA-256 digests, but no
+            issuer signature authenticates those digests. The wallet remains
+            the authority for signing and local policy enforcement.
+          </p>
+        </div>
+        <div class="mapping-grid">
+          <article class="mapping-card mapping-card-exact">
+            <span class="mapping-label">LOCAL AUTHORITY</span>
+            <h3>Wallet or runtime</h3>
+            <ul>
+              <li>private key custody and final signature</li>
+              <li>user approval and policy ownership</li>
+              <li>host, network, receiver, asset, amount, and expiry checks</li>
+              <li>the final choice to block or request review</li>
+            </ul>
+          </article>
+          <article class="mapping-card mapping-card-semantic">
+            <span class="mapping-label">DETERMINISTIC, UNSIGNED</span>
+            <h3>Preview evidence</h3>
+            <ul>
+              <li>request, policy, message, log, and result digests</li>
+              <li>simulation status, slot, and compute use</li>
+              <li>bounded reason codes and policy check records</li>
+              <li>generated and expiry timestamps</li>
+            </ul>
+          </article>
+          <article class="mapping-card mapping-card-missing">
+            <span class="mapping-label">NOT AUTHENTICATED</span>
+            <h3>Not safe to infer</h3>
+            <ul>
+              <li><code>context</code> source, agent ID, and intent</li>
+              <li>scope-to-result proof while receipt is null</li>
+              <li>program, recipient, spend, and priority-fee semantics</li>
+              <li>permission to sign from a review outcome</li>
+            </ul>
+          </article>
+        </div>
+        <div class="guard-boundary">
+          <span>CALLER BUILDS</span>
+          <b aria-hidden="true">→</b>
+          <span>UTILIA EVALUATES</span>
+          <b aria-hidden="true">→</b>
+          <span>CALLER VERIFIES</span>
+          <b aria-hidden="true">→</b>
+          <span>WALLET DECIDES</span>
+        </div>
+      </section>
+
+      <section class="section mapping-section" id="fixtures">
+        <div class="mapping-heading">
+          <p class="kicker">FROZEN TEST VECTORS</p>
+          <h2>Three unsigned fixtures. Exact expected outputs.</h2>
+          <p>
+            Each fixture uses a structurally valid legacy System Program
+            transfer with a null signature, deterministic public addresses, and
+            fixed RPC evidence. No live authorization, network call, private
+            key, or payment is required.
+          </p>
+        </div>
+        <div class="guard-fixture-grid">
+          <article class="guard-fixture">
+            <div class="guard-fixture-topline">
+              <span>FIXTURE 01</span>
+              <strong class="guard-review-pill">REVIEW</strong>
+            </div>
+            <h3>Policy-compatible candidate</h3>
+            <p>
+              Simulation succeeds at 150 compute units, but missing message
+              decoding prevents complete semantic checks.
+            </p>
+            <pre><code>{
+  "decision": "REVIEW",
+  "reasons": ["EVIDENCE_INCOMPLETE"],
+  "simulation": "succeeded",
+  "computeUnits": 150,
+  "receipt": null
+}</code></pre>
+            <dl class="guard-digests">
+              <div><dt>Request</dt><dd>92067f8d...164ac</dd></div>
+              <div><dt>Policy</dt><dd>26f37618...fa781</dd></div>
+              <div><dt>Result</dt><dd>02bceaba...25511</dd></div>
+            </dl>
+            <div class="guard-fixture-links">
+              <a
+                href="/transaction-guard/v0.1/inputs/policy-compatible-candidate.json"
+                target="_blank"
+                rel="noreferrer"
+                >Exact input</a
+              >
+              <a
+                href="/transaction-guard/v0.1/expected/policy-compatible-candidate.json"
+                target="_blank"
+                rel="noreferrer"
+                >Expected output</a
+              >
+            </div>
+          </article>
+
+          <article class="guard-fixture">
+            <div class="guard-fixture-topline">
+              <span>FIXTURE 02</span>
+              <strong class="guard-deny-pill">DENY</strong>
+            </div>
+            <h3>Compute-limit denial</h3>
+            <p>
+              Simulation succeeds, but 200,001 observed compute units exceed
+              the configured limit of 200,000.
+            </p>
+            <pre><code>{
+  "decision": "DENY",
+  "reasons": [
+    "EVIDENCE_INCOMPLETE",
+    "COMPUTE_LIMIT_EXCEEDED"
+  ],
+  "simulation": "succeeded",
+  "computeUnits": 200001
+}</code></pre>
+            <dl class="guard-digests">
+              <div><dt>Request</dt><dd>6d153b99...31e89</dd></div>
+              <div><dt>Policy</dt><dd>8e2344f6...639e3</dd></div>
+              <div><dt>Result</dt><dd>75baaf89...cc852</dd></div>
+            </dl>
+            <div class="guard-fixture-links">
+              <a
+                href="/transaction-guard/v0.1/inputs/compute-limit-denial.json"
+                target="_blank"
+                rel="noreferrer"
+                >Exact input</a
+              >
+              <a
+                href="/transaction-guard/v0.1/expected/compute-limit-denial.json"
+                target="_blank"
+                rel="noreferrer"
+                >Expected output</a
+              >
+            </div>
+          </article>
+
+          <article class="guard-fixture">
+            <div class="guard-fixture-topline">
+              <span>FIXTURE 03</span>
+              <strong class="guard-deny-pill">DENY</strong>
+            </div>
+            <h3>Simulation failure</h3>
+            <p>
+              The frozen simulation returns a deterministic program error while
+              required simulation success is enabled.
+            </p>
+            <pre><code>{
+  "decision": "DENY",
+  "reasons": [
+    "EVIDENCE_INCOMPLETE",
+    "SIMULATION_FAILED"
+  ],
+  "simulation": "failed",
+  "computeUnits": 150
+}</code></pre>
+            <dl class="guard-digests">
+              <div><dt>Request</dt><dd>a1153b43...e1386</dd></div>
+              <div><dt>Policy</dt><dd>853358d9...12e88</dd></div>
+              <div><dt>Result</dt><dd>3b3a4b45...a4fb7</dd></div>
+            </dl>
+            <div class="guard-fixture-links">
+              <a
+                href="/transaction-guard/v0.1/inputs/simulation-failure.json"
+                target="_blank"
+                rel="noreferrer"
+                >Exact input</a
+              >
+              <a
+                href="/transaction-guard/v0.1/expected/simulation-failure.json"
+                target="_blank"
+                rel="noreferrer"
+                >Expected output</a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section review-section" id="questions">
+        <div class="mapping-heading">
+          <p class="kicker">RUNTIME AND WALLET REVIEW</p>
+          <h2>Seven decisions before complete implementation.</h2>
+          <p>
+            These questions define the pre-sign boundary. Feedback should cite
+            the contract version and fixture ID it applies to.
+          </p>
+        </div>
+        <ol class="review-questions">
+          <li>
+            Does this request contain every field your runtime can supply and
+            needs at its pre-sign policy boundary?
+          </li>
+          <li>
+            Should an unknown program always produce <code>REVIEW</code>, or
+            should the caller choose between <code>REVIEW</code> and
+            <code>DENY</code>?
+          </li>
+          <li>
+            Are atomic spend limits sufficient, or does your policy require
+            fiat-valued budget evidence too?
+          </li>
+          <li>
+            Which recipient definition should apply to swaps, routers, and
+            vault deposits?
+          </li>
+          <li>
+            Does your audit flow need the full simulation log, a digest, or
+            both?
+          </li>
+          <li>
+            What evidence validity window fits the time between construction
+            and signing in your isolated signer flow?
+          </li>
+          <li>
+            Can your policy ID serve as the idempotency boundary, or is a
+            separate operation ID required?
+          </li>
+        </ol>
+        <div class="guard-review-note">
+          <strong>Review gate</strong>
+          <p>
+            Complete implementation and pricing remain blocked until one wallet
+            or policy runtime confirms the input boundary, output boundary,
+            unknown-semantics behavior, evidence expiry, and receipt fields.
+          </p>
+        </div>
+        <div class="hero-actions review-actions">
+          <a
+            class="button button-primary"
+            href="https://x.com/utiliax402"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Send review feedback
+          </a>
+          <a class="button button-secondary" href="#fixtures">
+            Inspect the fixtures
+          </a>
+        </div>
+        <p class="guard-attribution">
+          Partner-specific review paths are used only for page-level outreach
+          attribution. They do not prove demand, authorization, payment, or a
+          policy decision.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <div class="brand footer-brand">
+        <span class="brand-mark" aria-hidden="true">U</span><span>UTILIA</span>
+      </div>
+      <p>Machine-payable Solana evidence for transaction agents.</p>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/solana-transaction-support">Transaction support</a>
+        <a href="/priority-fees">Priority fees</a>
+        <a href="/hilt-interoperability">Hilt mapping</a>
+        <a href="https://x.com/utiliax402">X / Twitter</a>
+        <a href="https://github.com/mohamedkuch/Utilia">GitHub</a>
+      </div>
+    </footer>
+  </body>
+</html>

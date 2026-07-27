@@ -1,0 +1,53 @@
+{
+  "fixtureVersion": "utilia.guard.fixture.v1",
+  "id": "simulation-failure",
+  "requestId": "guard-fixture-simulation-failure-v1",
+  "generatedAt": "2026-07-27T20:02:00.000Z",
+  "request": {
+    "contractVersion": "utilia.guard.v0.1",
+    "transaction": {
+      "serialized": "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQECAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMBAgIAAQwCAAAAAQAAAAAAAAA=",
+      "encoding": "base64"
+    },
+    "policy": {
+      "policyId": "fixture-simulation-failure-v1",
+      "requireSimulationSuccess": true,
+      "maxComputeUnits": 200000,
+      "maxPriorityFeeLamports": null,
+      "maxSolSpendLamports": null,
+      "tokenSpendLimits": [],
+      "allowedPrograms": [],
+      "blockedPrograms": [],
+      "allowedRecipients": [],
+      "blockedRecipients": [],
+      "requireKnownPrograms": false,
+      "requireKnownRecipients": false,
+      "denyUnknownTokenExtensions": false
+    },
+    "context": {
+      "source": "guard_fixture",
+      "agentId": "fixture-agent",
+      "intent": "transfer"
+    }
+  },
+  "simulationResponse": {
+    "context": {
+      "slot": 300000003
+    },
+    "value": {
+      "err": {
+        "InstructionError": [
+          0,
+          {
+            "Custom": 1
+          }
+        ]
+      },
+      "logs": [
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 failed: custom program error: 0x1"
+      ],
+      "unitsConsumed": 150
+    }
+  }
+}

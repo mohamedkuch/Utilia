@@ -1,0 +1,106 @@
+{
+  "contractVersion": "utilia.guard.v0.1",
+  "decision": "REVIEW",
+  "reasons": [
+    {
+      "code": "EVIDENCE_INCOMPLETE",
+      "severity": "review",
+      "message": "Transaction message decoding is not available in this preview.",
+      "path": "transaction",
+      "evidence": {}
+    }
+  ],
+  "warnings": [],
+  "transaction": {
+    "messageDigest": "sha256:4e727cd92b452c05d58e8c6ee5300b9650c544f76318ecd6862133796e6a63a5",
+    "signers": [],
+    "writableAccounts": [],
+    "programs": [],
+    "recipients": []
+  },
+  "simulation": {
+    "status": "succeeded",
+    "slot": 300000001,
+    "computeUnits": 150,
+    "logsDigest": "sha256:59b37c5f5f060941f77169b5453dc4272ce1247e72b580883cf5beb7c896882d"
+  },
+  "assetChanges": {
+    "sol": [],
+    "tokens": []
+  },
+  "priorityFee": {
+    "observedLamports": null,
+    "maximumLamports": null,
+    "withinPolicy": null
+  },
+  "policy": {
+    "policyId": "fixture-policy-compatible-v1",
+    "policyDigest": "sha256:26f3761823b711b2dce2d8fc5572f9e2d01cdddcf4e2062c2203dd0078afa781",
+    "checks": [
+      {
+        "check": "requireSimulationSuccess",
+        "status": "passed",
+        "expected": true,
+        "observed": true,
+        "reasonCode": null
+      },
+      {
+        "check": "maxComputeUnits",
+        "status": "passed",
+        "expected": 200000,
+        "observed": 150,
+        "reasonCode": null
+      },
+      {
+        "check": "programs",
+        "status": "not_configured",
+        "expected": null,
+        "observed": null,
+        "reasonCode": null
+      },
+      {
+        "check": "maxSolSpendLamports",
+        "status": "not_configured",
+        "expected": null,
+        "observed": null,
+        "reasonCode": null
+      },
+      {
+        "check": "tokenSpendLimits",
+        "status": "not_configured",
+        "expected": null,
+        "observed": null,
+        "reasonCode": null
+      },
+      {
+        "check": "recipients",
+        "status": "not_configured",
+        "expected": null,
+        "observed": null,
+        "reasonCode": null
+      },
+      {
+        "check": "maxPriorityFeeLamports",
+        "status": "not_configured",
+        "expected": null,
+        "observed": null,
+        "reasonCode": null
+      },
+      {
+        "check": "denyUnknownTokenExtensions",
+        "status": "not_configured",
+        "expected": false,
+        "observed": null,
+        "reasonCode": null
+      }
+    ]
+  },
+  "evidence": {
+    "requestId": "guard-fixture-policy-compatible-v1",
+    "requestDigest": "sha256:92067f8daef7479bac5f8e4a2a7bed7980eeb7b0b19f3c49d314c88b7dc164ac",
+    "resultDigest": "sha256:02bceaba48f0d30def97b8e0a396ca5d76beaf12ff0016fbe0585c864a025511",
+    "generatedAt": "2026-07-27T20:00:00.000Z",
+    "expiresAt": "2026-07-27T20:02:00.000Z",
+    "receipt": null
+  }
+}
