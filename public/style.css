@@ -657,6 +657,190 @@ h2 {
 .closing .hero-actions {
   justify-content: center;
 }
+.mapping-hero {
+  min-height: 78vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.7fr);
+  gap: 72px;
+  align-items: center;
+  padding: 110px 0 90px;
+}
+.mapping-hero h1 {
+  max-width: 980px;
+}
+.mapping-status-card {
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(126, 255, 166, 0.11),
+      transparent 42%
+    ),
+    var(--panel);
+  padding: 28px;
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.26);
+}
+.mapping-status-card dl {
+  display: grid;
+  gap: 0;
+  margin: 22px 0;
+}
+.mapping-status-card dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0;
+}
+.mapping-status-card dt,
+.mapping-status-card dd {
+  margin: 0;
+}
+.mapping-status-card dt {
+  color: var(--muted);
+}
+.mapping-status-card dd {
+  color: var(--ink);
+  font-weight: 700;
+  text-align: right;
+}
+.mapping-status-card p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+.mapping-section,
+.receipt-contract-section,
+.compatibility-section,
+.review-section {
+  display: grid;
+  gap: 48px;
+}
+.mapping-heading {
+  max-width: 850px;
+}
+.mapping-heading h2 {
+  margin-bottom: 22px;
+}
+.mapping-heading > p:last-child {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+.mapping-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.mapping-card {
+  min-height: 340px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 28px;
+  background: var(--panel);
+}
+.mapping-card-exact {
+  border-top: 3px solid var(--accent);
+}
+.mapping-card-semantic {
+  border-top: 3px solid #70b7ff;
+}
+.mapping-card-missing {
+  border-top: 3px solid #ffb86c;
+}
+.mapping-label {
+  display: inline-block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+.mapping-card h3 {
+  margin: 16px 0 20px;
+  font-size: 1.35rem;
+}
+.mapping-card ul {
+  display: grid;
+  gap: 13px;
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.mapping-code {
+  margin: 0;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #050906;
+  padding: 30px;
+  color: #c8fbd6;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+.test-sequence {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.test-sequence li {
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 22px;
+  background: var(--panel);
+}
+.test-sequence li > span {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+}
+.test-sequence strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+.test-sequence p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.review-questions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: review-question;
+}
+.review-questions li {
+  counter-increment: review-question;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--panel);
+  padding: 22px 22px 22px 62px;
+  position: relative;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.review-questions li::before {
+  content: counter(review-question, decimal-leading-zero);
+  position: absolute;
+  left: 22px;
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+}
+.review-actions {
+  margin-top: 6px;
+}
 footer {
   min-height: 140px;
   display: grid;
@@ -691,6 +875,13 @@ footer p {
   .terminal {
     max-width: 620px;
     transform: none;
+  }
+  .mapping-hero,
+  .mapping-grid {
+    grid-template-columns: 1fr;
+  }
+  .test-sequence {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .install-section,
   .integration-proof-section,
@@ -757,6 +948,17 @@ footer p {
   }
   .integration-actions .button {
     width: 100%;
+  }
+  .mapping-hero {
+    min-height: auto;
+    padding: 72px 0;
+  }
+  .test-sequence,
+  .review-questions {
+    grid-template-columns: 1fr;
+  }
+  .test-sequence li {
+    min-height: 180px;
   }
   .code-panel pre {
     padding: 22px 18px;
