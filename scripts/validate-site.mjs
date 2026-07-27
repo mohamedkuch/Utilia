@@ -118,6 +118,12 @@ for (const required of [
   "transaction_command_copied",
   "Paste the transaction signature",
   "https://api.utilia.ink/guides/transaction-diagnosis",
+  "Native in the OOBE Synapse SDK.",
+  "https://github.com/OOBE-PROTOCOL/synapse-client-sdk/pull/50",
+  "https://x.com/OOBEonSol/status/2081829005083156918",
+  "A prearranged integration test completed quote",
+  "Public package release pending",
+  "It is not organic customer",
 ]) {
   assert.equal(
     publicText.includes(required),
