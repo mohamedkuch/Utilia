@@ -1,0 +1,116 @@
+{
+  "contractVersion": "utilia.guard.v0.1",
+  "decision": "DENY",
+  "reasons": [
+    {
+      "code": "EVIDENCE_INCOMPLETE",
+      "severity": "review",
+      "message": "Transaction message decoding is not available in this preview.",
+      "path": "transaction",
+      "evidence": {}
+    },
+    {
+      "code": "COMPUTE_LIMIT_EXCEEDED",
+      "severity": "deny",
+      "message": "Observed compute exceeds the policy limit.",
+      "path": "policy.maxComputeUnits",
+      "evidence": {
+        "maximum": 200000,
+        "observed": 200001
+      }
+    }
+  ],
+  "warnings": [],
+  "transaction": {
+    "messageDigest": "sha256:4e727cd92b452c05d58e8c6ee5300b9650c544f76318ecd6862133796e6a63a5",
+    "signers": [],
+    "writableAccounts": [],
+    "programs": [],
+    "recipients": []
+  },
+  "simulation": {
+    "status": "succeeded",
+    "slot": 300000002,
+    "computeUnits": 200001,
+    "logsDigest": "sha256:59b37c5f5f060941f77169b5453dc4272ce1247e72b580883cf5beb7c896882d"
+  },
+  "assetChanges": {
+    "sol": [],
+    "tokens": []
+  },
+  "priorityFee": {
+    "observedLamports": null,
+    "maximumLamports": null,
+    "withinPolicy": null
+  },
+  "policy": {
+    "policyId": "fixture-compute-denial-v1",
+    "policyDigest": "sha256:8e2344f6a53d54aa20f3f42fd5292409b31a8644d252988a8db10de8ca7639e3",
+    "checks": [
+      {
+        "check": "requireSimulationSuccess",
+        "status": "passed",
+        "expected": true,
+        "observed": true,
+        "reasonCode": null
+      },
+      {
+        "check": "maxComputeUnits",
+        "status": "failed",
+        "expected": 200000,
+        "observed": 200001,
+        "reasonCode": "COMPUTE_LIMIT_EXCEEDED"
+      },
+      {
+        "check": "programs",
+        "status": "not_configured",
+        "expected": null,
+        "observed": null,
+        "reasonCode": null
+      },
+      {
+        "check": "maxSolSpendLamports",
+        "status": "not_configured",
+        "expected": null,
+        "observed": null,
+        "reasonCode": null
+      },
+      {
+        "check": "tokenSpendLimits",
+        "status": "not_configured",
+        "expected": null,
+        "observed": null,
+        "reasonCode": null
+      },
+      {
+        "check": "recipients",
+        "status": "not_configured",
+        "expected": null,
+        "observed": null,
+        "reasonCode": null
+      },
+      {
+        "check": "maxPriorityFeeLamports",
+        "status": "not_configured",
+        "expected": null,
+        "observed": null,
+        "reasonCode": null
+      },
+      {
+        "check": "denyUnknownTokenExtensions",
+        "status": "not_configured",
+        "expected": false,
+        "observed": null,
+        "reasonCode": null
+      }
+    ]
+  },
+  "evidence": {
+    "requestId": "guard-fixture-compute-denial-v1",
+    "requestDigest": "sha256:6d153b99fbebd8e063652e2b69fe290227f03ef1c5dbf01e3de2654af3131e89",
+    "resultDigest": "sha256:75baaf89924f772b894274331b24f76a581a661d5fbec61f37278e0f29fcc852",
+    "generatedAt": "2026-07-27T20:01:00.000Z",
+    "expiresAt": "2026-07-27T20:03:00.000Z",
+    "receipt": null
+  }
+}

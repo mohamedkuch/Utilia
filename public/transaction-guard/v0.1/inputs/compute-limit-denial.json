@@ -1,0 +1,46 @@
+{
+  "fixtureVersion": "utilia.guard.fixture.v1",
+  "id": "compute-limit-denial",
+  "requestId": "guard-fixture-compute-denial-v1",
+  "generatedAt": "2026-07-27T20:01:00.000Z",
+  "request": {
+    "contractVersion": "utilia.guard.v0.1",
+    "transaction": {
+      "serialized": "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQECAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMBAgIAAQwCAAAAAQAAAAAAAAA=",
+      "encoding": "base64"
+    },
+    "policy": {
+      "policyId": "fixture-compute-denial-v1",
+      "requireSimulationSuccess": true,
+      "maxComputeUnits": 200000,
+      "maxPriorityFeeLamports": null,
+      "maxSolSpendLamports": null,
+      "tokenSpendLimits": [],
+      "allowedPrograms": [],
+      "blockedPrograms": [],
+      "allowedRecipients": [],
+      "blockedRecipients": [],
+      "requireKnownPrograms": false,
+      "requireKnownRecipients": false,
+      "denyUnknownTokenExtensions": false
+    },
+    "context": {
+      "source": "guard_fixture",
+      "agentId": "fixture-agent",
+      "intent": "transfer"
+    }
+  },
+  "simulationResponse": {
+    "context": {
+      "slot": 300000002
+    },
+    "value": {
+      "err": null,
+      "logs": [
+        "Program 11111111111111111111111111111111 invoke [1]",
+        "Program 11111111111111111111111111111111 success"
+      ],
+      "unitsConsumed": 200001
+    }
+  }
+}

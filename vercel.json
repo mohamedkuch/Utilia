@@ -17,6 +17,22 @@
     {
       "source": "/x/priority-fees",
       "destination": "/priority-fees"
+    },
+    {
+      "source": "/review/forgent",
+      "destination": "/transaction-guard-review"
+    },
+    {
+      "source": "/review/hilt",
+      "destination": "/transaction-guard-review"
+    },
+    {
+      "source": "/review/slinkylayer",
+      "destination": "/transaction-guard-review"
+    },
+    {
+      "source": "/review/oobe",
+      "destination": "/transaction-guard-review"
     }
   ],
   "headers": [

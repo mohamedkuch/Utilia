@@ -18,6 +18,7 @@ const publicFiles = await Promise.all([
   read("public/solana-transaction-support.html"),
   read("public/priority-fees.html"),
   read("public/hilt-interoperability.html"),
+  read("public/transaction-guard-review.html"),
   read("public/pdf-to-markdown.html"),
   read("public/llms.txt"),
   read("public/agent402-metadata.json"),
@@ -56,6 +57,22 @@ assert.deepEqual(vercelConfig.rewrites, [
   {
     source: "/x/priority-fees",
     destination: "/priority-fees",
+  },
+  {
+    source: "/review/forgent",
+    destination: "/transaction-guard-review",
+  },
+  {
+    source: "/review/hilt",
+    destination: "/transaction-guard-review",
+  },
+  {
+    source: "/review/slinkylayer",
+    destination: "/transaction-guard-review",
+  },
+  {
+    source: "/review/oobe",
+    destination: "/transaction-guard-review",
   },
 ]);
 assert.match(workflow, new RegExp(`node-version: ${nvmVersion}`));
@@ -129,6 +146,11 @@ for (const required of [
   "https://x.com/hiltpay/status/2081831423728648497",
   "One paid operation, proven end to end.",
   "Seven decisions before implementation.",
+  "Utilia Transaction Guard v0.1: Public Contract Review",
+  "result is not permission to sign.",
+  "Three unsigned fixtures. Exact expected outputs.",
+  "Deterministic does not yet mean authenticated.",
+  "Complete implementation and pricing remain blocked",
 ]) {
   assert.equal(
     publicText.includes(required),
@@ -163,6 +185,7 @@ for (const path of [
   "public/solana-transaction-support.html",
   "public/priority-fees.html",
   "public/hilt-interoperability.html",
+  "public/transaction-guard-review.html",
   "public/pdf-to-markdown.html",
   "public/llms.txt",
   "public/server.json",
@@ -171,6 +194,13 @@ for (const path of [
   "public/icon.svg",
   "public/opengraph-image.png",
   "public/opengraph-priority-fees.png",
+  "public/opengraph-transaction-guard.png",
+  "public/transaction-guard/v0.1/inputs/policy-compatible-candidate.json",
+  "public/transaction-guard/v0.1/inputs/compute-limit-denial.json",
+  "public/transaction-guard/v0.1/inputs/simulation-failure.json",
+  "public/transaction-guard/v0.1/expected/policy-compatible-candidate.json",
+  "public/transaction-guard/v0.1/expected/compute-limit-denial.json",
+  "public/transaction-guard/v0.1/expected/simulation-failure.json",
 ]) {
   await access(new URL(path, root));
 }
