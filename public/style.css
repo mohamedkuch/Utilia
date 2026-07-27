@@ -273,6 +273,79 @@ h1 em {
   color: var(--muted);
   font-size: 0.84rem;
 }
+.integration-proof-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(480px, 1.1fr);
+  gap: clamp(50px, 9vw, 120px);
+  align-items: center;
+}
+.integration-proof-copy > p:not(.kicker) {
+  max-width: 560px;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+.integration-proof-copy code {
+  color: var(--green);
+}
+.integration-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+.integration-proof-card {
+  overflow: hidden;
+  border: 1px solid #45614b;
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 92% 0%, rgb(156 255 119 / 10%), transparent 18rem),
+    #07100a;
+  box-shadow: 0 26px 90px rgb(0 0 0 / 22%);
+}
+.integration-proof-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--line);
+  color: #aab8ad;
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+}
+.integration-status {
+  color: var(--green);
+}
+.integration-facts {
+  list-style: none;
+  margin: 0;
+  padding: 8px 22px;
+}
+.integration-facts li {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+.integration-facts strong,
+.integration-facts span {
+  display: block;
+}
+.integration-facts strong {
+  margin-bottom: 7px;
+  color: var(--ink);
+}
+.integration-facts span {
+  color: var(--muted);
+  line-height: 1.55;
+}
+.integration-disclosure {
+  margin: 0;
+  padding: 18px 22px;
+  color: #7f9284;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  line-height: 1.55;
+}
 .section {
   padding: 130px 0;
   border-bottom: 1px solid var(--line);
@@ -620,11 +693,13 @@ footer p {
     transform: none;
   }
   .install-section,
+  .integration-proof-section,
   .mcp-section,
   .proof-section {
     grid-template-columns: 1fr;
   }
   .install-section,
+  .integration-proof-section,
   .mcp-section {
     gap: 60px;
   }
@@ -679,6 +754,9 @@ footer p {
   }
   .install-section {
     grid-template-columns: minmax(0, 1fr);
+  }
+  .integration-actions .button {
+    width: 100%;
   }
   .code-panel pre {
     padding: 22px 18px;
