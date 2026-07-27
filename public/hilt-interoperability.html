@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#08110c" />
+    <meta name="color-scheme" content="dark" />
+    <title>Hilt and Utilia x402 Interoperability Mapping</title>
+    <meta
+      name="description"
+      content="A public technical-review draft mapping Utilia x402 settlement and result evidence to Hilt receipts, entitlements, atomic usage, and idempotent replay."
+    />
+    <link
+      rel="canonical"
+      href="https://utilia.ink/hilt-interoperability"
+    />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/style.css" />
+    <script>
+      window.va =
+        window.va ||
+        function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Utilia" />
+    <meta
+      property="og:url"
+      content="https://utilia.ink/hilt-interoperability"
+    />
+    <meta
+      property="og:title"
+      content="Hilt and Utilia x402 interoperability mapping"
+    />
+    <meta
+      property="og:description"
+      content="Settlement, receipt, entitlement, atomic usage, replay, and protected-result bindings compared field by field."
+    />
+    <meta
+      property="og:image"
+      content="https://utilia.ink/opengraph-image.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@utiliax402" />
+    <meta
+      name="twitter:title"
+      content="Hilt and Utilia x402 interoperability mapping"
+    />
+    <meta
+      name="twitter:description"
+      content="A public technical-review draft for an end-to-end compatibility test."
+    />
+    <meta
+      name="twitter:image"
+      content="https://utilia.ink/opengraph-image.png"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Utilia home">
+        <span class="brand-mark" aria-hidden="true">U</span>
+        <span>UTILIA</span>
+      </a>
+      <nav aria-label="Mapping navigation">
+        <a href="#mapping">Mapping</a>
+        <a href="#test">Compatibility test</a>
+        <a href="#questions">Review questions</a>
+        <a
+          class="nav-cta"
+          href="https://api.hilt.so/v1/openapi.json"
+          target="_blank"
+          rel="noreferrer"
+          >Hilt OpenAPI</a
+        >
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="mapping-hero" aria-labelledby="mapping-title">
+        <div>
+          <p class="eyebrow">
+            <span>PUBLIC REVIEW DRAFT</span>
+            <span>HILT × UTILIA</span>
+            <span>2026-07-27</span>
+          </p>
+          <h1 id="mapping-title">
+            Payment settled.<br /><em>Access and result proven.</em>
+          </h1>
+          <p class="hero-lede">
+            This document maps Utilia's current x402 payment and result evidence
+            to Hilt's settlement, receipt, entitlement, atomic usage, and
+            idempotent replay contracts.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#questions">
+              Review seven open questions
+            </a>
+            <a
+              class="button button-secondary"
+              href="https://api.utilia.ink/openapi.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Utilia OpenAPI
+            </a>
+          </div>
+        </div>
+        <aside class="mapping-status-card" aria-label="Mapping status">
+          <div class="integration-proof-topline">
+            <span>INTEROPERABILITY STATUS</span>
+            <span class="integration-status">DRAFT</span>
+          </div>
+          <dl>
+            <div><dt>Hilt schema</dt><dd>verified live</dd></div>
+            <div><dt>Utilia evidence</dt><dd>mapped</dd></div>
+            <div><dt>Review questions</dt><dd>7 open</dd></div>
+            <div><dt>Compatibility test</dt><dd>proposed</dd></div>
+          </dl>
+          <p>
+            This is an interoperability design. It does not claim that Utilia
+            currently issues Hilt receipts or durable entitlements.
+          </p>
+        </aside>
+      </section>
+
+      <section class="trust-strip" aria-label="Mapping facts">
+        <div><strong>7</strong><span>review questions</span></div>
+        <div><strong>1</strong><span>external-agent test</span></div>
+        <div><strong>1 unit</strong><span>atomic consumption</span></div>
+        <div><strong>0</strong><span>double consumption on retry</span></div>
+      </section>
+
+      <section class="section mapping-section" id="mapping">
+        <div class="mapping-heading">
+          <p class="kicker">FIELD-BY-FIELD COMPARISON</p>
+          <h2>What matches now, and what still needs binding.</h2>
+          <p>
+            Exact fields can be preserved directly. Semantic fields require
+            stable identifiers or normalized vocabulary. Missing fields must be
+            added before a receipt can authenticate payment, authorization, and
+            result as one operation.
+          </p>
+        </div>
+
+        <div class="mapping-grid">
+          <article class="mapping-card mapping-card-exact">
+            <span class="mapping-label">EXACT OR DIRECT</span>
+            <h3>Settlement facts</h3>
+            <ul>
+              <li>x402 protocol version</li>
+              <li>transaction signature</li>
+              <li>network and settlement asset</li>
+              <li>atomic USDC amount</li>
+              <li>merchant receiver</li>
+              <li>payer when the facilitator supplies it</li>
+            </ul>
+          </article>
+
+          <article class="mapping-card mapping-card-semantic">
+            <span class="mapping-label">SEMANTIC</span>
+            <h3>Needs normalization</h3>
+            <ul>
+              <li>paid route to stable product ID</li>
+              <li>network plus asset to rail ID</li>
+              <li>settlement event to status vocabulary</li>
+              <li>log timestamp to public settled-at time</li>
+              <li>one paid response to request-scoped access</li>
+              <li>successful result to one consumed unit</li>
+            </ul>
+          </article>
+
+          <article class="mapping-card mapping-card-missing">
+            <span class="mapping-label">MISSING OR UNAUTHENTICATED</span>
+            <h3>Required before proof</h3>
+            <ul>
+              <li>stable payment session and proof IDs</li>
+              <li>canonical receipt and receipt ID</li>
+              <li>request, result, and payment-term digests</li>
+              <li>issuer identity and Ed25519 signature</li>
+              <li>finality and idempotent replay state</li>
+              <li>durable entitlement and usage state</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section receipt-contract-section">
+        <div class="mapping-heading">
+          <p class="kicker">SMALLEST INTEROPERABLE ENVELOPE</p>
+          <h2>Build the signed one-call receipt first.</h2>
+          <p>
+            Utilia currently sells exact per-call results. The first compatible
+            artifact should bind the request, payment terms, settlement, and
+            successful result without pretending that a reusable entitlement
+            already exists.
+          </p>
+        </div>
+        <pre class="mapping-code"><code>{
+  "schemaVersion": "utilia.receipt.v1",
+  "receiptId": "urc_...",
+  "requestId": "uuid-or-caller-id",
+  "productId": "solana.priority_fees",
+  "livemode": true,
+  "payment": {
+    "protocol": "x402",
+    "railId": "solana_usdc",
+    "amountAtomic": "2000",
+    "settlementReference": "transaction-signature"
+  },
+  "binding": {
+    "requestDigest": "sha256:...",
+    "resultDigest": "sha256:...",
+    "paymentTermsDigest": "sha256:..."
+  },
+  "idempotentReplay": false,
+  "issuer": {
+    "id": "https://api.utilia.ink",
+    "algorithm": "Ed25519"
+  },
+  "receiptDigest": "sha256:...",
+  "signature": "base64url..."
+}</code></pre>
+      </section>
+
+      <section class="section compatibility-section" id="test">
+        <div class="mapping-heading">
+          <p class="kicker">PROPOSED COMPATIBILITY TEST</p>
+          <h2>One paid operation, proven end to end.</h2>
+          <p>
+            Hilt proposed the correct acceptance test. The run should prove each
+            state transition independently and make replay behavior observable.
+          </p>
+        </div>
+        <ol class="test-sequence">
+          <li>
+            <span>01</span>
+            <div>
+              <strong>Settle</strong>
+              <p>An external agent accepts the exact x402 terms and settles.</p>
+            </div>
+          </li>
+          <li>
+            <span>02</span>
+            <div>
+              <strong>Issue</strong>
+              <p>The response exposes the payment receipt and entitlement state.</p>
+            </div>
+          </li>
+          <li>
+            <span>03</span>
+            <div>
+              <strong>Consume</strong>
+              <p>Exactly one usage unit is consumed before result delivery.</p>
+            </div>
+          </li>
+          <li>
+            <span>04</span>
+            <div>
+              <strong>Return</strong>
+              <p>The protected Utilia result is returned with its digest binding.</p>
+            </div>
+          </li>
+          <li>
+            <span>05</span>
+            <div>
+              <strong>Replay safely</strong>
+              <p>A retry returns stable identity and never consumes twice.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section review-section" id="questions">
+        <div class="mapping-heading">
+          <p class="kicker">REQUEST FOR HILT REVIEW</p>
+          <h2>Seven decisions before implementation.</h2>
+        </div>
+        <ol class="review-questions">
+          <li>
+            Can a direct x402 seller use a stable payment proof ID when no Hilt
+            payment session exists?
+          </li>
+          <li>
+            Which canonicalization algorithm produces Hilt's receipt hash and
+            Ed25519 signature input?
+          </li>
+          <li>
+            Are protected-request and result digests inside the canonical
+            receipt, or should they be extension fields?
+          </li>
+          <li>
+            Must settlement evidence authenticate finality and instruction-level
+            payment terms, or only reference them?
+          </li>
+          <li>
+            For one payment and one response, should access be a consumed
+            one-unit entitlement or only a signed receipt?
+          </li>
+          <li>
+            Which fields remain identical across idempotent replay, and which
+            timestamps may change?
+          </li>
+          <li>
+            What is the smallest Utilia receipt subset Hilt would independently
+            verify?
+          </li>
+        </ol>
+        <div class="hero-actions review-actions">
+          <a
+            class="button button-primary"
+            href="https://x.com/hiltpay/status/2081831423728648497"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open Hilt's test proposal
+          </a>
+          <a
+            class="button button-secondary"
+            href="https://x.com/utiliax402"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Contact Utilia
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="brand footer-brand">
+        <span class="brand-mark" aria-hidden="true">U</span><span>UTILIA</span>
+      </div>
+      <p>Machine-payable Solana evidence for transaction agents.</p>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/solana-transaction-support">Transaction support</a>
+        <a href="/priority-fees">Priority fees</a>
+        <a href="https://api.utilia.ink/openapi.json">Utilia OpenAPI</a>
+        <a href="https://api.hilt.so/v1/openapi.json">Hilt OpenAPI</a>
+        <a href="https://x.com/utiliax402">X / Twitter</a>
+      </div>
+    </footer>
+  </body>
+</html>

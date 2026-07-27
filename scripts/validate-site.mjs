@@ -17,6 +17,7 @@ const publicFiles = await Promise.all([
   read("public/index.html"),
   read("public/solana-transaction-support.html"),
   read("public/priority-fees.html"),
+  read("public/hilt-interoperability.html"),
   read("public/pdf-to-markdown.html"),
   read("public/llms.txt"),
   read("public/agent402-metadata.json"),
@@ -124,6 +125,10 @@ for (const required of [
   "A prearranged integration test completed quote",
   "Public package release pending",
   "It is not organic customer",
+  "Hilt and Utilia x402 interoperability mapping",
+  "https://x.com/hiltpay/status/2081831423728648497",
+  "One paid operation, proven end to end.",
+  "Seven decisions before implementation.",
 ]) {
   assert.equal(
     publicText.includes(required),
@@ -157,6 +162,7 @@ for (const path of [
   "public/index.html",
   "public/solana-transaction-support.html",
   "public/priority-fees.html",
+  "public/hilt-interoperability.html",
   "public/pdf-to-markdown.html",
   "public/llms.txt",
   "public/server.json",
