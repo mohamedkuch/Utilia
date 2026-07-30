@@ -39,7 +39,7 @@ assert.deepEqual(
 assert.equal(publicManifest.name, "ink.utilia/solana-preflight");
 assert.equal(publicManifest.title, "Utilia Solana Transaction Evidence");
 assert.match(publicManifest.description, /transaction diagnosis/);
-assert.equal(publicManifest.version, "0.5.6");
+assert.equal(publicManifest.version, "0.5.8-1");
 assert.equal(
   publicManifest.repository?.url,
   "https://github.com/mohamedkuch/utilia-solana-agent",
@@ -47,6 +47,10 @@ assert.equal(
 assert.equal(publicManifest.packages?.[0]?.identifier, "utilia-solana-agent");
 assert.equal(publicManifest.packages?.[0]?.version, "0.5.8");
 assert.equal(publicManifest.remotes?.[0]?.url, "https://api.utilia.ink/mcp");
+assert.equal(
+  publicManifest.remotes?.[1]?.url,
+  "https://api.utilia.ink/base/mcp",
+);
 assert.equal(nvmVersion, "22.23.1");
 assert.equal(packageJson.engines?.node, nvmVersion);
 assert.equal(packageJson.packageManager, "npm@10.9.8");
