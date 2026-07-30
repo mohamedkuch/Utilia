@@ -2,9 +2,9 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "ink.utilia/solana-preflight",
   "title": "Utilia Solana Transaction Evidence",
-  "description": "Paid Solana transaction diagnosis, simulation, priority fees, and token-risk evidence, plus bounded PDF and audio transforms.",
-  "version": "0.5.6",
-  "websiteUrl": "https://api.utilia.ink",
+  "description": "Solana transaction diagnosis, simulation, token-risk evidence, and priority fees via x402 USDC.",
+  "version": "0.5.8-1",
+  "websiteUrl": "https://utilia.ink/solana-transaction-support",
   "repository": {
     "url": "https://github.com/mohamedkuch/utilia-solana-agent",
     "source": "github"
@@ -40,6 +40,10 @@
     {
       "type": "streamable-http",
       "url": "https://api.utilia.ink/mcp"
+    },
+    {
+      "type": "streamable-http",
+      "url": "https://api.utilia.ink/base/mcp"
     }
   ]
 }
