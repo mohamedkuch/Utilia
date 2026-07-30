@@ -12,14 +12,19 @@ const packageJson = await json("package.json");
 const vercelConfig = await json("vercel.json");
 const nvmVersion = (await read(".nvmrc")).trim();
 const workflow = await read(".github/workflows/ci.yml");
+const publicHtmlPaths = [
+  "public/index.html",
+  "public/solana-transaction-support.html",
+  "public/priority-fees.html",
+  "public/hilt-interoperability.html",
+  "public/transaction-guard-review.html",
+  "public/pdf-to-markdown.html",
+  "public/privacy.html",
+];
+const publicHtml = await Promise.all(publicHtmlPaths.map((path) => read(path)));
 const publicFiles = await Promise.all([
   read("README.md"),
-  read("public/index.html"),
-  read("public/solana-transaction-support.html"),
-  read("public/priority-fees.html"),
-  read("public/hilt-interoperability.html"),
-  read("public/transaction-guard-review.html"),
-  read("public/pdf-to-markdown.html"),
+  ...publicHtml,
   read("public/llms.txt"),
   read("public/agent402-metadata.json"),
   read("public/server.json"),
@@ -78,6 +83,24 @@ assert.deepEqual(vercelConfig.rewrites, [
 assert.match(workflow, new RegExp(`node-version: ${nvmVersion}`));
 assert.match(workflow, /test "\$\(node --version\)" = "v22\.23\.1"/);
 assert.match(workflow, /test "\$\(npm --version\)" = "10\.9\.8"/);
+
+for (const [index, html] of publicHtml.entries()) {
+  assert.match(
+    html,
+    /href="\/privacy"/,
+    `${publicHtmlPaths[index]} must link to the privacy policy`,
+  );
+}
+assert.match(
+  publicHtml.at(-1),
+  /<link rel="canonical" href="https:\/\/utilia\.ink\/privacy" \/>/,
+  "privacy policy canonical URL is missing",
+);
+assert.match(
+  await read("public/sitemap.xml"),
+  /<loc>https:\/\/utilia\.ink\/privacy<\/loc>/,
+  "privacy policy is missing from the sitemap",
+);
 
 assert.deepEqual(agentMetadata.capabilities?.mcp?.tools, [
   "solana_priority_fees",
@@ -151,6 +174,10 @@ for (const required of [
   "Three unsigned fixtures. Exact expected outputs.",
   "Deterministic does not yet mean authenticated.",
   "Complete implementation and pricing remain blocked",
+  "Privacy,",
+  "Media bodies are processed in memory, not saved to disk.",
+  "Utilia does not sell personal information",
+  "security@utilia.ink",
 ]) {
   assert.equal(
     publicText.includes(required),
@@ -187,6 +214,7 @@ for (const path of [
   "public/hilt-interoperability.html",
   "public/transaction-guard-review.html",
   "public/pdf-to-markdown.html",
+  "public/privacy.html",
   "public/llms.txt",
   "public/server.json",
   "public/agent402-metadata.json",

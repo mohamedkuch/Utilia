@@ -19,6 +19,7 @@ required.
 - Website: <https://utilia.ink>
 - Transaction support: <https://utilia.ink/solana-transaction-support>
 - Priority-fee watcher: <https://utilia.ink/priority-fees>
+- Privacy policy: <https://utilia.ink/privacy>
 - API: <https://api.utilia.ink>
 - OpenAPI: <https://api.utilia.ink/openapi.json>
 - Remote MCP: `https://api.utilia.ink/mcp`

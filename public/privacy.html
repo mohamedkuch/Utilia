@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#08110c" />
+    <meta name="color-scheme" content="dark" />
+    <title>Privacy policy | Utilia</title>
+    <meta
+      name="description"
+      content="How Utilia handles website, API, MCP, payment, blockchain, document, and audio data."
+    />
+    <link rel="canonical" href="https://utilia.ink/privacy" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/style.css" />
+    <script>
+      window.va =
+        window.va ||
+        function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
+      window.si =
+        window.si ||
+        function () {
+          (window.siq = window.siq || []).push(arguments);
+        };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Utilia" />
+    <meta property="og:url" content="https://utilia.ink/privacy" />
+    <meta property="og:title" content="Utilia privacy policy" />
+    <meta
+      property="og:description"
+      content="A plain-language account of the data Utilia processes and why."
+    />
+    <meta property="og:image" content="https://utilia.ink/opengraph-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@utiliax402" />
+    <meta name="twitter:title" content="Utilia privacy policy" />
+    <meta
+      name="twitter:description"
+      content="Website, API, MCP, payment, blockchain, document, and audio data handling."
+    />
+    <meta name="twitter:image" content="https://utilia.ink/opengraph-image.png" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Utilia home">
+        <span class="brand-mark" aria-hidden="true">U</span>
+        <span>UTILIA</span>
+      </a>
+      <nav aria-label="Privacy navigation">
+        <a href="#collection">Data</a>
+        <a href="#services">Services</a>
+        <a href="#rights">Your rights</a>
+        <a class="nav-cta" href="mailto:security@utilia.ink">Contact privacy</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="policy-hero" aria-labelledby="policy-title">
+        <div>
+          <p class="eyebrow">
+            <span>PUBLIC POLICY</span>
+            <span>PLAIN LANGUAGE</span>
+          </p>
+          <h1 id="policy-title">Privacy,<br /><em>by design.</em></h1>
+          <p class="hero-lede">
+            Utilia provides machine-payable API and MCP tools without requiring
+            a Utilia account. This policy explains what information the website
+            and service process, why it is needed, and the choices available to
+            you.
+          </p>
+          <p class="policy-updated">
+            Effective and last updated: <time datetime="2026-07-30">July 30, 2026</time>
+          </p>
+        </div>
+        <aside class="policy-summary" aria-label="Privacy summary">
+          <p class="kicker">AT A GLANCE</p>
+          <ul>
+            <li>No Utilia account is required.</li>
+            <li>No advertising profile is created.</li>
+            <li>Media bodies are processed in memory, not saved to disk.</li>
+            <li>Payment activity on public blockchains remains public.</li>
+            <li>Secrets and private keys should never be sent to Utilia.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <div class="policy-layout">
+        <aside class="policy-toc" aria-label="Policy contents">
+          <p class="kicker">CONTENTS</p>
+          <ol>
+            <li><a href="#scope">Scope and operator</a></li>
+            <li><a href="#collection">Information processed</a></li>
+            <li><a href="#use">How information is used</a></li>
+            <li><a href="#services">Service providers and networks</a></li>
+            <li><a href="#retention">Retention and security</a></li>
+            <li><a href="#rights">Your rights and choices</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ol>
+        </aside>
+
+        <article class="policy-copy">
+          <section id="scope">
+            <p class="kicker">01 / SCOPE</p>
+            <h2>Scope and operator</h2>
+            <p>
+              This policy applies when you visit <code>utilia.ink</code>, call
+              <code>api.utilia.ink</code>, connect to a Utilia MCP remote, or use
+              a third-party integration that invokes Utilia. Utilia operates
+              these services. Privacy and data-protection questions can be sent
+              to <a href="mailto:security@utilia.ink">security@utilia.ink</a>.
+            </p>
+            <p>
+              Third-party wallets, marketplaces, runtimes, registries, websites,
+              and blockchain networks have their own privacy practices. This
+              policy covers Utilia's handling of information, not theirs.
+            </p>
+          </section>
+
+          <section id="collection">
+            <p class="kicker">02 / DATA</p>
+            <h2>Information processed</h2>
+            <h3>Website and device information</h3>
+            <p>
+              When you visit the website, hosting infrastructure processes your
+              IP address and network metadata to deliver and secure the request.
+              Vercel Web Analytics records anonymous, aggregated data points such
+              as the page, referrer, timestamp, approximate location, browser,
+              operating system, and device type. Vercel Speed Insights records
+              website performance measurements. Utilia also records named
+              product events such as a copied command or an opened quote, without
+              adding personal data to those event names. Utilia does not use this
+              information to build an advertising profile.
+            </p>
+
+            <h3>API and MCP request metadata</h3>
+            <p>
+              Service infrastructure processes the request time, method, route,
+              response status, request identifier, network metadata, user agent,
+              caller-supplied integration source, duration, and security or rate
+              limit events. Access logs can include IP addresses. The proxy
+              removes payment-signature headers and redacts selected credential
+              query values. Application logging redacts authorization, cookies,
+              payment headers, API keys, platform secrets, webhook signatures,
+              selected query credentials, and complete request URLs.
+            </p>
+
+            <h3>Tool inputs and results</h3>
+            <p>
+              Depending on the tool, Utilia processes Solana transaction
+              signatures, wallet or account addresses, token mint addresses,
+              writable accounts, unsigned serialized transactions, simulation
+              parameters, public PDF or audio URLs, or base64-encoded PDF and
+              audio bodies. The service also processes the generated analysis,
+              extracted text, normalized audio, measurements, and content
+              digests needed to return the result.
+            </p>
+            <p>
+              PDF and audio bodies are processed in memory and are not
+              intentionally persisted to disk. Access and settlement logs retain
+              request and payment metadata, not media bodies. A URL-based media
+              request also reveals the requested URL to Utilia and causes
+              Utilia's infrastructure to contact the host you selected.
+            </p>
+
+            <h3>Payment and blockchain information</h3>
+            <p>
+              Paid calls process x402 payment requirements and settlement
+              information, including the network, asset, amount, receiving
+              address, payer address when returned by the facilitator,
+              transaction hash, resource, request identifier, and Utilia receipt
+              identifier. Blockchain addresses, transfers, and transaction
+              hashes written to Solana or Base are public and may be permanent.
+            </p>
+          </section>
+
+          <section id="use">
+            <p class="kicker">03 / PURPOSE</p>
+            <h2>How information is used</h2>
+            <p>Utilia processes information to:</p>
+            <ul>
+              <li>provide the requested website, API, MCP, and media functions;</li>
+              <li>issue, verify, settle, and correlate x402 payments;</li>
+              <li>prevent abuse, enforce rate limits, and investigate failures;</li>
+              <li>secure, debug, maintain, and improve the service;</li>
+              <li>measure product performance and integration attribution;</li>
+              <li>keep accounting, compliance, and operational records; and</li>
+              <li>respond to support, privacy, or security messages.</li>
+            </ul>
+            <p>
+              Where applicable law requires a legal basis, processing is based
+              on providing the service you requested, Utilia's legitimate
+              interests in operating and securing the service, compliance with
+              legal obligations, or consent when specifically requested.
+            </p>
+            <p>
+              Utilia does not sell personal information and does not use service
+              data for targeted advertising.
+            </p>
+          </section>
+
+          <section id="services">
+            <p class="kicker">04 / INFRASTRUCTURE</p>
+            <h2>Service providers and public networks</h2>
+            <p>Information may be processed by the following categories:</p>
+            <ul>
+              <li>
+                <strong>Vercel</strong> for website hosting, anonymous aggregate
+                usage analytics, and performance insights. Vercel describes its
+                Web Analytics data handling in its
+                <a href="https://vercel.com/docs/analytics/privacy-policy"
+                  >privacy and compliance documentation</a
+                >.
+              </li>
+              <li>
+                <strong>Infrastructure providers</strong> for API hosting,
+                network delivery, monitoring, and security.
+              </li>
+              <li>
+                <strong>Solana data providers</strong> for current transaction,
+                account, token, simulation, and priority-fee information.
+              </li>
+              <li>
+                <strong>x402 facilitators and public blockchain networks</strong>
+                for payment verification and settlement.
+              </li>
+              <li>
+                <strong>Third-party media hosts</strong> when you ask Utilia to
+                retrieve a public PDF or audio URL from that host.
+              </li>
+              <li>
+                <strong>Partner runtimes or marketplaces</strong> when you choose
+                to access Utilia through their service.
+              </li>
+            </ul>
+            <p>
+              These providers may process information in countries other than
+              your own. Utilia uses providers for the purposes described above
+              and applies safeguards required by applicable law.
+            </p>
+          </section>
+
+          <section id="retention">
+            <p class="kicker">05 / RETENTION</p>
+            <h2>Retention and security</h2>
+            <p>
+              Utilia retains operational logs only as long as reasonably needed
+              for service delivery, troubleshooting, security, abuse prevention,
+              accounting, and legal obligations. Proxy access logs rotate based
+              on configured size limits. Settlement and accounting records may
+              be retained longer. Public blockchain records are controlled by
+              their networks and cannot be deleted by Utilia.
+            </p>
+            <p>
+              Utilia uses transport encryption, restricted operational access,
+              log redaction, bounded request sizes, network restrictions for
+              fetched media, and fail-closed payment validation. No internet
+              service is completely secure, so do not submit private keys, seed
+              phrases, passwords, unnecessary personal information, or
+              confidential media.
+            </p>
+          </section>
+
+          <section id="rights">
+            <p class="kicker">06 / CHOICES</p>
+            <h2>Your rights and choices</h2>
+            <p>
+              Depending on where you live, you may have rights to access,
+              correct, delete, restrict, or object to processing of your personal
+              information, or to receive a portable copy. You may also have the
+              right to complain to your local data-protection authority.
+            </p>
+            <p>
+              Send a request to
+              <a href="mailto:security@utilia.ink">security@utilia.ink</a>.
+              Include enough information to identify the relevant request or
+              transaction without sending a private key or payment signature.
+              Utilia may need to verify your request. Some information cannot be
+              deleted when it exists only on a public blockchain or must be
+              retained for security, accounting, or legal reasons.
+            </p>
+            <p>
+              You can limit website telemetry with browser privacy controls,
+              content blockers, or by calling the API directly. Utilia does not
+              require an account cookie and does not set advertising cookies.
+            </p>
+          </section>
+
+          <section>
+            <p class="kicker">07 / UPDATES</p>
+            <h2>Changes to this policy</h2>
+            <p>
+              Utilia may update this policy when the service or legal
+              requirements change. The effective date at the top identifies the
+              current version. Material changes will be described on this page
+              or through another appropriate public notice.
+            </p>
+          </section>
+
+          <section id="contact">
+            <p class="kicker">08 / CONTACT</p>
+            <h2>Questions or requests</h2>
+            <p>
+              Email <a href="mailto:security@utilia.ink">security@utilia.ink</a>
+              for privacy questions, data-rights requests, or security reports.
+              Do not include wallet secrets, private keys, or seed phrases.
+            </p>
+            <div class="hero-actions policy-actions">
+              <a class="button button-primary" href="mailto:security@utilia.ink">
+                Email privacy contact
+              </a>
+              <a class="button button-secondary" href="/">Return home</a>
+            </div>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer>
+      <div class="brand footer-brand">
+        <span class="brand-mark" aria-hidden="true">U</span><span>UTILIA</span>
+      </div>
+      <p>Machine-payable Solana evidence for transaction agents.</p>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/solana-transaction-support">Transaction support</a>
+        <a href="/priority-fees">Priority fees</a>
+        <a href="https://api.utilia.ink/openapi.json">OpenAPI</a>
+        <a href="/privacy" aria-current="page">Privacy</a>
+        <a href="https://x.com/utiliax402">X / Twitter</a>
+      </div>
+    </footer>
+  </body>
+</html>
